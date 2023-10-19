@@ -1,0 +1,125 @@
+
+<div #chatContainer></div>
+<div id="btn_postjobs"
+           class="align-self-center justify-content-end input-group">
+        <div role="button"
+             class="save-button"
+             (click)="openChatPopup('save')">
+          <img src="../../../assets/icons/plusbtn.png" alt="">
+        </div>
+      </div>
+
+<div class="main--chat-container d-flex justify-content-end">
+    
+    <div>
+      <div class="container">
+        <div class="site-container d-flex gap-3">
+            <div class="p-3">
+                <div class="input-group input-feild-btn justify-content-center gap-3" >
+                        <input class="search-input form-control" type="text" placeholder="Search or start new chat">
+                        <!-- <select class="form-control" [(ngModel)]="employees" >
+                            <option value="0">Employees</option>
+                            <ng-container *ngFor="let e of employeeList">
+                                <option [value]="e.id">{{e.name}}</option>
+                            </ng-container>
+                            
+                        </select> -->
+                </div>
+                <div class="d-flex justify-content-between mb-1">
+                    <p class="all-chats-txt btn" (click)="showAllChat()">ALL CHATS</p>
+                    <p class="all-chats-txt btn" (click)="showPrivateChat()">PRIVATE</p>
+                </div>
+                <div class="card scrollable-chats">
+                    <ul *ngIf="chatall" class="list-group list-group-flush">
+                        <li class="list-group-item list-item d-flex justify-content-between align-items-center">
+                            <div class="m-2"><img class="chat_user_img" src="../assets/images/employees-img/login-bg.jfif" alt=""></div>
+                            <div>
+                                <p>Normal</p>
+                                <p>Thank you very much,I am wai...</p>
+                            </div>
+                            <div class="me-2">
+                                <p><i class="fa-solid fa-circle" style="color: #6FAA71;"></i></p>
+                                <p>12:35 PM</p>
+                            </div>
+                        </li>
+                        <li class="list-group-item list-item d-flex justify-content-between align-items-center">
+                            <div class="m-2"><img class="chat_user_img" src="../assets/images/employees-img/login-bg.jfif" alt=""></div>
+                            <div>
+                                <p>Ahmed</p>
+                                <p>Thank you very much,I am wai...</p>
+                            </div>
+                            <div class="me-2">
+                                <p><i class="fa-solid fa-circle" style="color: #6FAA71;"></i></p>
+                                <p>12:35 PM</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul *ngIf="privatechat" class="list-group list-group-flush">
+                        <li class="list-group-item list-item d-flex justify-content-between align-items-center">
+                            <div class="m-2"><img class="chat_user_img" src="../assets/images/employees-img/login-bg.jfif" alt=""></div>
+                            <div>
+                                <p>Private</p>
+                                <p>Thank you very much,I am wai...</p>
+                            </div>
+                            <div class="me-2">
+                                <p><i class="fa-solid fa-circle" style="color: #6FAA71;"></i></p>
+                                <p>12:35 PM</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+               
+            </div>
+            <div>
+               <div class="main-head p-2">
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex">
+                            <img class="profile-img chat_user_img" src="../assets/images/employees-img/login-bg.jfif" alt="">
+                            <i class="fa-solid fa-circle profile-icon" style="color: #6FAA71;"></i>
+                            <div>
+                                <p>Ahmed</p>
+                                <p class="online-text">online</p>
+                            </div>
+                        </div>
+                        <div>
+                            <a><img class="m-2" src="../assets/icons/chatvideo.png" alt=""></a>
+                            <a><img class="m-2" src="../assets/icons/chatcall.png" alt=""></a>
+                            <a><img class="m-2" src="../assets/icons/moreinfo.png" alt=""></a>
+                        </div>
+                    </div>
+               </div>
+               <div class="chat-container d-flex flex-column p-2">
+                    <div class="d-flex justify-content-start">
+                        <p class="left-chat p-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate sed, temporibus voluptatum necessitatibus fugit earum ea, laboriosam quaerat minus possimus delectus impedit molestiae blanditiis error quo eveniet. Dicta maiores officia praesentium dolores quod a voluptas voluptatem facere iure qui. Illo laborum quisquam atque, perspiciatis sequi aliquam incidunt unde libero alias sed deleniti excepturi, commodi quam!</p>
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <p class="right-chat p-2">Sure I will come to your office Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni itaque dolorum accusamus. Eligendi, vero! Tempore id ab vel quasi. .</p>
+                    </div>
+                    <div class="d-flex justify-content-start">
+                        <p class="left-chat p-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. In odio molestias sunt. Nihil, animi provident consequuntur vero laborum deserunt tenetur molestias aspernatur et minus rerum, a quidem recusandae quis. Delectus explicabo velit ab accusamus quaerat aut, quis corrupti nihil molestias quos dolorem, earum maiores, adipisci quae? Asperiores nihil ratione corporis.</p>
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <p class="right-chat p-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum quia placeat aliquid saepe dolorem nobis quibusdam magni, praesentium optio ducimus?</p>
+                    </div>
+                </div>
+                <div class="ms-3 d-flex align-items-center">
+                    <a> <i class="fa-regular fa-face-smile fa-lg" style="color: #78787C;" ></i></a>
+                    <span class="msg-input-container"><input type="text" class="msg-input form-control"placeholder="Type a message"></span>
+                    <div class="d-flex justify-content-between icons">
+                        <a><i class="fa-solid fa-paperclip fa-lg m-1" style="color: #78787C;" ></i></a>
+                        <a class="mr-2"><i class="fa-solid fa-microphone microphone" style="color: #ffffff;"></i></a>
+                    </div>
+                   <div class="btn-container d-flex justify-content-end">
+                        <button class="send-msg-btn p-2 m-1">Send</button>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    </div>
+    <div class="d-flex justify-content-end"> 
+      <!-- <button class="btn" (click)="chatSupport = !chatSupport">Chat</button> -->
+    </div>
+    </div>

@@ -1,0 +1,133 @@
+<!-- <div class="d-flex justify-content-end">
+  <button class="nextBtn" (click)="addEmploymentType()" >NEXT
+  </button>
+</div> -->
+<div class="main-page">
+  <div class="form-wid">
+    <div class="p-3">
+      <div class="applys">
+        <div class="create">Add Shifts</div>
+      </div>
+
+      <div>
+        <div>
+          <div class="form-group">
+            <div class="d-flex justify-content-between w-100">
+              <div class="w-100 d-flex justify-content-end">
+                <i class="guide fa fa-info-circle"
+                   data-bs-toggle="tooltip"
+                   data-bs-html="true"
+                   title="Add Shift Here">
+                </i>
+              </div>
+            </div>
+
+            <div>
+              <select class="form-control" [ngClass]="{'invalid-field': shiftModel.shiftName==0 && !isValid}" [(ngModel)]="shiftModel.shiftName" class="form-control">
+                <option value="0">Select Shift</option>
+                <option value="Morning">Morning</option>
+                <option value="Evening">Evening</option>
+                <option value="Night">Night</option>
+              </select>
+            </div>
+            <div>
+              <!-- <input  class="form-control"  type="text"> -->
+              <div class="row mb-4">
+                <div class="col-6">
+                  <label>Working Hour From</label>
+                  <input class="form-control" type="time" [(ngModel)]="shiftModel.hourFrom" [ngClass]="{'invalid-field': !shiftModel.hourFrom && !isValid}"
+                         (ngModelChange)="shiftModel.hourFrom=convertToAMPM($event)" />
+                </div>
+                <div class="col-6">
+                  <label>Working Hour To</label>
+                  <input class="form-control" type="time" [(ngModel)]="shiftModel.hourTo" [ngClass]="{'invalid-field': !shiftModel.hourTo && !isValid}"
+                         (ngModelChange)="shiftModel.hourTo=convertToAMPM($event)" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="d-flex justify-content-center">
+              <button class="nextBtn" (click)="addShiftType()">Finish</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- table -->
+<div class="employee-attendace-section mt-2">
+  <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+    <div class="main-heading">Shifts</div>
+  </div>
+  <div class="mt-3 table-responsive">
+    <table class="table table-borderless">
+      <thead>
+        <tr>
+          <th>Serial No.</th>
+          <th>Shift Name</th>
+          <th>Hour From</th>
+          <th>Hour To</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let t of shiftList">
+          <th scope="row">{{ t.shiftId }}</th>
+          <th scope="row">
+            <ng-container *ngIf="t.editableMode">
+              <select class="form-control" [ngClass]="{'invalid-field': t.shiftName==0 && !isValid}" [(ngModel)]="t.shiftName" class="form-control">
+                <option value="0">Select Shift</option>
+                <option value="Morning">Morning</option>
+                <option value="Evening">Evening</option>
+                <option value="Night">Night</option>
+              </select>
+            </ng-container>
+            <ng-container *ngIf="!t.editableMode">
+              {{t.shiftName}}
+            </ng-container>
+          </th>
+          <th scope="row">
+            <ng-container *ngIf="t.editableMode">
+              <input class="form-control" type="text"   [(ngModel)]="t.hourFrom"   [ngClass]="{'invalid-field': !t.hourFrom && !isValid}"
+                     (ngModelChange)="t.hourFrom=convertToAMPM($event)" />
+            </ng-container>
+            <ng-container *ngIf="!t.editableMode">
+              {{t.hourFrom}}
+            </ng-container>
+          </th>
+          <th scope="row">
+            <ng-container *ngIf="t.editableMode">
+              <input class="form-control" type="text" [(ngModel)]="t.hourTo"   [ngClass]="{'invalid-field': !t.hourTo && !isValid}"
+                     (ngModelChange)="t.hourTo=convertToAMPM($event)" />
+            </ng-container>
+            <ng-container *ngIf="!t.editableMode">
+              {{t.hourTo}}
+            </ng-container>
+          </th>
+          <td>
+            <div class="d-flex gap-3">
+              <!-- Show the edit and remove icons -->
+              <i (click)="editabeMode(t)" *ngIf="!t.editableMode">
+                <img src="/assets/icons/Edit-Square.png" alt="" />
+              </i>
+              <!-- Show the save and cancel icons -->
+              <i class="fa fa-save blockquote text-success"
+                 (click)="saveChanges(t)"
+                 *ngIf="t.editableMode"></i>
+              <i class="fa fa-times blockquote text-danger"
+                 (click)="cancelEdit()"
+                 *ngIf="t.editableMode"></i>
+              <i (click)="deleteConfirmationPopup(t.shiftId)">
+                <img src="/assets/icons/Delete.png" alt="" />
+              </i>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div #deleteContainer></div>
+  </div>
+</div>

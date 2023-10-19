@@ -1,0 +1,283 @@
+.content_area {
+  border: 1px solid #c6c6c6;
+  border-radius: 20px;
+  width: 90%;
+  padding: 1% 2%;
+  height: calc(100vh - 140px);
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.content_area::-webkit-scrollbar {
+  width: 5px;
+  display: none;
+  border-radius: 1%;
+}
+
+.content_area::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 1%;
+}
+
+.content_area::-webkit-scrollbar-thumb {
+  background: #2b6282;
+  border-radius: 1%;
+}
+
+.content_area::-webkit-scrollbar-thumb:hover {
+  background: #2b6282;
+}
+
+.create {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 40px;
+  color: #095f8f;
+}
+
+.job_post {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  color: #646768;
+  margin-bottom: 1%;
+}
+
+.job_bar {
+  margin-bottom: 1%;
+}
+
+.profile-image {
+  height: 100px !important;
+  width: 100px !important;
+  border-radius: 5% !important;
+  border: 1px solid gray;
+  object-fit: fill;
+  // position: relative;
+}
+
+.remove-icon {
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  color: cornflowerblue;
+  box-shadow: 0 0 8px 3px #b8b8b8;
+}
+
+.job_bar a {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  color: #a0a0a0;
+  text-decoration: none;
+  // margin-right: 8%;
+  cursor: pointer;
+}
+
+.activeSubMenu {
+  color: #095f8f !important;
+  font-weight: bold !important;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  text-decoration: none;
+  // margin-right: 8%;
+}
+//new
+
+.invalid-field {
+  border-color: red;
+}
+
+quill-editor {
+  height: 450px;
+}
+
+.quill_label {
+  font-size: 16px;
+  font-weight: 400;
+  color: #979494;
+}
+
+.label_style {
+  font-size: 16px;
+  font-weight: 400;
+  color: #979494;
+  margin-bottom: 1%;
+  margin-top: 2%;
+}
+
+
+.btn_submit {
+  background: #095f8f;
+  // margin-top: 5%;
+}
+
+.container-fluid {
+  background: #f5f5f5;
+}
+
+.invalid-field {
+  border-color: red;
+}
+//img changes
+.width_section {
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.image_section {
+  display: flex;
+  justify-content: center !important;
+}
+
+.change_logo {
+  background: #2b6282;
+  border: none;
+  border-radius: 6px;
+  color: white;
+}
+
+.upload_btn {
+  width: 144px;
+  height: 50px;
+  background-color: transparent;
+  opacity: -0.9;
+  cursor: pointer;
+}
+
+.file_top {
+  margin-top: -49px;
+}
+
+// responsive
+@media screen and (max-width: 770px) {
+  .content_area {
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+  }
+}
+
+@media screen and (max-width: 676px) {
+  .job_bar a {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .create {
+    font-size: 32px;
+  }
+
+  .job_post {
+    font-size: 32px;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .job_bar a {
+    flex-wrap: nowrap;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .create {
+    font-size: 36px;
+  }
+
+  .job_post {
+    font-size: 23px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .job_bar a {
+    font-size: 8px;
+  }
+}
+
+.optional {
+  font-size: 11px;
+  color: black;
+  font-weight: 400;
+}
+
+.multiselect-dropdown {
+  position: relative;
+  width: 100%;
+}
+
+.dropdown-label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.dropdown-checkboxes {
+  border: 1px solid #ccc;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.checkbox-label {
+  display: block;
+  padding: 5px;
+}
+
+.checkbox-label:hover {
+  background-color: #f0f0f0;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  z-index: 1;
+  display: none;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.search-input {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.checkbox-label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.checkbox-label input {
+  margin-right: 10px;
+}

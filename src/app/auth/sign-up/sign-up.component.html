@@ -1,0 +1,342 @@
+<div class="main">
+  <div class="d-flex justify-content-center">
+    <div class="content_area">
+      <div>
+        <div>
+          <div class="d-flex justify-content-between">
+            <div class="main-heading">Create</div>
+            <div *ngIf="showPrevious">
+              <button class="fa fa-arrow-left pre_btn" (click)="prevSteper()"></button>
+            </div>
+          </div>
+          <div class="heading-description">Company Account</div>
+
+        </div>
+
+
+        <!-- stepper bar -->
+        <div class="stepper mt-3">
+          <div class="steps" [ngClass]="{ 'active': currentStep === 1 , 'visited' : currentStep > 1 }">
+            1
+          </div>
+          <div class="steps" [ngClass]="{ 'active': currentStep === 2  , 'visited' : currentStep > 2  }">
+            2
+          </div>
+          <div class="steps" [ngClass]="{ 'active': currentStep === 3  }">
+            3
+          </div>
+        </div>
+
+        <div class="d-flex">
+          <!-- step 1 -->
+          <div class="progress-bar">
+            <div class="progress" [style.width.%]="progress"></div>
+          </div>
+          <div class="progress_bar_two">
+            <div class="progress" [style.width.%]="progress"></div>
+          </div>
+          <div class="progress_bar_three">
+            <div class="progress" [style.width.%]="progress"></div>
+          </div>
+          <!--  -->
+          <!-- step 2 -->
+          <div class="progress-bar_four">
+            <div class="progress" [style.width.%]="progresss"></div>
+          </div>
+          <div class="progress_bar_five">
+            <div class="progress" [style.width.%]="progresss"></div>
+          </div>
+          <div class="progress_bar_six">
+            <div class="progress" [style.width.%]="progresss"></div>
+          </div>
+          <!--  -->
+
+        </div>
+
+        <!-- stepper -->
+
+        <div class="mt-3">
+          <!-- step 1 -->
+          <div *ngIf="activedStep == 0">
+            <div class="step">
+              <div class="row" style="margin-bottom: 2%">
+                <!-- company name -->
+                <div class="col-12 col-md-6 col-lg-6">
+                  <div class="form-group">
+                    <label class="label_style" for="company_name">Company Name<span>*</span></label>
+                    <input type="text"
+                           class="form-control"
+                           id="company_name"
+                           placeholder=""
+                           [(ngModel)]="companyRegisterRqst.companyName"
+                           [ngClass]="{
+                        'invalid-field':
+                          !companyRegisterRqst.companyName && !isValid
+                      }" />
+                  </div>
+                </div>
+
+
+                <!--  -->
+                <!-- company industry  -->
+                <div class="col-12 col-md-6 col-lg-6">
+                  <div class="form-group">
+                    <label class="label_style" for="company_industry">Company Industry<span>*</span></label>
+                    <select class="form-control"
+                            id="company_industry"
+                            [(ngModel)]="companyRegisterRqst.industry"
+                            [ngClass]="{
+                        'invalid-field':
+                          !companyRegisterRqst.industry && !isValid
+                      }">
+                      <option value="">Please Select Industry</option>
+                      <option value="IT">IT</option>
+                      <option value="Education">Education</option>
+                      <option value="Construction">Construction</option>
+                      <option value="Healthcare">Healthcare</option>
+                      <option value="Finance">Finance</option>
+                      <option value="Retail">Retail</option>
+                      <option value="Hospitality">Hospitality</option>
+                      <option value="Manufacturing">Manufacturing</option>
+                      <option value="Media and Entertainment">
+                        Media and Entertainment
+                      </option>
+                      <option value="Transportation">Transportation</option>
+                      <option value="Energy">Energy</option>
+                      <option value="Agriculture">Agriculture</option>
+                      <option value="Telecommunications">
+                        Telecommunications
+                      </option>
+                      <option value="Consulting">Consulting</option>
+                      <option value="Government">Government</option>
+                      <option value="Non-profit">Non-profit</option>
+                    </select>
+                  </div>
+                </div>
+                <!--  -->
+              </div>
+              <div class="row" style="margin-bottom: 2%">
+                <!-- number of empolyee -->
+                <div class="col-12 col-md-6 col-lg-6">
+                  <div class="form-group">
+                    <label class="label_style" for="no_of_emp">Number of Employees<span>*</span></label>
+                    <select class="form-control"
+                            id="no_of_emp"
+                            [(ngModel)]="companyRegisterRqst.noOfEmployees"
+                            [ngClass]="{
+                        'invalid-field':
+                          !companyRegisterRqst.noOfEmployees && !isValid
+                      }">
+                      <option value="">Please Select No Of Employees</option>
+                      <option value="0 to 10">0 to 10</option>
+                      <option value="10 to 50">10 to 50</option>
+                      <option value="100 to 500">100 to 500</option>
+                      <option value="500 to 1000">500 to 1000</option>
+                      <option value="1000 > 2000">1000 > 2000</option>
+                      <option value="more than 2000">more than 2000</option>
+                    </select>
+                  </div>
+                </div>
+                <!--  -->
+                <!-- register date  -->
+                <div class="col-12 col-md-6 col-lg-6">
+                  <div class="form-group">
+                    <label class="label_style">
+                      Registerd Date
+                      <span class="optional text-muted">(Optional)</span>
+                    </label>
+                    <input type="date"
+                           class="form-control"
+                           [(ngModel)]="companyRegisterRqst.registerDate" />
+                  </div>
+                </div>
+                <!--  -->
+              </div>
+              <div class="row" style="margin-bottom: 2%">
+                <!-- company address -->
+                <div class="col-12 col-md-6 col-lg-6">
+                  <div class="form-group">
+                    <label class="label_style" for="website">
+                      Address<span class="optional text-muted">(Optional)</span>
+                    </label>
+                    <input type="text"
+                           class="form-control"
+                           [(ngModel)]="companyRegisterRqst.companyAddress" />
+                  </div>
+                </div>
+                <!--  -->
+  <!-- phone number -->
+    <div class="col-12 col-md-6 col-lg-6">
+      <div class="form-group">
+        <label class="label_style" for="phn_no">
+          Phone Number <span>*</span></label
+        >
+        <ngx-intl-tel-input class="form-control" [enableAutoCountrySelect]="true" [enablePlaceholder]="true"
+        [searchCountryFlag]="true" [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+        [selectFirstCountry]="false" [maxLength]="15"
+        [phoneValidation]="true" [separateDialCode]="true" [(ngModel)]="companyRegisterRqst.phoneNumber"
+        [ngClass]="{
+          'invalid-field':
+            !companyRegisterRqst.phoneNumber && !isValid
+        }">
+      </ngx-intl-tel-input>
+      </div>
+    </div>
+  <!--  -->
+             </div>
+               
+              <div>
+                <!-- company description -->
+                <div class="col-12" style="margin-bottom: 2%">
+                  <div class="form-group">
+                    <label class="label_style" for="company_discription">
+                      Description<span class="optional text-muted">(Optional)</span>
+                    </label>
+                    <textarea id="company_discription"
+                              [(ngModel)]="companyRegisterRqst.description"
+                              class="form-control"
+                              rows="5"
+                              cols="50"></textarea>
+                  </div>
+                </div>
+                <!--  -->
+              </div>
+
+            </div>
+          </div>
+          <!--  -->
+          <!-- step 2 -->
+          <div *ngIf="activedStep == 1">
+            <div class="step">
+              <div>
+
+
+                <!-- email -->
+                <div class="d-flex justify-content-center">
+                  <div class="col-12 col-md-6 col-lg-6"
+                       style="margin-bottom: 2%">
+                    <div class="form-group">
+                      <label class="label_style" for="emailaddress">
+                        Email
+                      </label>
+                      <input type="email"
+                             placeholder="Enter Your E-mail"
+                             class="form-control"
+                             [(ngModel)]="companyRegisterRqst.emailAddress"
+                             [ngClass]="{
+                          'invalid-field':
+                            !companyRegisterRqst.emailAddress && !isValid
+                        }" />
+                    </div>
+                  </div>
+                </div>
+                <!--  -->
+                <!-- password -->
+                <div class="d-flex justify-content-center">
+                  <div class="col-12 col-md-6 col-lg-6"
+                       style="margin-bottom: 2%">
+                    <div class="form-group">
+                      <label class="label_style" for="password_no">
+                        Password
+                      </label>
+                      <input type="password"
+                             class="form-control"
+                             [ngClass]="{
+                          'invalid-field':
+                            !companyRegisterRqst.password && !isValid
+                        }"
+                             [(ngModel)]="companyRegisterRqst.password" />
+                    </div>
+                  </div>
+                </div>
+                <!--  -->
+                <!-- linkedIn -->
+                <div class="d-flex justify-content-center">
+                  <div class="col-12 col-md-6 col-lg-6">
+                    <div class="form-group">
+                      <label class="label_style" for="linkdin">LinkedIn<span class="optional text-muted">(Optional)</span></label>
+                      <input type="text"
+                             class="form-control mt-2"
+                             [(ngModel)]="companyRegisterRqst.linkedIn"
+                             id="linkdin"
+                             placeholder="" />
+                    </div>
+                  </div>
+                </div>
+                <!--  -->
+                <!-- webside -->
+                <div class="d-flex justify-content-center">
+                  <div class="col-12 col-md-6 col-lg-6">
+                    <div class="form-group">
+                      <label class="label_style" for="website">Website<span class="optional text-muted">(Optional)</span></label>
+                      <input type="text"
+                             class="form-control mt-2"
+                             [(ngModel)]="companyRegisterRqst.website"
+                             id="website"
+                             placeholder="" />
+                    </div>
+                  </div>
+                </div>
+                <!--  -->
+              </div>
+            </div>
+          </div>
+          <!--  -->
+          <!-- step 3 -->
+          <div *ngIf=" activedStep == 2">
+            <div class="step">
+              <!-- company logo -->
+              <div class="d-flex align-items-center justify-content-center" style="margin-top: 80px;">
+                <img *ngIf="dummyImage"
+                     [src]="url"
+                     class="profile-image mb-3"
+                     alt="profile-image" />
+                <div class="position-relative" *ngIf="uplodedFileUrl">
+                  <div class="position-absolute top-0 start-100 translate-middle badge border border-light rounded-circle remove-icon">
+                    <i role="button" (click)="removeUploadedFile()">
+                      <img src="../../../assets/icons/Delete.png" alt="" />
+                    </i>
+                  </div>
+                  <img [src]="uplodedFileUrl" class="profile-images mb-3" />
+                </div>
+              </div>
+
+              <div class="d-flex flex-column flex-md-row align-items-center justify-content-center gap-1 gap-md-3">
+                <div #dialogFileUploadContainer></div>
+                <div class="form-group">
+                  <div class="file-upload-wrapper file_top">
+                    <!-- <button type="file"(click)="openFileUploadModal()" for="fileUpload"class="btn btn_upload text-white fw-bold"></button> -->
+                    <input class="upload_btn" type="file" for="fileUpload" (change)="openFileUploadModal($event)" [accept]="acceptFiles">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="d-flex justify-content-center mt-3">
+          <button class="btn btn_submit text-white fw-bold px-5 py-2"
+                  *ngIf="activedStep == 0"
+                  (click)="nextStep()"
+                  onchange="phoneNumber()">
+            NEXT
+          </button>
+          <button class="btn btn_submit text-white fw-bold px-5 py-2"
+                  *ngIf="activedStep == 1"
+                  (click)="nextSteps()">
+            NEXT
+          </button>
+          <button class="btn btn_submit text-white fw-bold px-5 py-2"
+                  *ngIf="activedStep == 2"
+                  type="submit"
+                  (click)="registerUsers()">
+            SUBMIT
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

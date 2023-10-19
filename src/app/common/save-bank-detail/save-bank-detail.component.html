@@ -1,0 +1,35 @@
+<div class="dialog-overlay"></div>
+<div class="dialog-container">
+  <div class="dialog-header">
+    <h2 class="dialog-title">Bank Detail</h2>
+    <button class="close-button" (click)="closeBankDetail()">Close</button>
+  </div>
+  <div class="dialog-content">
+    <div class="form-group">
+      <label class="label_style">Bank Name:</label>
+      <input type="text" [(ngModel)]="employeeBankDetail.bankName" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label class="label_style">Bank Branch:</label>
+      <input type="text" [(ngModel)]="employeeBankDetail.bankBranch" class="form-control">
+    </div>
+    <div class="form-group">
+      <label class="label_style">Account Holder Name:</label>
+      <input type="text" [(ngModel)]="employeeBankDetail.accountHolder" class="form-control">
+    </div>
+    <div class="form-group">
+      <label class="label_style">AC/IBAN:</label>
+      <input type="text" [(ngModel)]="employeeBankDetail.accountNumber" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label class="label_style">IFSCCode:</label>
+      <input type="text" [(ngModel)]="employeeBankDetail.ifscCode" class="form-control">
+    </div>
+
+  </div>
+  <div class="dialog-footer">
+    <button class="okay-button" (click)="saveEmployeeBankDetail()">Save</button>
+  </div>
+</div>

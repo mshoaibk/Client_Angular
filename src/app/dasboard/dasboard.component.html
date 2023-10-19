@@ -1,0 +1,128 @@
+<!-- topnav -->
+<div class="main">
+  <!-- topnav -->
+  <!-- <div
+    class="d-flex justify-content-between dashboard-header p-3"
+  >
+    <p [routerLink]="['']" class="hrms">HRMS</p>
+    <div class="col-lg-1 col-md-2 d-flex">
+      <button class="btn" data-toggle="dropdown">
+        <img class="header-avatar" [src]="createImgPath()" alt="avatar" />
+        {{ companyName }}
+      </button>
+      <ul class="dropdown-menu">
+        <li><a>Profile</a></li>
+        <li><a>Logout</a></li>
+      </ul>
+    </div>
+  </div> -->
+  <!-- sidenav -->
+  <div>
+    <div class="d-flex">
+      <nav id="sidebar" [class.collapsed]="collapsed">
+        <span class="divider"></span>
+        <div class="d-flex flex-column justify-content-between h-100">
+          <div>
+            <ul class="navigation">
+              <li>
+                <a [routerLink]="['/dashboard']" [ngClass]="{ active: isActive('dashboard') }">
+                  <i>
+                    <img src="../../assets/images/projz/sidenav/dashboard.svg" class="me-3" width="20" height="20"
+                      alt="" />
+                  </i><span>Dashboard</span>
+                </a>
+
+              </li>
+              <li>
+                <a [routerLink]="['company-setup']" [ngClass]="{ active: isActive('company-setup') }">
+                  <i>
+                    <img src="../../assets/images/projz/sidenav/dashboard.svg" class="me-3" width="20" height="20"
+                      alt="" />
+                  </i><span>Company Setup</span>
+                </a>
+              </li>
+              <li>
+                <a [routerLink]="['company-profile']" [ngClass]="{ active: isActive('company-profile') }">
+                  <i>
+                    <img src="../../assets/images/projz/sidenav/company-profile.svg" class="me-3" width="20" height="20"
+                      alt="" />
+                  </i><span>Company Profile</span>
+                </a>
+              </li>
+              <li>
+                <a [routerLink]="['jobs-applications']" [ngClass]="{ active: isActive('jobs-applications') }">
+                  <i>
+                    <img src="../../assets/images/projz/sidenav/job-application.svg" class="me-3" width="20" height="20"
+                      alt="" />
+                  </i><span>Jobs Applications</span>
+                </a>
+              </li>
+              <li>
+                <a [routerLink]="['employees']" [ngClass]="{ active: isActive('employees') }">
+                  <i>
+                    <img src="../../assets/images/projz/sidenav/employess.svg" class="me-3" width="20" height="20"
+                      alt="" />
+                  </i><span>Employess</span>
+                </a>
+              </li>
+              <li class="dropdown" (click)="toggleDropdown()">
+                <a [routerLink]="['attendance-system']" [ngClass]="{ active: isActive('attendance-system') }">
+                  <i>
+                    <img src="../../assets/images/projz/sidenav/attendence.svg" class="me-3" width="20" height="20"
+                      alt="" />
+                  </i><span>Attendance System</span>
+                </a>
+                <ul  class="dropdown-content " [ngClass]="{ 'open': isDropdownOpen }">
+                  <li>
+                    <a [routerLink]="['leave']" >leaves</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a [routerLink]="['salary']" [ngClass]="{ active: isActive('salary') }">
+                  <i>
+                    <img src="../../assets/images/projz/sidenav/salary.svg" class="me-3" width="20" height="20"
+                      alt="" />
+                  </i><span>Salary</span>
+                </a>
+              </li>
+              <li>
+                <a [routerLink]="['support']" [ngClass]="{ active: isActive('support') }">
+                  <i>
+                    <img src="../../assets/icons/support.png" class="me-3" width="20" height="20"
+                      alt="" />
+                  </i><span>Support</span>
+                </a>
+              </li>
+              <li>
+                <a [routerLink]="['chat']" [ngClass]="{ active: isActive('chat') }">
+                  <i>
+                    <img src="../../assets/icons//chat.png" class="me-3" width="20" height="20"
+                      alt="" />
+                  </i><span>Chat</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <ul class="navigation">
+            <li class="d-flex align-items-center">
+              <a (click)="logout()">
+                <i>
+                  <img src="../../../assets/images/projz/sidenav/logout-bracket-svgrepo-com.svg"
+                    class="me-3 logout-button" alt="logout" />
+                </i><span class="text-danger logout-text">Log Out</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- <div class="expandBtn">
+          <span id="sidebarCollapse"><i class="fa fa-arrow-left" [class.fa-arrow-left]="!collapsed" [class.fa-arrow-right]="collapsed" (click)="collapsed = !collapsed"></i></span>
+        </div> -->
+      </nav>
+
+      <div class="bg-light w-100 p-4">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

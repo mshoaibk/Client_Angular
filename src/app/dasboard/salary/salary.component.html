@@ -1,0 +1,177 @@
+<div class="main_page bg-light">
+  <div class="p-3 bg-white mb-4" style="border-radius: 20px">
+    <div class="d-flex flex-column flex-column-reverse flex-md-row gap-2 align-items-center mb-2">
+      <div class="input-group">
+        <input type="text"
+               class="form-control"
+               placeholder="Search by Name"
+               [(ngModel)]="searchEmployeesRqst.employeeName"
+               (keyup.enter)="showEmployeeSalarySlipList()" />
+      </div>
+      <div #salaryContainer></div>
+      <div id="btn_postjobs"
+           class="align-self-center justify-content-end input-group">
+        <div role="button"
+             class="save-button"
+             (click)="setEmployeeSalaryPopup('save')">
+          Generate Salaries
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex flex-column flex-lg-row text-center gap-2">
+      <div class="width-filter">
+        <select class="form-select"
+                [(ngModel)]="searchEmployeesRqst.employmentType"
+                (change)="showEmployeeSalarySlipList()">
+          <option value="">Employment Type</option>
+          <ng-container *ngFor="let et of listLookup.employmentTypeDDLResponse">
+            <option [value]="et.employmentTypeId">{{et.employmentTypeName}}</option>
+          </ng-container>
+        </select>
+      </div>
+      <div class="width-filter">
+        <select [(ngModel)]="searchEmployeesRqst.location" class="form-select" (change)="showEmployeeSalarySlipList()">
+          <option value="">Please select office</option>
+          <ng-container *ngFor="let o of listLookup.officeLocationDDL">
+            <option [value]="o.officeId">{{o.officeLocationName}}</option>
+          </ng-container>
+        </select>
+      </div>
+      <div class="width-filter">
+        <select class="form-select" [(ngModel)]="searchEmployeesRqst.department" (change)="showEmployeeSalarySlipList()">
+          <option value="">Please select department</option>
+          <ng-container *ngFor="let d of listLookup.departmentDDL">
+            <option [value]="d.departmentId">{{d.departmentName}}</option>
+          </ng-container>
+        </select>
+      </div>
+      <div class="width-filter">
+        <select class="form-control p-2" style="height:40px" [(ngModel)]="searchEmployeesRqst.position" (change)="showEmployeeSalarySlipList()">
+          <option value="">Please select position</option>
+          <ng-container *ngFor="let p of listLookup.positionDDL">
+            <option [value]="p.positionId">{{p.positionName}}</option>
+          </ng-container>
+        </select>
+      </div>
+      <div class="width-filter d-flex align-items-center justify-content-center">
+        <div role="button" class="save-button" (click)="showEmployeeSalarySlipList()">
+          Search
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- main-salary-section-starts  -->
+  <div class="main-sect">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start top-section">
+      <div class="main-heading">Salary</div>
+      <!-- <div class="d-flex mt-3 mt-md-0">
+        <div role="button" class="button-right">CSV</div>
+        <div role="button" class="button-right mx-3">PDF</div>
+        <div role="button" class="button-right">PRINT</div>
+      </div> -->
+    </div>
+    <div class="mt-3 table-responsive">
+      <table class="table">
+        <thead class="point-table-head">
+          <tr>
+            <th>History</th>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Postion</th>
+            <th>Department</th>
+            <th>Pay Type</th>
+            <th>Working Hours</th>
+            <th>Month</th>
+            <th>Year</th>
+            <th>Currency</th>
+            <th>basicPay</th>
+            <th>Allowence</th>
+            <th>Total Salary</th>
+            <th>Actions</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tr *ngFor="let salary of employeeSalarySliplist">
+          <td>
+             <div class="d-flex gap-3">
+            <i class="fa fa-history" aria-hidden="true" (click)="openSalaryHistoryPopup(salary)"></i>
+          </div>
+        </td>
+          <td>
+            <img class="image-profile"
+                 [src]="createImgPath(salary.employeePhoto)" />
+          </td>
+          <td class="names">{{ salary.employeeName }}</td>
+          <td>{{ salary.position }}</td>
+          <td>{{ salary.department }}</td>
+          <td>{{ salary.payType | titlecase }}</td>
+         
+
+          <td>
+            <span *ngIf="salary.payType == 'hourly'">
+              {{
+              salary.hoursWorked
+              }}
+            </span>
+            <span *ngIf="salary.payType == 'weekly'">
+              {{
+              salary.weeksWorked
+              }}
+            </span>
+          </td>
+          <td>{{salary.month}}</td>
+          <td>{{salary.year}}</td>
+          <td>
+            <span class="salary p-0 m-0">{{ salary.currency }}</span>
+            <span class="salary" *ngIf="salary.payType == 'hourly'">
+              {{
+              salary.hourlyPay
+              }}
+            </span>
+            <span class="salary" *ngIf="salary.payType == 'daily'">
+              {{
+              salary.dailyPay
+              }}
+            </span>
+            <span class="salary" *ngIf="salary.payType == 'monthly'">
+              {{
+              salary.monthlyPay
+              }}
+            </span>
+            <span class="salary" *ngIf="salary.payType == 'weekly'">
+              {{
+              salary.weeklyPay
+              }}
+            </span>
+          </td>
+          <td>{{salary.basicPay}}</td>
+          <td>
+            <ng-container *ngIf="salary.editableMode">
+              <input type="number" [(ngModel)]="salary.allowances" />
+            </ng-container>
+            <ng-container *ngIf="!salary.editableMode">
+              {{salary.allowances}}
+            </ng-container>
+          </td>
+          <td>{{salary.netSalary}}</td>
+          <td>
+            <div class="d-flex flex-row gap-3">
+              <i class=" " (click)="editabeMode(salary)" *ngIf="!salary.editableMode"> <img src="/assets/icons/Edit-Square.png" alt=""></i>
+              <i class="fa fa-save blockquote text-success" (click)="saveChanges(salary)" *ngIf="salary.editableMode"></i>
+              <i class="fa fa-times blockquote text-danger" (click)="cancelEdit()" *ngIf="salary.editableMode"></i>
+              <i role="button" (click)="delEmployeeSalary(salary.employeeSalarySlipID)"><img src="/assets/icons/Delete.png" alt=""></i>
+            </div>
+          </td>
+          <td>
+            <button *ngIf="salary.isPaid==true" class="paid_btn">paid</button>
+            <button *ngIf="salary.isPaid==false" class="pay_btn" (click)="paySalary(salary.employeeSalarySlipID)">Pay</button>
+          </td>
+        </tr>
+      </table>
+      <div #salaryDeleteContainer></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="dialog-overlay"></div>
+<div class="dialog-container">
+  <div class="dialog-header">
+    <h2 class="dialog-title">Capture Webcam Photo</h2>
+    <button class="close-button" (click)="triggerSnapshot(false);">Close</button>
+  </div>
+  <div class="dialog-content">
+    <div class="row">
+      <webcam [trigger]="triggerObservable"
+              (imageCapture)="handleImage($event)"></webcam>
+    </div>
+  </div>
+  <div class="dialog-footer">
+    <button class="okay-button" (click)="triggerSnapshot(true);">Okay</button>
+  </div>
+</div>

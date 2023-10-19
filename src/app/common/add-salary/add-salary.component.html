@@ -1,0 +1,292 @@
+<div class="dialog-overlay"></div>
+<div class="dialog-container">
+  <div class="dialog-header">
+    <h2 class="dialog-title">Genrate Employees Salaries</h2>
+    <button class="close-button" (click)="closeSalaryForm()">
+      <i class="fa fa-times"></i>
+    </button>
+  </div>
+  <div class="dialog-content">
+    <div class="form-group" *ngIf="data.salaryObj.openfrom && data.salaryObj.openfrom == 'add-salary'">
+      <!-- <select
+        id="pay-type"
+        name="employee-name"
+        class="form-control"
+        [(ngModel)]="employeeSalary.employeeID"
+        (change)="employeeSelection()"
+      >
+        <option value="0">Select Employee</option>
+        <option *ngFor="let emp of employeeDDLList" [value]="emp.employeeId">
+          {{ emp.employeeName }} - {{ emp.email }}
+        </option>
+      </select> -->
+      <div class="d-flex justify-content-between gap-3">
+        <div class="form-group w-100">
+          <label class="label_style">Pay Type:</label>
+          <select id="pay-type"
+                  name="pay-type"
+                  class="form-control"
+                  [(ngModel)]="searchEmployeesRqst.employmentType" (change)="getEmployeeSalaries()">
+            <option value="monthly">Monthly</option>
+            <option value="hourly">Hourly</option>
+            <option value="daily">Daily</option>
+            <option value="weekly">Weekly</option>
+          </select>
+        </div>
+        <div class="form-group w-100">
+          <label class="label_style">Months:</label>
+          <select class="form-control"  [(ngModel)]="monthstxt" [ngClass]="{'invalid-field': !monthstxt && !isValid}">
+            <option value="0">Select Month</option>
+            <ng-container *ngFor="let month of months">
+              <option  [value]="month.id">{{month.monthname}}</option>
+            </ng-container>
+           </select>
+         </div>
+
+         <div class="form-group w-100">
+          <label class="label_style">Years:</label>
+          <select class="form-control" [(ngModel)]="yearstxt"  [ngClass]="{'invalid-field': !yearstxt && !isValid}">
+            <option value="0">Select Year</option>
+            <option *ngFor="let year of years" [value]="year.yearname" >{{year.yearname}}</option>
+          </select>
+         </div>
+        
+      </div>
+      <div class="d-flex justify-content-between align-items-center  ">
+        <label class="label_style">Employee Name:</label>
+        <div class="d-flex justify-content-center align-items-center"><span style="padding-right: 10px;">Select All </span> <input
+            type="checkbox" style="width: 30px; height: 30px;" [(ngModel)]="selectAll" (change)="allSelect()">
+        </div>
+      </div>
+      <div class="d-flex flex-wrap mt-3" style="gap: 8px;">
+        <div *ngFor="let emp of employeeSalarylist">
+          <div class="salaryEmployeeCard">
+            <div class="d-flex justify-content-between w-100">
+              <div><img class="image-profile" [src]="createImgPath(emp.employeePhoto, emp.photoType)" alt="employeePhoto"></div>
+              <div><input [value]="emp.employeeId" type="checkbox" style="width: 30px; height: 30px;"
+                  [checked]="isSelected(emp.employeeId)" (click)="onCheckboxChange(emp.employeeId)"></div>
+            </div>
+            <div class=" empName mt-2"> {{ emp.employeeName }}</div>
+            <p class="m-0">{{emp.position}}</p>
+            <small>{{emp.department}}</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <ng-container *ngIf="!selectedEmployeeInfo.email">
+      <div class="d-flex flex-column gap-2 mt-2">
+        <div class="form-group">
+          <label class="label_style">Pay Type:</label>
+          <select
+            id="pay-type"
+            name="pay-type"
+            class="form-control"
+            [(ngModel)]="employeeSalary.payType"
+          >
+            <option value="">Select Pay Type</option>
+            <option value="monthly">Monthly</option>
+            <option value="hourly">Hourly</option>
+            <option value="daily">Daily</option>
+            <option value="weekly">Weekly</option>
+          </select>
+        </div>
+  
+        <div class="form-group">
+          <label class="label_style">Currency:</label>
+          <select
+            id="pay-type"
+            name="pay-type"
+            class="form-control"
+            [(ngModel)]="employeeSalary.currency"
+          >
+            <option value="">Select Currency</option>
+            <option value="PKR">Pakistani Rupees</option>
+            <option value="USD">US Dollar (USD)</option>
+            <option value="EUR">Euro (EUR)</option>
+            <option value="GBP">British Pound (GBP)</option>
+            <option value="JPY">JPY</option>
+          </select>
+        </div>
+  
+        <div class="form-group" *ngIf="employeeSalary.payType == 'monthly'">
+          <label class="label_style" for="monthly-pay">Monthly Pay:</label>
+          <input
+            type="number"
+            [(ngModel)]="employeeSalary.monthlyPay"
+            id="monthly-pay"
+            name="monthly-pay"
+            min="0"
+            class="form-control"
+            step="0.01"
+          />
+        </div>
+        <div class="form-group" *ngIf="employeeSalary.payType == 'hourly'">
+          <label for="hourly-pay" class="label_style">Hourly Pay:</label>
+          <input
+            type="number"
+            [(ngModel)]="employeeSalary.hourlyPay"
+            id="hourly-pay"
+            name="hourly-pay"
+            min="0"
+            step="0.01"
+            class="form-control"
+          />
+        </div>
+        <div class="form-group" *ngIf="employeeSalary.payType == 'hourly'">
+          <label for="hourly-pay" class="label_style">Hours Worked:</label>
+          <input
+            type="number"
+            [(ngModel)]="employeeSalary.hoursWorked"
+            id="hours-worked"
+            name="hours-worked"
+            min="0"
+            step="0.01"
+            class="form-control"
+          />
+        </div>
+  
+        <div class="form-group" *ngIf="employeeSalary.payType == 'daily'">
+          <label for="daily-pay" class="label_style">Daily Pay:</label>
+          <input
+            type="number"
+            [(ngModel)]="employeeSalary.dailyPay"
+            id="daily-pay"
+            name="daily-pay"
+            min="0"
+            step="0.01"
+            class="form-control"
+          />
+        </div>
+  
+        <div class="form-group" *ngIf="employeeSalary.payType == 'weekly'">
+          <label for="weekly-pay" class="label_style">Weekly Pay:</label>
+          <input
+            type="number"
+            [(ngModel)]="employeeSalary.weeklyPay"
+            id="weekly-pay"
+            name="weekly-pay"
+            min="0"
+            step="0.01"
+            class="form-control"
+          />
+        </div>
+  
+        <div class="form-group" *ngIf="employeeSalary.payType == 'weekly'">
+          <label for="weeks-worked" class="label_style">Weeks Worked:</label>
+          <input
+            type="number"
+            [(ngModel)]="employeeSalary.weeksWorked"
+            id="weeks-worked"
+            name="weeks-worked"
+            min="0"
+            step="0.01"
+            class="form-control"
+          />
+        </div>
+      </div>
+    </ng-container> -->
+    <!-- <ng-container *ngIf="selectedEmployeeInfo.email">
+      <div class="bg-white mb-4" style="border-radius: 20px">
+        <div class="top_bar p-3">
+          <div class="d-flex justify-content-start">
+            <div class="">
+              <img style="width: 100px; height: 100px" class="img-fluid" [src]="
+                  createImgPath(
+                    selectedEmployeeInfo.employeePhoto,
+                    selectedEmployeeInfo.photoType
+                  )
+                " />
+            </div>
+            <div class="ms-4">
+              <h3 class="">{{ selectedEmployeeInfo.fullName | titlecase }}</h3>
+              <h5 style="color: #979494">
+                {{ selectedEmployeeInfo.email }} Company
+              </h5>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Pay Type</th>
+                    <th *ngIf="
+                        selectedEmployeeInfo && selectedEmployeeInfo.monthlyPay
+                      ">
+                      Monthly Pay
+                    </th>
+                    <th *ngIf="
+                        selectedEmployeeInfo && selectedEmployeeInfo.hourlyPay
+                      ">
+                      Hourly Pay
+                    </th>
+                    <th *ngIf="
+                        selectedEmployeeInfo && selectedEmployeeInfo.hoursWorked
+                      ">
+                      Hours Worked
+                    </th>
+                    <th *ngIf="
+                        selectedEmployeeInfo && selectedEmployeeInfo.dailyPay
+                      ">
+                      Daily Pay
+                    </th>
+                    <th *ngIf="
+                        selectedEmployeeInfo && selectedEmployeeInfo.weeklyPay
+                      ">
+                      Weekly Pay
+                    </th>
+                    <th *ngIf="
+                        selectedEmployeeInfo && selectedEmployeeInfo.weeksWorked
+                      ">
+                      Weeks Worked
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{{ selectedEmployeeInfo.payType }}</td>
+                    <td *ngIf="
+                        selectedEmployeeInfo && selectedEmployeeInfo.monthlyPay
+                      ">
+                      {{ selectedEmployeeInfo.monthlyPay }}
+                      {{ selectedEmployeeInfo.currency }}
+                    </td>
+                    <td *ngIf="
+                        selectedEmployeeInfo && selectedEmployeeInfo.hourlyPay
+                      ">
+                      {{ selectedEmployeeInfo.hourlyPay }}
+                      {{ selectedEmployeeInfo.currency }}
+                    </td>
+                    <td *ngIf="
+                        selectedEmployeeInfo && selectedEmployeeInfo.hoursWorked
+                      ">
+                      {{ selectedEmployeeInfo.hoursWorked }}
+                    </td>
+                    <td *ngIf="
+                        selectedEmployeeInfo && selectedEmployeeInfo.dailyPay
+                      ">
+                      {{ selectedEmployeeInfo.dailyPay }}
+                      {{ selectedEmployeeInfo.currency }}
+                    </td>
+                    <td *ngIf="
+                        selectedEmployeeInfo && selectedEmployeeInfo.weeklyPay
+                      ">
+                      {{ selectedEmployeeInfo.weeklyPay }}
+                      {{ selectedEmployeeInfo.currency }}
+                    </td>
+                    <td *ngIf="
+                        selectedEmployeeInfo && selectedEmployeeInfo.weeksWorked
+                      ">
+                      {{ selectedEmployeeInfo.weeksWorked }}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container> -->
+  </div>
+  <div class="dialog-footer">
+    <button class="save-button px-3 py-2" (click)="saveEmployeeSalary()">
+      Save
+    </button>
+  </div>
+</div>

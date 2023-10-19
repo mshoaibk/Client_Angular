@@ -1,0 +1,335 @@
+.background-img {
+  background-image: url("../../assets/images/background-job.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  position: absolute;
+  height: 70vh;
+}
+
+.section-heading {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 50px;
+  color: #ffffff;
+}
+
+.section-description {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  color: #ffffff;
+}
+
+input {
+  border-radius: 10px;
+  height: 50px;
+}
+
+.button-find {
+  width: 100%;
+  height: 100%;
+  background: #095f8f;
+  border-radius: 10px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #ffffff;
+}
+
+.left-sec {
+  width: 29%;
+  height: fit-content;
+  padding: 2%;
+  background-color: white;
+  border-radius: 30px;
+  border: 1px solid #c6c6c6;
+}
+
+.right-sec {
+  width: 69%;
+  background-color: white;
+  border-radius: 30px;
+  height: fit-content;
+  border: 1px solid #c6c6c6;
+  padding: 2%;
+}
+
+.top-head {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  color: #373131;
+}
+
+.img-card {
+  width: 123px;
+  height: 117px;
+  border: 1px solid #d9d9d9;
+  border-radius: 13px;
+  object-fit: cover;
+}
+.selected {
+  background-color: #ceedff;
+  margin-left: -8%;
+  padding-left: 8%;
+  width: 116%;
+  padding-bottom: 3%;
+  padding-top: 3%;
+}
+.card-head {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #373131;
+}
+.card-text {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #8a8a8a;
+}
+
+.card-ven {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: right;
+  color: #373131;
+}
+
+.card-time {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #8a8a8a;
+}
+.right-img {
+  width: 99px;
+  height: 95px;
+  border: 1px solid #d9d9d9;
+  border-radius: 13px;
+  object-fit: cover;
+}
+.venue-work {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  color: #8a8a8a;
+}
+.save-job {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #8a8a8a;
+}
+.icon-save-job {
+  width: 23.99px;
+  height: 23.99px;
+  object-fit: cover;
+}
+.apply-button {
+  background: #2b6282;
+  border-radius: 10px;
+  width: 183.14px;
+  height: 46.38px;
+}
+.apply-button-text {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #ffffff;
+}
+.job-description {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: justify;
+  color: #8a8a8a;
+}
+.skill-tag {
+  height: 48px;
+  padding-left: 3%;
+  padding-right: 3%;
+  margin-right: 2%;
+  background: #f5f5f5;
+  border-radius: 40px;
+}
+.skill-tag-text {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000000;
+}
+.about-company {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  color: #373131;
+}
+.about-company-heading {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #373131;
+}
+.about-company-description {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #8a8a8a;
+}
+.select-wrapper {
+  position: relative;
+  width: 100%;
+}
+.form-control-input {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  color: #373131;
+}
+.select-wrapper .select-dropdown {
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  overflow-y: auto;
+  max-height: 200px;
+}
+
+.select-wrapper .select-dropdown li {
+  display: block;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.select-wrapper .select-dropdown li:hover {
+  background-color: #f2f2f2;
+}
+
+/* On screens that are 1200px or less */
+@media screen and (max-width: 1200px) {
+  .left-sec {
+    width: 30%;
+  }
+  .right-sec {
+    width: 68%;
+  }
+  .img-card {
+    width: 110px;
+    height: 110px;
+  }
+  .card-head {
+    margin-top: 5%;
+    font-size: 16px;
+    line-height: 18px;
+  }
+  .card-ven {
+    font-size: 13px;
+    line-height: 19px;
+    margin-top: 0% !important;
+  }
+  .card-time {
+    font-size: 12px;
+    line-height: 13px;
+    margin-top: 0% !important;
+  }
+}
+/* On screens that are 992px or less */
+@media screen and (max-width: 992px) {
+  .left-sec {
+    width: 31%;
+  }
+  .right-sec {
+    width: 67%;
+  }
+  .img-card {
+    width: 80px;
+    height: 80px;
+  }
+  .card-time {
+    font-size: 10px;
+    line-height: 13px;
+    margin-top: 0% !important;
+  }
+}
+
+/* On screens that are 768px or less*/
+@media screen and (max-width: 768px) {
+  .left-sec {
+    width: 100%;
+  }
+  .right-sec {
+    width: 100%;
+  }
+  .img-card {
+    width: 120px;
+    height: 120px;
+  }
+  .selected {
+    background-color: #ceedff;
+    margin-left: -2%;
+    padding-left: 2%;
+    width: 104%;
+    padding-bottom: 2%;
+    padding-top: 2%;
+    margin-bottom: 4%;
+  }
+}
+/* On screens that are 576px or less*/
+// @media screen and (max-width: 576px) {
+//   .left-sec {
+//     width: 100%;
+//   }
+//   .right-sec {
+//     width: 100%;
+//   }
+//   .selected {
+//     background-color: #ceedff;
+//     margin-left: -6%;
+//     padding-left: 8%;
+//     width: 112%;
+//     padding-bottom: 2%;
+//     padding-top: 2%;
+//     margin-bottom: 4%;
+//   }
+// }

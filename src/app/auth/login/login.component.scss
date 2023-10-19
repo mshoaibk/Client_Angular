@@ -1,0 +1,75 @@
+.main {
+  width: 100%;
+  height: calc(100vh - 80px);
+}
+.login-text {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 80px;
+  color: #000000;
+}
+.content_area {
+  background: #ffffff;
+  border: 1px solid #c6c6c6;
+  border-radius: 20px;
+  padding: 2% 2%;
+  width: 40%;
+}
+.label_style {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 25px;
+  color: #000000;
+}
+
+.btn_submit {
+  background: #2b6282;
+  border-radius: 10px;
+  width: 100%;
+}
+.button-text {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  color: #ffffff;
+}
+.not-member {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  color: #000000;
+}
+.not-member span a {
+  text-decoration: none;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+  color: #000000;
+}
+.form-control:focus {
+  border-color: #095f8f;
+  box-shadow: none;
+}
+
+/* On screens that are 992px or less */
+@media screen and (max-width: 992px) {
+  .content_area {
+    width: 45%;
+  }
+}
+
+/* On screens that are 600px or less*/
+@media screen and (max-width: 600px) {
+  .content_area {
+    width: 85%;
+  }
+}

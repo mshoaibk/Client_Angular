@@ -1,0 +1,108 @@
+<div class="background-img" style="display:inline-block">
+  <div class="direc1">
+    <div class="ms-5 mt-5">
+      <h3 class="headings">
+        Find A Job That <br>
+        Matches Your <br>
+        Passion
+      </h3>
+    </div>
+
+    <div class="ms-5 mt-5">
+      <p class="para">
+        Hand-picked opportunities to work from home, remotely, freelance, <br> full-time, part-time,
+        contract and internships.
+      </p>
+    </div>
+    <div class="row alig">
+      <div class="col-md-4">
+        <input type="text" placeholder="Job Title" class="form-control" [(ngModel)]="searchJobRqst.jobTitle" />
+      </div>
+      <div class="col-md-4">
+        <div class="select-wrapper">
+          <div>
+            <input type="text" id="country-input" class="form-control" name="country" placeholder="Search for a country..."
+                   [(ngModel)]="selectedCountry" (focus)="showList = true" (clickOutside)="onCloseList($event)">
+            <ul class="select-dropdown" id="country-list" *ngIf="showList">
+              <li *ngFor="let country of countries | filter:selectedCountry" (click)="onSelect(country)">{{ country.name }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <button class="btn w-20" (click)="findJob()">Find Jobs</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="d-flex  w-100 for-moving-upp">
+  <div class="left-sec">
+    <div class="top-head ms-5 mt-3">
+      Job Feeds
+    </div>
+    <hr>
+    <!-- cards for left section -->
+    <div class="flex-column">
+      <div class="d-flex mt-4" *ngFor="let job of postedJoblist" (click)="onJobClick(job)" [class.selected]="job === selectedJob">
+        <div><img src="../assets/images/about.jpg" class="img-card" alt=""></div>
+        <div class="ms-5">
+          <div class="card-head mt-2">{{job.jobTitle}}</div>
+          <div class="card-text mt-2">{{job.company}}</div>
+          <div class="d-flex card-ven mt-2">
+            <div>{{job.jobTypeLoc}}</div>
+            <div class="ms-3">{{job.experienceLevel}}</div>
+          </div>
+          <div class="card-time mt-2">{{job.modifiedDate?job.modifiedDate:job.createdDate}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="right-sec">
+    <div class="d-flex mt-5 justify-content-between align-items-center">
+      <div class="d-flex">
+        <div><img src="../assets/images/about.jpg" class="right-img" alt=""></div>
+        <div class="flex-column ms-5">
+          <div class="card-head">{{selectedJob.jobTitle}}</div>
+          <div class="card-text mt-3">{{selectedJob.jobType}}</div>
+          <div class="venue-work mt-3">{{selectedJob.jobTypeLoc}}</div>
+        </div>
+      </div>
+      <div class="d-flex">
+        <div class="card-text" style="width: 60%;">Save Job</div>
+        <div><img src="../assets/images/find-jobs-images/image 21.svg" alt=""></div>
+        <div style="cursor:pointer" (click)="ApplyJob()" [routerLink]="['/apply-job']" class="Apply-button">Apply Job</div>
+      </div>
+    </div>
+    <hr>
+    <div class="card-head ms-4 me-3 mt-4">Job Description:</div>
+    <div class="job-des ms-4 me-5 mt-4" [innerHTML]="selectedJob.description"> </div>
+    <div class="card-head ms-4 me-3 mt-4">Key Responsibilities:</div>
+    <div class="job-des ms-4 me-5 mt-4">{{selectedJob.keyResponsibility}}</div>
+
+    <!-- lined bubbles of skills -->
+    <div class="d-flex mt-4 ms-4">
+      <div class="skills ms-3 pt-3 " *ngFor="let skills of selectedJob.requiredSkills">{{skills.requiredSkill}}</div>
+    </div>
+    <div class="card-head headss ms-4 me-3 mt-5">About Company</div>
+    <div class="d-flex justify-content-between marg">
+      <div>
+        <div class="card-head ms-4 mt-4">Company Name</div>
+        <div class="card-time ms-4 mt-4">{{selectedJob.company}}</div>
+      </div>
+      <div>
+        <div class="card-head ms-4 mt-4">Employes</div>
+        <div class="card-time ms-4 mt-4">325k</div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-between mt-5 marg">
+      <div>
+        <div class="card-head ms-4 mt-4">Joined time</div>
+        <div class="card-time ms-4 mt-4">January 12 2016</div>
+      </div>
+      <div>
+        <div class="card-head ms-4 mt-4">Location</div>
+        <div class="card-time ms-4 mt-4">Newyork, USA</div>
+      </div>
+    </div>
+  </div>
+</div>

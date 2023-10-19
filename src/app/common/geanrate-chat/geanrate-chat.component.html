@@ -1,0 +1,35 @@
+<div class="dialog-overlay"></div>
+<div class="dialog-container d-flex justify-content-between flex-column">
+  <div>
+  <div class="dialog-header d-flex justify-content-between">
+    <h2 class="dialog-title">Genrate Chat</h2>
+    <button class="close-button btn" (click)="closeSalaryForm()">
+      <i class="fa fa-times"></i>
+    </button>
+  </div>
+  <div class="dialog-content">
+    <div class="form-group">
+      <select
+        name="employee-name"
+        class="form-control"
+        [(ngModel)]="employeeList">
+        <option value="0">Select Employee</option>
+       <ng-container *ngFor="let emp of employeeLists">
+        <option [value]="emp.employeeID" >{{ emp.fullName }}</option>
+       </ng-container>
+      </select>
+      
+    </div>
+    <div class="form-group">
+        <label class="label_style">Message</label>
+        <!-- <input class="form-control" type="text" placeholder="Write Message Here" [(ngModel)]="MessageBody"> -->
+        <textarea class="form-control" cols="50" rows="3"></textarea>
+      </div>
+  </div>
+  </div>
+  <div class="dialog-footer d-flex justify-content-end">
+    <button class=" btn save-button px-3 py-2" (click)="saveEmployeeChatInfo()">
+      Save
+    </button>
+  </div>
+</div>

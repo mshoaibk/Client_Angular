@@ -1,0 +1,22 @@
+<div class="dialog-overlay"></div>
+<div class="dialog-container">
+  <div class="dialog-header  justify-content-between d-flex">
+    <h2 class="dialog-title">Weekly Leave</h2>
+    <button class="close-buttonx btn" (click)="ClosePopup()">Close</button>
+  </div>
+  <div class="dialog-content">
+
+    <div class="d-flex flex-wrap gap-2">
+      <div class="d-flex flex-wrap">
+        <label class="checkbox me-4 mt-2" style="width:21%" *ngFor="let day of days; let i = index">
+          <input class="me-0" type="checkbox" [checked]="day.checked" [ngClass]="{ 'dull': !day.holidays, 'normal': day.holidays }" (click)="toggleDayChecked(i)">
+          {{ day.holidays }}
+        </label>
+      </div>
+    </div>
+
+  </div>
+  <div class="dialog-footer d-flex justify-content-center">
+    <button class="okay-button btn mt-2" (click)="SaveWeekly()">Save</button>
+  </div>
+</div>

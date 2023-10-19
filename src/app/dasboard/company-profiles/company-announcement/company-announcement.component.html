@@ -1,0 +1,79 @@
+<div class="main_page">
+  <div class="top-section mb-4">
+    <div class="d-flex flex-column-reverse flex-md-row gap-2 align-items-center justify-content-center">
+      <div class="input-group">
+        <input type="search"
+               class="form-control"
+               placeholder="Search By Event Title"
+               aria-label="Search By Event Title"
+               [(ngModel)]="searchCompanyAnnouncement.evenTitle" />
+        <span class="input-group-text" id="basic-addon1">
+          <i class="fa fa-search"></i>
+        </span>
+      </div>
+      <div #addCompanyAnnouncementContainer></div>
+      <div id="btn_postjobs"
+           class="align-self-center justify-content-end justify-content-md-end input-group">
+        <div role="button"
+             class="button-announcement px-4 d-flex align-items-center justify-content-center"
+             (click)="addAnnouncementPopoup('')">
+          Add Announcement
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="middle-section mb-3">
+    <div class="header mb-3 h6">Announcements</div>
+    <div class="table-responsive">
+      <table id="app_table" class="table">
+        <thead>
+          <tr>
+            <th>Feature Photo</th>
+            <th>Event Title</th>
+            <th>Event Date</th>
+            <th>Event Time</th>
+            <th>Event Description</th>
+            <th scope="col">ACTIONS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let announce of getCompanyAnnouncement; let i = index">
+            <td>
+              <img *ngIf="createImgPath(announce.featurePhoto)" [src]="createImgPath(announce.featurePhoto)" style="width:50px;height:50px" />
+            </td>
+            <td>{{ announce.eventTitle }}</td>
+            <td>{{ announce.eventDate | date }}</td>
+            <td>{{ announce.eventTime }}</td>
+            <td>
+              <div class="event-description" [innerHTML]="announce.description"></div>
+            </td>
+            <td>
+              <div class="d-flex flex-row gap-3">
+                <img role="button"
+                     (click)="addAnnouncementPopoup(announce)"
+                     src="../../../../assets/icons/icon-edit.svg"
+                     alt="icon-edit" />
+                <img role="button"
+                     (click)="
+                    deleteCompanyAnnouncementPopup(
+                      announce.companyAnnouncementID
+                    )
+                  "
+                     src="../../../../assets/icons/icon-delete.svg"
+                     alt="icon-delete" />
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div #deleteCompanyAnnouncementContainer></div>
+    </div>
+  </div>
+  <!-- <div class="bottom-section">
+    Showing 10 items out of 250 results found, Lorem ipsum dolor sit amet
+    consectetur adipisicing elit. Enim esse id harum corrupti placeat! Voluptate
+    adipisci quas tenetur ea vel magni repellat earum? Animi velit, debitis
+    sint,
+  </div> -->
+</div>

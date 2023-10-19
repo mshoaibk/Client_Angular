@@ -1,0 +1,147 @@
+<div class="background-img">
+  <div class="ms-5 me-5 mt-4 mt-md-5 section-heading">
+    Find A Job That <br />
+    Matches Your <br />
+    Passion
+  </div>
+  <div class="ms-5 me-5 mt-4 mt-md-5 section-description">
+    Hand-picked opportunities to work from home, remotely, freelance, <br />
+    full-time, part-time, contract and internships.
+  </div>
+  <div class="row ms-5 me-5 mt-4 mt-md-5">
+    <div class="col-xl-6 col-lg-6 col-md-6 mb-lg-0 mb-2">
+      <input
+        type="text"
+        placeholder="Job Title"
+        class="form-control form-control-input"
+        [(ngModel)]="searchJobRqst.jobTitle"
+      />
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-6 mb-lg-0 mb-2">
+      <div class="select-wrapper">
+        <div>
+          <input type="text"
+                 id="country-input"
+                 class="form-control form-control-input"
+                 name="country"
+                 placeholder="Search for a country..."
+                 [(ngModel)]="selectedCountry"
+                 (focus)="showList = true" (blur)="onBlur()" />
+          <ul class="select-dropdown" id="country-list" *ngIf="showList">
+            <li *ngFor="let country of countries | filter:selectedCountry" (mousedown)="onSelect(country)">{{ country.name }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-2 col-lg-2 col-md-12">
+      <button class="btn button-find" (click)="findJob()">Find Jobs</button>
+    </div>
+  </div>
+  <div class="position-relative d-flex flex-column flex-md-row justify-content-between m-5 pb-5">
+    <div class="left-sec">
+      <div class="top-head d-flex justify-content-center justify-content-md-start">Job Feeds</div>
+      <hr />
+      <div class="flex-column">
+        <div
+          role="button"
+          class="d-flex mt-4"
+          *ngFor="let job of postedJoblist"
+          (click)="onJobClick(job)"
+          [class.selected]="job === selectedJob">
+          <img
+            src="../../assets/images/employees-img/login-bg.jfif"
+            class="img-card"
+            alt="img-card"/>
+          <div class="ms-2 w-100 d-flex flex-column justify-content-between">
+            <div class="card-head">{{ job.jobTitle }}</div>
+            <div class="card-text mt-2">{{ job.company }}</div>
+            <div class="d-flex flex-wrap card-ven mt-2 justify-content-start">
+              <div>{{ job.jobTypeLoc }}</div>
+              <div class="ms-lg-3 ms-3">{{ job.experienceLevel }}</div>
+            </div>
+            <div class="card-time mt-2">
+              {{ job.modifiedDate ? job.modifiedDate : job.createdDate }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="right-sec">
+      <div class="d-flex flex-column flex-lg-row justify-content-between align-items-center">
+        <div class="d-flex">
+          <img src="../../assets/images/employees-img/login-bg.jfif"
+               class="right-img"
+               alt="right-img" />
+          <div class="d-flex flex-column ms-3 justify-content-between">
+            <div class="card-head">{{ selectedJob?.jobTitle }}</div>
+            <div class="card-text">{{ selectedJob?.jobType }}</div>
+            <div class="venue-work">{{ selectedJob?.jobTypeLoc }}</div>
+          </div>
+        </div>
+        <div class="d-flex flex-column-reverse flex-md-row align-items-center mt-4 mt-lg-0">
+          <!--<div class="d-flex mt-4 mt-md-0" role="button">
+        <div class="save-job">Save Job</div>
+        <img
+          class="ms-2 icon-save-job"
+          src="../../assets/images/icon-save-job.svg"
+          alt="icon-save-job"
+        />
+      </div>-->
+          <div role="button"
+               (click)="ApplyJob()"
+               [routerLink]="['/apply-job']"
+               class="apply-button ms-3 ">
+            <div class="apply-button-text d-flex justify-content-center align-items-center h-100">
+              Apply Job
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div class="card-head mt-4">Job Description:</div>
+      <div class="job-description mt-4"
+           [innerHTML]="selectedJob?.description"></div>
+      <div class="card-head mt-4">Key Responsibilities:</div>
+      <div class="job-description mt-4" [innerHtml]="selectedJob?.keyResponsibility">
+      </div>
+      <div class="card-head mt-4">Required Skill:</div>
+      <div class="d-flex flex-wrap mt-3">
+        <div class="skill-tag"
+             *ngFor="let skills of selectedJob?.requiredSkills">
+          <p class="skill-tag-text d-flex align-items-center justify-content-center h-100">
+            {{ skills.requiredSkill }}
+          </p>
+        </div>
+      </div>
+      <div class="card-head mt-4">Salary range:</div>
+      <div class="d-flex flex-wrap mt-3">
+        <p class="d-flex align-items-center justify-content-center h-100">
+          {{ selectedJob?.salaryRangeFrom }} - {{selectedJob?.salaryRangeTo}}
+        </p>
+      </div>
+      <div class="mt-5 about-company">About Company</div>
+      <div class="d-flex justify-content-between">
+        <div class="d-flex flex-column">
+          <div class="about-company-heading mt-4">Company Name</div>
+          <div class="about-company-description mt-3">
+            {{ selectedJob?.company }}
+          </div>
+        </div>
+        <div class="d-flex flex-column me-5 text-end">
+          <div class="about-company-heading mt-4">Employes</div>
+          <div class="about-company-description mt-4">{{selectedJob?.noOfEmployees}}</div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-between">
+        <div class="d-flex flex-column">
+          <div class="about-company-heading mt-4">Since</div>
+          <div class="about-company-description mt-3">{{selectedJob?.joinedDate | date}}</div>
+        </div>
+        <div class="d-flex flex-column me-5 text-end">
+          <div class="about-company-heading mt-4">Location</div>
+          <div class="about-company-description mt-4">{{selectedJob?.companyLocation}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

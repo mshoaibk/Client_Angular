@@ -1,0 +1,222 @@
+.a{
+
+}
+.site-container>div:first-child{
+    flex-basis: 35%;
+  }
+  .site-container>div:nth-child(2){
+    flex-basis: 65%;
+  }
+  .input-feild-btn{
+    border-radius: 0px !important;
+    margin-bottom: 20px;
+  }
+  .search-input{
+    text-align: center;
+    // width: 70%;
+    background-color: #2B6282;
+    border-radius: 30px;
+    border: none;
+  }
+//   .main--chat-container{
+//     margin-top: 35% !important;
+//     margin-bottom: 35% !important;
+    
+//   }
+  .chat_user_img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  //support
+/// 
+/// 
+.container{
+    margin: 0px !important;
+    padding: 0px !important;
+    max-width: 100% !important;
+  }
+  .card{
+    border: 0px;
+  }
+  .header{
+    color: #2B6282;
+    font-family: 'Noto Sans','sans-serif';
+    font-weight: 800;
+  }
+  
+  .search-input-feild{
+    background-color: #2B6282;
+    border-radius: 0;
+  }
+  .search-btn{
+    margin: 0px !important;
+    margin-top: 0.5px !important;
+    background-color: #2B6282;
+    border-radius: 0px;
+    border: 0px;
+  }
+  .search-input-feild::placeholder{
+    color: #fff;
+  }
+  
+  .list-item p{
+    margin: 0px;
+  }
+  .list-item>div:nth-child(3)>p:nth-child(2){
+    font-size: 8px;
+  }
+  .list-item>div:nth-child(2){
+    flex-basis: 63%;
+  }
+  .list-item{
+    padding: 0px !important;
+    background-color: #F1F4F6;
+    border: 0px !important;
+    margin-bottom: 20px;
+  }
+  .list-item>div:nth-child(2)> p:nth-child(2){
+    font-size: 9px;
+    color: #8A8A8A;
+  }
+  .scrollable-chats{
+    overflow-y: auto;
+    height: 65vh;
+  }
+  .chat-head{
+    font-family: 'Mulish', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    color: #2B6282;
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+  .main-head{
+    background-color: #F0F0FA;
+    margin-bottom: 36px;
+  }
+  .main-head p{
+    margin: 0px;
+  }
+  .profile-icon{
+    position: relative;
+    right: 12px;
+  }
+  .online-text{
+    color: #B9BEC3;
+  }
+  .chat-container{
+    color: #fff;
+    font-family: 'Roboto',sans-serif;
+    font-weight: 500;
+    font-size: 21px;
+    overflow-y: auto;
+    height: 65vh;
+  }
+  .chat-container div{
+    width: auto;
+  }
+  .all-chats-txt{
+    font-size: 14px;
+    color: #090505;
+    font-weight: 500
+  }
+  .left-chat{
+    background-color: #2B6282DE;
+    border-radius: 15px;
+    border-bottom-left-radius: 0px;
+    width: 65%;
+    text-align: justify;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .right-chat{
+    background-color: #BFC7CD;
+    border-radius: 15px;
+    border-top-right-radius: 0px;
+    width: 65%;
+    text-align: justify;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .microphone{
+    background-color: grey;
+    padding: 8px;
+    border-radius: 20px;
+  }
+  .msg-input{
+    border: 0px;
+    width: 100%;
+  }
+  .msg-input-container{
+    margin-left: 5px;
+    flex-basis: 80%;
+  }
+  
+  .search-input::placeholder{
+    color: #fff;
+  }
+  .send-msg-btn{
+    background-color: #2B6282;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    width: 100%;
+    border-radius: 20px;
+    font-family: 'Roboto',sans-serif;
+    border: 0px;
+  }
+  .icons{
+    flex-basis: 5%;
+  }
+  .icons a{
+    color: #000;
+  }
+  .btn-container{
+    flex-basis: 10%;
+  }
+  // .main--chat-container{
+  //   position: absolute;
+  //   background-color: white;
+  //   z-index: 999;
+  //   top: 0;
+  //   right: 0;
+  //   max-width: 550px;
+  // }
+  // .site-container{
+  //   background-color: #000;
+  // }
+  
+  
+  @media screen and (max-width: 986px) {
+    .navbar-nav {
+      background-color: #095f8f;
+      border-radius: 16px;
+      padding: 2% 2%;
+      width: 182px;
+      position: absolute;
+    }
+    .jobs-link {
+      color: #fff;
+    }
+    .btn1_signup {
+      display: flex;
+      align-items: end;
+      justify-content: end;
+      width: max-content;
+      background: none;
+      border-radius: 10px;
+      border: none;
+    }
+    .login {
+      margin-top: 0%;
+      background: none;  
+      height: 35px;
+      border-radius: 10px;
+      border: none;
+      display: flex;
+      align-items: end;
+      justify-content: start;
+    }
+  }
+  

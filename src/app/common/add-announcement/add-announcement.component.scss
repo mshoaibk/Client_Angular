@@ -1,0 +1,136 @@
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Semi-transparent black background color */
+  z-index: 9998; /* Make sure it's behind the popup */
+  backdrop-filter: blur(
+    1px
+  ); /* Optional: add a blur effect to the background */
+}
+
+.dialog-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  padding: 1rem;
+  width: 80%;
+  max-width: 52rem;
+  z-index: 9999;
+  overflow-y: auto;
+  border-radius: 16px;
+}
+
+.dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.dialog-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+  color: #2b6282;
+}
+
+.close-button {
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.dialog-content {
+  margin-bottom: 1rem;
+}
+
+.dialog-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+quill-editor {
+  height: 25vh;
+}
+
+.quill_label {
+  font-size: 16px;
+  font-weight: 400;
+  color: #979494;
+}
+.button-save {
+  border-radius: 10px;
+  background: #2b6282;
+  color: #fff;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  height: 38px;
+  line-height: normal;
+}
+.label_style {
+  color: var(--tri, #979494);
+  font-family: Outfit;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.form-control:focus {
+  border: 1px solid #2b6282;
+  box-shadow: none;
+}
+
+.profile-image {
+  height: 100px !important;
+  width: 100px !important;
+  border-radius: 5% !important;
+  box-shadow: 0 0 8px 3px #b8b8b8;
+  object-fit: fill;
+}
+
+.remove-icon {
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  color: cornflowerblue;
+  box-shadow: 0 0 8px 3px #b8b8b8;
+}
+
+.btn_submit {
+  background: #095f8f;
+}
+.file_uploaded{
+  width: 106px;
+  height: 34px;
+  background-color: transparent;
+  cursor: pointer;
+  opacity: -0.1;
+}
+.logo_btn{
+  margin-top: -35px;
+  button{
+    background: #2b6282;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  }
+}

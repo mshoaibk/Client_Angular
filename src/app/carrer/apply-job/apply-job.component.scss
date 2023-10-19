@@ -1,0 +1,125 @@
+.main-page {
+  width: 100%;
+}
+.hrms {
+  font-style: normal;
+  font-weight: 650;
+  font-size: 40px;
+  line-height: 49px;
+  text-align: left;
+  text-transform: capitalize;
+  color: #095F8F;
+  text-decoration: none;
+}
+
+.fixed-top {
+  position: sticky !important;
+  top: 0;
+  z-index: 1030;
+}
+.login {
+  background: #095F8F;
+  border-radius: 10px;
+  border: 0px;
+  color: white;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+}
+.btn1_signup {
+
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  color: #095F8F;
+  border: 0px;
+  background-color: white;
+}
+
+.btn2_signup {
+  text-decoration: none;
+  background: #095F8F;
+  border-radius: 10px;
+  color: white;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.navbar_button {
+  background-color: #c7c7c7;
+  color: #095f8f;
+  border: none;
+  border-color: white;
+
+}
+
+.jobs-link {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  color: #095F8F;
+  text-decoration: none;
+  border-bottom: 6px solid #095F8F;
+}
+
+
+.company {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  color: #c7cfd3;
+}
+
+.form-wid {
+  width: 50%;
+  height: 75vh;
+  background: #FFFFFF;
+  border: 1px solid #C6C6C6;
+  border-radius: 20px;
+  margin-left: 25%;
+  margin-top: 5%;
+}
+
+.create {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 57px;
+  color: #095F8F;
+}
+
+.co_account {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  padding-bottom: 4%;
+  color: #646768;
+}
+
+.label_style {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #979494;
+}
+
+.btn_submit {
+  margin-top: 10%;
+  background: #095F8F;
+  width: 20%;
+  border-radius: 10px;
+}
+
+.applys {
+  width: 30%;
+}

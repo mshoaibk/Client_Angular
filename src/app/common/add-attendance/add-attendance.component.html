@@ -1,0 +1,135 @@
+<div class="dialog-overlay"></div>
+<div class="dialog-container">
+  <div class="d-flex justify-content-between align-items-center">
+    <div>
+      <a role="button"
+         class="text-decoration-none"
+         [ngClass]="tabNumber === 1 ? 'link_style_active' : 'link_style_notactive'"
+         (click)="tabChangeEvent(1)">Add Attendance</a>
+      <a role="button"
+         class="text-decoration-none mx-5"
+         [ngClass]="tabNumber === 2 ? 'link_style_active' : 'link_style_notactive'"
+         (click)="tabChangeEvent(2)">Add Leave Request</a>
+    </div>
+    <button type="button"
+            class="btn-close button-close"
+            aria-label="Close"
+            (click)="closeAttendanceForm()"></button>
+  </div>
+
+  <div class="dialog-content d-flex flex-column gap-4" *ngIf="tabNumber === 1">
+    <div class="form-group d-flex align-items-center gap-5 w-100">
+      <label class="label_style w-50">Selected Date:</label>
+      <ng-container *ngIf="attendanceModel.attendanceDate">{{attendanceModel.attendanceDate | date}}</ng-container>
+      <ng-container *ngIf="!attendanceModel.attendanceDate">
+        <input type="date"
+               class="form-control"
+               [(ngModel)]="attendanceModel.attendanceDate" />
+      </ng-container>
+    </div>
+    <div class="form-group d-flex align-items-center gap-5 w-100">
+      <label class="label_style w-50">Checked In:</label>
+      <!--<input type="time"
+         class="form-control"
+         placeholder="Enter time like 09:00 AM"
+         [(ngModel)]="attendanceModel.checkedIn" />-->
+      <input type="time" class="time-picker" step="900" [(ngModel)]="attendanceModel.checkedIn"
+             (ngModelChange)="checkedIn=convertToAMPM($event)">
+
+    </div>
+    <div class="form-group d-flex align-items-center gap-5 w-100">
+      <label class="label_style w-50">Checked Out:</label>
+      <input type="time" class="time-picker" step="900" [(ngModel)]="attendanceModel.checkedOut"
+             (ngModelChange)="checkedOut=convertToAMPM($event)">
+
+      <!--<input type="time"
+             class="form-control"
+             placeholder="Enter time like 06:00 PM"
+             [(ngModel)]="attendanceModel.checkedOut" />-->
+    </div>
+  </div>
+  <div class="dialog-content d-flex flex-column gap-4" *ngIf="tabNumber === 2">
+    <div class="form-group d-flex align-items-center justify-content-between gap-3 w-100">
+      <label for="leave-duration" class="label_style">Leave Duration:</label>
+      <div class="radio-wrapper">
+        <input type="radio"
+               id="full-day"
+               name="leave-duration"
+               value="full-day"
+               checked
+               [(ngModel)]="attendanceModel.leaveDuration"
+               (change)="leaveType = 'full-day'" />
+        <label for="full-day" class="label_style">Full Day</label>
+      </div>
+      <div class="radio-wrapper">
+        <input type="radio"
+               id="half-day"
+               name="leave-duration"
+               value="half-day"
+               [(ngModel)]="attendanceModel.leaveDuration"
+               (change)="leaveType = 'half-day'" />
+        <label for="half-day">Half Day</label>
+      </div>
+      <div class="radio-wrapper">
+        <input type="radio"
+               id="short-leave"
+               name="leave-duration"
+               value="short-leave"
+               [(ngModel)]="attendanceModel.leaveDuration"
+               (change)="leaveType = 'short-leave'" />
+        <label for="short-leave">Short Leave</label>
+      </div>
+    </div>
+    <div class="form-group d-flex align-items-center gap-5 w-100">
+      <label class="label_style w-50">Leave type:</label>
+      <select class="form-control h-100" [(ngModel)]="attendanceModel.leaveType">
+        <option value="Vacation">Vacation</option>
+        <option value="Sick">Sick</option>
+        <option value="Personal">Personal</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+    <ng-container *ngIf="leaveType == 'full-day'">
+      <div class="form-group d-flex align-items-center gap-5 w-100">
+        <label class="label_style w-50">Start Date:</label>
+        <input type="date"
+               class="form-control"
+               [(ngModel)]="attendanceModel.leaveStartDate"
+               disabled />
+      </div>
+      <div class="form-group d-flex align-items-center gap-5 w-100">
+        <label class="label_style w-50">End Date:</label>
+        <input type="date"
+               class="form-control"
+               [(ngModel)]="attendanceModel.leaveEndDate" />
+      </div>
+    </ng-container>
+    <ng-container *ngIf="leaveType == 'half-day' || leaveType == 'short-leave'">
+      <div class="form-group d-flex align-items-center gap-5 w-100">
+        <label class="label_style w-50">Time From:</label>
+        <input type="time" class="time-picker w-100" step="900" [(ngModel)]="attendanceModel.leaveTimeFrom"
+               (ngModelChange)="leaveTimeFrom=convertToAMPM($event)">
+      </div>
+      <div class="form-group d-flex align-items-center gap-5 w-100">
+        <label class="label_style w-50">Time To:</label>
+        <input type="time" class="time-picker w-100" step="900" [(ngModel)]="attendanceModel.leaveTimeTo"
+               (ngModelChange)="leaveTimeTo=convertToAMPM($event)">
+      </div>
+    </ng-container>
+    <div class="form-group d-flex align-items-center gap-5 w-100">
+      <label class="label_style w-50">Reason For Leave:</label>
+      <textarea id="reason"
+                name="reason"
+                rows="1"
+                class="form-control"
+                cols="5"
+                [(ngModel)]="attendanceModel.comment"></textarea>
+    </div>
+  </div>
+  <div class="my-5 text-center">
+    <button class="btn save-button col-6" [disabled]="tabNumber==1 && isDisableAttendaceSave"
+            (click)="addAttendance(tabNumber)">
+      Save
+    </button>
+  </div>
+</div>

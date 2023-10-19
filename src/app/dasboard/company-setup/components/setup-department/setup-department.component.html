@@ -1,0 +1,127 @@
+<!-- <div class="d-flex justify-content-end">
+  <button  class="nextBtn" (click)=" addDepartment()" >NEXT
+  </button>
+</div> -->
+<div class="main-page">
+    <div class="form-wid">
+      <div class="p-3">
+        <div class="applys">
+          <div class="create">Add New Department</div>
+        </div>
+
+      <div class=" ">
+        <div class="">
+          
+          <div class="form-group">
+           <div class="d-flex w-100 justify-content-between">
+            <div class="w-100 d-flex justify-content-end">
+              <i class="guide fa fa-info-circle" data-bs-toggle="tooltip" data-bs-html="true" title="Office Location">  </i>
+            </div>
+           </div>
+            <select [ngClass]="{'invalid-field': officeLocationId==0 && !isValid}" [(ngModel)]="officeLocationId" class="form-control">
+              <option value="0">Office Location</option>
+              <ng-container *ngFor="let o of listLookup.officeLocationDDL">
+                <option [value]="o.officeId">{{o.officeLocationName | officeLocationName}}</option>
+              </ng-container>
+            </select>
+          </div>
+
+          <div>
+            <div class="w-100 d-flex justify-content-end">
+              <i class="guide fa fa-info-circle" data-bs-toggle="tooltip" data-bs-html="true" title="Enter the department name">  </i>
+            </div>
+            <input class="form-control" [ngClass]="{'invalid-field': !selectedOptions || selectedOptions.length==0 && !isValid}"
+               [(ngModel)]="departmentName"
+               (keyup)="filterOptions()"
+               type="text"
+               placeholder="Enter Department Name"
+               (keyup.enter)="addOption('')" />
+
+        <div *ngFor="let option of filteredOptions" (click)="addOption(option)">
+          {{ option }}
+        </div>
+
+        <div>
+          <h6 *ngIf="showSelectedSkill" class="mt-2 text-muted">Selected Department Type</h6>
+          <div *ngFor="let option of selectedOptions" class="chip">
+
+            {{ option }}
+            <button (click)="removeOption(option)">x</button>
+          </div>
+        </div>
+
+        <div class="listing mt-2">
+          <h6 class="mt-2 text-muted" style="font-size: 12px;">Suggested Department Types :</h6>
+          <ul class="d-flex gap-2">
+            <li *ngIf="ItemShowft" (click)="addOption(option1)">{{option1 | titlecase}}</li>
+            <li *ngIf="ItemShowpt" (click)="addOption(option2)">{{option2 | titlecase}}</li>
+            <li *ngIf="ItemShowint" (click)="addOption(option3)">{{option3 | titlecase}}</li>
+          </ul>
+        </div>
+      </div>
+          <!-- end -->
+      <div>
+        <div class="d-flex justify-content-center">
+          <button  class="nextBtn" (click)=" addDepartment()" >NEXT
+          </button>
+        </div>
+      </div>
+        </div>
+
+        <!-- <div class="d-flex align-items-end">
+          <button type="submit" class="add_btn" (click)="switchViewTab()">Add</button>
+        </div> -->
+        
+      </div>
+
+
+
+      <!-- <div class="text-center"><button type="submit" class="btn btn_submit text-white mt-5" (click)="applyJob()">SUBMIT</button></div> -->
+    </div>
+  </div>
+</div>
+
+<!-- table -->
+<div class="employee-attendace-section">
+  <!-- <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+    <div class="main-heading">Departments</div>
+  </div> -->
+  <div class="mt-3 table-responsive">
+    <div #attendanceHistoryContainer></div>
+    <table class="table table-borderless">
+      <thead>
+        <tr>
+          <th>Serial No.</th>
+          <th>Office Location</th>
+          <th>Department</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let dept of departmentList">
+          <th scope="row">{{dept.departmentId}}</th>
+          <td>{{dept.officeLocationName}}</td>
+          <td class="emp-name">
+            <ng-container *ngIf="dept.editableMode">
+              <input type="text" [(ngModel)]="dept.departmentName" />
+            </ng-container>
+            <ng-container *ngIf="!dept.editableMode">
+              {{dept.departmentName}}
+            </ng-container>
+          </td>
+          <td>
+            <div class="d-flex gap-3">
+              <!-- Show the edit and remove icons -->
+              <i class=" " (click)="editabeMode(dept)" *ngIf="!dept.editableMode"> <img src="/assets/icons/Edit-Square.png" alt=""></i>
+              <!-- Show the save and cancel icons -->
+              <i class="fa fa-save blockquote text-success" (click)="saveChanges(dept)" *ngIf="dept.editableMode"></i>
+              <i class="fa fa-times blockquote text-danger" (click)="cancelEdit()" *ngIf="dept.editableMode"></i>
+              <i class="" (click)="deleteConfirmationPopup(dept.departmentId)"><img src="/assets/icons/Delete.png" alt=""></i>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div #deleteContainer></div>
+  </div>
+</div>

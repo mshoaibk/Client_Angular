@@ -1,0 +1,117 @@
+<!-- <div class="d-flex justify-content-end">
+  <button class="nextBtn" (click)="addEmploymentType()" >NEXT
+  </button>
+</div> -->
+<div class="main-page">
+  <div class="form-wid">
+    <div class=" p-3">
+      <div class="applys">
+        <div class="create">Add New Employment Type</div>
+      </div>
+
+      <div>
+        <div>
+          <div class="form-group ">
+  <div class="d-flex justify-content-between w-100">
+              
+                <!-- <label class="label_style" for="company_name"> Type of Employment<span class="stearic">*</span></label> -->
+                  <div class="w-100 d-flex justify-content-end">
+                    <i class="guide fa fa-info-circle" data-bs-toggle="tooltip" data-bs-html="true" title="Enter the type of employment">  </i>
+                  </div>
+                </div>
+
+              <div>
+                  <input class="form-control" [ngClass]="{'invalid-field': !employmentTypeRequest.employmentType && !isValid}"
+                     [(ngModel)]="employmentType"
+                     (keyup)="filterOptions()"
+                     type="text"
+                     placeholder="Type of Employment"
+                     (keyup.enter)="addOption('')" />
+
+              <div *ngFor="let option of filteredOptions" (click)="addOption(option)">
+                {{ option }}
+              </div>
+
+              <div>
+                <h6 *ngIf="showSelectedSkill" class="mt-2 text-muted">Selected Employment Type</h6>
+                <div *ngFor="let option of selectedOptions" class="chip">
+
+                  {{ option }}
+                  <button (click)="removeOption(option)">x</button>
+                </div>
+              </div>
+
+              <div class="listing mt-2">
+                <h6 class="mt-2 text-muted" style="font-size: 12px;">Suggested Employment Types :</h6>
+                <ul class="d-flex gap-2">
+                  <li *ngIf="ItemShowft" (click)="addOption(option1)">{{option1 |titlecase}}</li>
+                  <li *ngIf="ItemShowpt" (click)="addOption(option2)">{{option2 |titlecase}}</li>
+                  <li *ngIf="ItemShowint" (click)="addOption(option3)">{{option3 |titlecase}}</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- <input  placeholder="Select" type="text" class="form-control" [ngClass]="{'invalid-field': !employmentTypeRequest.employmentType && !isValid}"
+                   [(ngModel)]="employmentTypeRequest.employmentType"> -->
+
+          </div>
+          <div>
+            <div class="d-flex justify-content-center">
+              <button class="nextBtn" (click)="addEmploymentType()" >NEXT
+              </button>
+            </div>
+          </div>
+
+        </div>
+        <!-- <div class="d-flex align-items-start mt-4 col-12 col-md-3">
+          <button type="submit" class="add_btn w-100" (click)="addEmploymentType()">Add</button>
+        </div> -->
+
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- table -->
+<div class="employee-attendace-section mt-2">
+  <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+    <div class="main-heading">Employments</div>
+  </div>
+  <div class="mt-3 table-responsive">
+    <table class="table table-borderless">
+      <thead>
+        <tr>
+          <th>Serial No.</th>
+          <th>Employment Type</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let t of employmentTypeResponse">
+          <th scope="row">{{t.employmentTypeId}}</th>
+          <td class="emp-name">
+            <ng-container *ngIf="t.editableMode">
+              <input type="text" [(ngModel)]="t.employmentType" />
+            </ng-container>
+            <ng-container *ngIf="!t.editableMode">
+              {{t.employmentType}}
+            </ng-container>
+          </td>
+          <td>
+            <div class="d-flex gap-3">
+              <!-- Show the edit and remove icons -->
+              <i (click)="editabeMode(t)" *ngIf="!t.editableMode"><img src="/assets/icons/Edit-Square.png" alt=""></i>
+              <!-- Show the save and cancel icons -->
+              <i class="fa fa-save blockquote text-success" (click)="saveChanges(t)" *ngIf="t.editableMode"></i>
+              <i class="fa fa-times blockquote text-danger" (click)="cancelEdit()" *ngIf="t.editableMode"></i>
+              <i (click)="deleteConfirmationPopup(t.employmentTypeId)"><img src="/assets/icons/Delete.png" alt=""></i>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div #deleteContainer></div>
+  </div>
+</div>

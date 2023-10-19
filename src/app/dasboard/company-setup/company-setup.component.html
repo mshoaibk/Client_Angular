@@ -1,0 +1,24 @@
+<div class="main_page bg-white">
+
+  <!-- tab selection -->
+  <div class="tab-section d-flex flex-wrap">
+    <div role="button" [ngClass]="showView=='o'?'tab-active':'tab'" (click)="switchViewTab('o')">Office Setup</div>
+    <div role="button" [ngClass]="showView=='d'?'tab-active':'tab'" (click)="switchViewTab('d')">Depatment Setup</div>
+    <div role="button" [ngClass]="showView=='t'?'tab-active':'tab'" (click)="switchViewTab('t')">Team Setup</div>
+    <div role="button" [ngClass]="showView=='p'?'tab-active':'tab'" (click)="switchViewTab('p')">Position/Designation Setup</div>
+    <div role="button" [ngClass]="showView=='e'?'tab-active':'tab'" (click)="switchViewTab('e')">Employment Type Setup</div>
+    <div role="button" [ngClass]="showView=='es'?'tab-active':'tab'" (click)="switchViewTab('es')">Shift Setup</div>
+    <div role="button" [ngClass]="showView=='role'?'tab-active':'tab'" (click)="switchViewTab('role')">Employee Roles</div>
+    <div role="button" [ngClass]="showView=='hierarchy'?'tab-active':'tab'" (click)="switchViewTab('hierarchy')">Position Hierarchy Management</div>
+
+  </div>
+  <app-setup-office (updateevent)="updateDepartment($event)" *ngIf="showView=='o'"></app-setup-office>
+  <app-setup-department (updateevent)="updateTeam($event)" #empLeave *ngIf="showView=='d'"></app-setup-department>
+  <app-setup-team (updateevent)="updatePosition($event)" *ngIf="showView=='t'"></app-setup-team>
+  <app-setup-position (updateevent)="updateEmployment($event)" *ngIf="showView=='p'"></app-setup-position>
+  <app-setup-employment-type (updateevent)="updateOnboard($event)" *ngIf="showView=='e'"></app-setup-employment-type>
+  <app-setup-total-leaves (updateevent)="updateLeaves($event)" *ngIf="showView=='te'"></app-setup-total-leaves>
+  <app-setup-shift-type (updateevent)="updateShifts($event)" *ngIf="showView=='es'"></app-setup-shift-type>
+  <app-setup-roles (updateevent)="updateRoles($event)" *ngIf="showView=='role'"></app-setup-roles>
+  <app-position-hierarchy-management (updateevent)="updateHierarchy($event)" *ngIf="showView=='hierarchy'"></app-position-hierarchy-management>
+</div>

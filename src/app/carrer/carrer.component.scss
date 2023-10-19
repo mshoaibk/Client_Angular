@@ -1,0 +1,315 @@
+.hrms {
+  font-style: normal;
+  font-weight: 650;
+  font-size: 40px;
+  line-height: 49px;
+  text-align: left;
+  text-transform: capitalize;
+  color: #095F8F;
+  text-decoration: none;
+}
+
+.fixed-top {
+  position: sticky !important;
+  top: 0;
+  /* right: 0; */
+  /* left: 0; */
+  z-index: 1030;
+}
+
+.login {
+  background: #095F8F;
+  border-radius: 10px;
+  border: 0px;
+  color: white;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.btn1_signup {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  color: #095F8F;
+  border: 0px;
+  background-color: white;
+}
+
+.btn2_signup {
+  text-decoration: none;
+  background: #095F8F;
+  border-radius: 10px;
+  color: white;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.navbar_button {
+  background-color: #c7c7c7;
+  color: #095f8f;
+  border: none;
+  border-color: white;
+}
+
+.jobs-link {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  color: #095F8F;
+  border-bottom: 6px solid #095F8F;
+}
+
+.company {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  color: #c7cfd3;
+}
+
+.background-img {
+  background-image: url(https://cdn.pixabay.com/photo/2015/01/08/18/26/man-593333_960_720.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  width: 100%;
+  position: absolute;
+  height: 70vh;
+}
+
+.headings {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 50px;
+  width: 100%;
+  color: #FFFFFF;
+}
+
+.para {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  width: 100%;
+  line-height: 30px;
+  color: #FFFFFF;
+}
+
+input {
+  border-radius: 10px;
+  height: 50px;
+}
+
+.btn {
+  width: 183.14px;
+  height: 46.38px;
+  left: 1264.5px;
+  top: 433px;
+  background: #095F8F;
+  border-radius: 10px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #FFFFFF;
+  margin-left: 20%;
+}
+
+.left-sec {
+  width: 30%;
+  height: 100vh;
+  background-color: white;
+  border-radius: 30px;
+  margin-left: 5%;
+  border: 1px solid #C6C6C6;
+  // margin-top: 5%;
+  // margin-left: 10%;
+}
+
+.right-sec {
+  width: 50%;
+  background-color: white;
+  border-radius: 30px;
+  height: 100%;
+  margin-left: 2%;
+  border: 1px solid #C6C6C6;
+  margin-bottom: 2%;
+}
+
+.top-head {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  color: #373131;
+}
+
+.img-card {
+  width: 150px;
+  height: 130px;
+  margin-left: 15%;
+  border-radius: 10px;
+}
+
+.card-head {
+  left: 227.5px;
+  top: 630px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #373131;
+}
+
+.card-text {
+  left: 227.5px;
+  top: 663px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #8A8A8A;
+}
+
+.card-ven {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #373131;
+}
+
+.card-time {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #8A8A8A;
+}
+
+.right-img {
+  width: 110px;
+  height: 110px;
+  margin-left: 30%;
+  border-radius: 10px;
+}
+
+.venue-work {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  color: #8A8A8A;
+}
+
+.Apply-button {
+  margin-right: 10%;
+  margin-left: 5%;
+  padding-top: 2%;
+  width: 170px;
+  height: 40px !important;
+  background: #095F8F;
+  border-radius: 10px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.job-des {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: justify;
+  color: #8A8A8A;
+}
+
+.skills {
+  width: 160px;
+  height: 48px;
+  left: 652.5px;
+  top: 1144px;
+  background: #F5F5F5;
+  border-radius: 40px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000000;
+  text-align: center;
+  opacity: 0.5;
+}
+
+.headss {
+  font-size: 23px !important;
+}
+
+.marg {
+  // margin-left: 5%;
+  margin-right: 5%;
+}
+
+.for-moving-upp {
+  padding-top: 25%;
+  position: relative;
+}
+
+.alig {
+  margin-top: 2rem;
+  width: 100%;
+  padding-left: 6rem;
+}
+
+.select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.select-wrapper .select-dropdown {
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  overflow-y: auto;
+  max-height: 200px;
+}
+
+.select-wrapper .select-dropdown li {
+  display: block;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.select-wrapper .select-dropdown li:hover {
+  background-color: #f2f2f2;
+}
+
+.selected {
+  background-color: lightgray;
+}

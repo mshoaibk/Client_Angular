@@ -1,0 +1,91 @@
+// new
+.top-heading {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 57px;
+  color: #2b6282;
+}
+.top-short-description {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  color: #646768;
+}
+.top-description {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  color: #646768;
+}
+
+.popular_companies {
+  height: 73px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 32px;
+  line-height: 57px;
+  color: #095f8f;
+}
+
+.overlay {
+  z-index: 1;
+  padding: 0;
+  border: none;
+  background: rgba(68, 68, 68, 0.5);
+}
+
+.slider {
+  background-color: #e0e0e0;
+  height: 400px;
+}
+
+.img {
+  height: 142px;
+  width: 150px;
+}
+
+.card {
+  height: 142px;
+  width: 150px;
+  border-radius: 38px;
+}
+
+.job_posting {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 80.064px;
+  line-height: 86px;
+  color: #ffffff;
+}
+.sliderrr {
+  width: 15% !important;
+}
+.hire_talent {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 30px;
+  color: #FFFFFF;
+}
+.footer {
+  background-color: #223e4e;
+  height: 600px;
+  margin-bottom: 10%;
+}
+.footer_img{
+  height: 651.73px;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 0px;
+  margin-left: -15px;
+}

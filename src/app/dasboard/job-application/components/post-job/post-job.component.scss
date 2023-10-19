@@ -1,0 +1,314 @@
+.content_area {
+  border: 1px solid #c6c6c6;
+  border-radius: 20px;
+  width: 90%;
+  padding: 1% 2%;
+  max-height: calc(100vh - 140px);
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.content_area::-webkit-scrollbar {
+  width: 5px;
+  display: none;
+  border-radius: 1%;
+}
+
+.content_area::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 1%;
+}
+
+.content_area::-webkit-scrollbar-thumb {
+  background: #2b6282;
+  border-radius: 1%;
+}
+
+.content_area::-webkit-scrollbar-thumb:hover {
+  background: #2b6282;
+}
+
+.label_style {
+  font-size: 16px;
+  font-weight: 400;
+  color: #979494;
+  margin-bottom: 1%;
+}
+
+.select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.select-wrapper .select-dropdown {
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  overflow-y: auto;
+  max-height: 200px;
+}
+
+.select-wrapper .select-dropdown li {
+  display: block;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.select-wrapper .select-dropdown li:hover {
+  background-color: #f2f2f2;
+}
+
+quill-editor {
+  height: 150px;
+  width: 100%;
+}
+
+.chip {
+  display: inline-flex;
+  width: fit-content;
+  background-color: #095f8f;
+  border-radius: 10px;
+  font-size: 16px;
+  color: #fff;
+  padding: 1% 2%;
+  margin-bottom: 1%;
+  margin-right: 2%;
+}
+
+.chip button {
+  background-color: transparent;
+  border: none;
+  margin-left: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.activeSubMenu {
+  color: #095f8f !important;
+  font-weight: bold !important;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  text-decoration: none;
+  margin-right: 8%;
+}
+
+.create {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 57px;
+  color: #095f8f;
+}
+
+.job_post {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  color: #646768;
+}
+
+.job_bar {
+  margin-bottom: 2%;
+}
+
+.job_bar a {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  color: #a0a0a0;
+  text-decoration: none;
+  margin-right: 8%;
+  cursor: pointer;
+}
+
+.btn_submit {
+  background: #095f8f;
+}
+
+.container-fluid {
+  background: #f5f5f5;
+}
+
+input {
+  border: 1px solid #ccc;
+  padding: 5px;
+  font-size: 16px;
+  width: 100%;
+}
+
+.dropdown {
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+.btn-White-Text-Color {
+  color: white;
+}
+
+.invalid-field {
+  border-color: red !important;
+}
+
+
+/* On screens that are 776px or less*/
+@media screen and (max-width: 776px) {
+  .create {
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 37px;
+  }
+
+  .job_post {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 35px;
+    color: #646768;
+  }
+
+  .job_bar a {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .create {
+    font-weight: 700;
+    font-size: 38px;
+    line-height: 30px;
+  }
+
+  .job_post {
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 28px;
+    color: #646768;
+  }
+
+  .job_bar a {
+    font-size: 14px;
+  }
+}
+
+/* Styles for the progress bar */
+.progress-bar {
+  margin-left: 5%;
+  border-radius: 20px;
+  width: 15%;
+  height: 10px;
+  background-color: #E3E3E3;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.progress_bar_two {
+  margin-left: 5%;
+  border-radius: 20px;
+  width: 10%;
+  height: 10px;
+  background-color: #E3E3E3;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.progress_bar_three {
+  margin-left: 5%;
+  border-radius: 20px;
+  width: 5%;
+  height: 10px;
+  background-color: #E3E3E3;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+// step2
+.progress-bar_four {
+  margin-left: 9%;
+  border-radius: 20px;
+  width: 15%;
+  height: 10px;
+  background-color: #E3E3E3;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.progress_bar_five {
+  margin-left: 5%;
+  border-radius: 20px;
+  width: 10%;
+  height: 10px;
+  background-color: #E3E3E3;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.progress_bar_six {
+  margin-left: 5%;
+  border-radius: 20px;
+  width: 5%;
+  height: 10px;
+  background-color: #E3E3E3;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.progress {
+  height: 100%;
+  background-color: #18A62E;
+  width: 1;
+  transition: width 0.3s ease-in-out;
+}
+
+.stepper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* Align vertically centered */
+  position: relative;
+  margin-bottom: -20px;
+  z-index: 1;
+}
+
+.steps {
+  width: 30px;
+  height: 30px;
+  padding: 3px;
+  border-radius: 50%;
+  margin-left: -3px;
+  font-size: 20px;
+  text-align: center;
+  line-height: 20px;
+  background-color: #E3E3E3;
+  cursor: pointer;
+  color: white;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.steps.active {
+  background-color: #18A62E;
+  color: #fff;
+}
+
+.steps.visited {
+  background-color: #18A62E;
+  color: #fff;
+}
+.pre_btn{
+  background-color: rgb(212, 49, 49);
+  color: white;
+  border: none;
+  height: 35px;
+  width: 35px;
+  border-radius: 50px;
+}

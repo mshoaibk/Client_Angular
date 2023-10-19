@@ -1,0 +1,119 @@
+<div class="main_page bg-light">
+  <div class="top-section d-flex justify-content-between">
+    <div class="d-flex gap-2 align-items-center">
+      <i
+        role="button"
+        [routerLink]="['/dashboard/attendance-system']"
+        class="fa fa-solid fa-arrow-left"
+      ></i>
+      <div class="emp-name text-center">
+        {{ employeeName }}
+      </div>
+    </div>
+    <div>
+      <div class="d-flex mt-3 mt-md-0">
+        <div role="button" class="button-right">CSV</div>
+        <div role="button" class="button-right mx-3">PDF</div>
+        <div role="button" class="button-right">PRINT</div>
+      </div>
+    </div>
+  </div>
+  <!-- filter section start -->
+  <div class="d-flex justify-content-end text-center gap-3">
+    <div class="">
+      <select
+        class="form-select"
+        [(ngModel)]="monthValue"
+        (change)="onChangeDateFilter($event, 'm')"
+      >
+        <option selected value="1">January</option>
+        <option value="2">February</option>
+        <option value="3">March</option>
+        <option value="4">April</option>
+        <option value="5">May</option>
+        <option value="6">June</option>
+        <option value="7">July</option>
+        <option value="8">August</option>
+        <option value="9">September</option>
+        <option value="10">October</option>
+        <option value="11">November</option>
+        <option value="12">December</option>
+      </select>
+    </div>
+    <div>
+      <select
+        class="form-select"
+        [(ngModel)]="yearValue"
+        (change)="onChangeDateFilter($event, 'y')"
+      >
+        <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+      </select>
+    </div>
+  </div>
+  <!-- calender sections design start -->
+  <div>
+    <div #attendanceContainer></div>
+    <div #deletePopup></div>
+    <table>
+      <tr>
+        <th class="wid-tuple" *ngFor="let weekDay of weekDaysName">
+          {{ weekDay }}
+        </th>
+      </tr>
+      <tr *ngFor="let attendaceRow of showCalendarView">
+        <td class="attendenceBox" *ngFor="let day of attendaceRow" [class.inactive]="!day">
+          <div class=" d-flex justify-content-between h-100 align-items-center">
+            <div *ngIf="day && day.attendanceDateNum">
+              <div class="d-flex justify-content-between">
+                <div [class.current-day]="day.attendanceDateNum == dayValue">{{ day.attendanceDateNum }}</div>
+              </div>
+            </div>
+            <div *ngIf="day && !day.attendanceStatus && (day.attendanceDateNum==dayValue || !CheckDate(day.attendanceDateNum))"
+                 (click)="addAttendancePopup(day)"><i class="fa-regular fa-circle-question"></i></div>
+
+            <div class="status-present" *ngIf="day && day.attendanceStatus=='Present'" [title]="checkAttendanceTime(day)">Present</div>
+            <div class="status-leave" *ngIf="day && day.attendanceStatus=='full-day'">Full Day</div>
+            <div class="status-short" *ngIf="day && day.attendanceStatus=='short-leave'" [title]="checkShortLeave(day)">Short Leave</div>
+            <div class="status-half" *ngIf="day && day.attendanceStatus=='half-day'" [title]="checkHalfDay(day)">Half Day</div>
+            <div class="WeeklyHoliday" *ngIf="day && day.attendanceStatus=='WeeklyHoliday'">WeeklyHoliday</div>
+            <div class="YearlyHoliday" *ngIf="day && day.attendanceStatus!='Present'&& day.attendanceStatus!='full-day'&& day.attendanceStatus!='short-leave'&& day.attendanceStatus!='half-day' && day.attendanceStatus!='WeeklyHoliday'&& day.attendanceStatus!='Absent'&& day.attendanceStatus!=null">{{day.attendanceStatus}}</div>
+            <div class="status-absent" *ngIf="day && day.employeeAttendanceID==0 && day.attendanceStatus=='Absent'">Absent</div>
+            <div class="actions h-100 d-flex flex-column justify-content-between"
+                 *ngIf="day && day.attendanceStatus">
+              <i class="edit_attendence" role="button" (click)="addAttendancePopup(day)"><img src="/assets/icons/Edit-Square.png" alt=""></i>
+              <!-- <i role="button" (click)="deleteAttendancePopup(day.employeeAttendanceID)"><img src="/assets/icons/Delete.png" alt=""></i> -->
+            </div>
+
+          </div>
+        </td>
+      </tr>
+      <!--<tr *ngFor="let week of weeks">
+      <td *ngFor="let day of week" [class.inactive]="!day">
+        <div class="d-flex justify-content-between h-100 align-items-center">
+          <div>
+            <div class="d-flex justify-content-between">
+              <div [class.current-day]="day == dayValue">{{ day }}</div>
+            </div>
+          </div>
+          <div class="status-present" *ngIf="day && checkAttendanceTime(day)" [title]="checkAttendanceTime(day)">Present</div>
+          <div class="status-leave" *ngIf="day && checkFullDay(day)" [title]="checkFullDay(day)">Full Day</div>
+          <div class="status-short" *ngIf="day && checkShortLeave(day)" [title]="checkShortLeave(day)">Short Leave</div>
+          <div class="status-half" tooltip="sadsa" *ngIf="day && checkHalfDay(day)" [title]="checkHalfDay(day)">Half Day</div>
+          <div class="status-absent" *ngIf="day && CheckDate(day) && !checkAttendanceTime(day) && !checkFullDay(day) && !checkShortLeave(day) && !checkHalfDay(day)">Absent</div>
+          <div *ngIf="day && !CheckDate(day) && !checkAttendanceTime(day) && !checkFullDay(day)
+             && !checkShortLeave(day) && !checkHalfDay(day)"
+               (click)="addAttendancePopup(day)"><i class="fa-regular fa-circle-question"></i></div>
+          <div class="h-100 d-flex flex-column justify-content-between">
+            <i role="button" class="fa fa-solid fa-edit"
+               *ngIf="(day && checkAttendanceTime(day) || checkFullDay(day)
+             || checkShortLeave(day) || checkHalfDay(day)) || CheckDate(day)" (click)="addAttendancePopup(day)"></i>
+            <i role="button" class="fa fa-solid fa-trash"
+               *ngIf="(day && checkAttendanceTime(day) || checkFullDay(day)
+             || checkShortLeave(day) || checkHalfDay(day)) || CheckDate(day)" (click)="deleteAttendancePopup(day)"></i>
+          </div>
+        </div>
+      </td>
+    </tr>-->
+    </table>
+  </div>
+</div>

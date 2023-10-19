@@ -1,0 +1,40 @@
+th {
+    color: #606771;
+    font-family: 'Inter';
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 16px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+}
+
+td {
+    color: #425466;
+    font-family: 'Inter';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+th {
+    background: #E5E5FB;
+}
+.borderless td, .borderless th {
+    border: none;
+}
+.add_holiday {
+    width: 116px;
+    height: 36px;
+    flex-shrink: 0;
+    color: var(--theme-white-default, #FFF);
+    font-family: 'Inter';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 12px;
+    border-radius: 6px;
+    background: #2B6282;
+    border: 0;
+  }

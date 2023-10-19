@@ -1,0 +1,135 @@
+
+<div #ticketContainer></div>
+
+  <div class="d-flex gap-5">
+    <div class="w-25">
+        <!-- info bar -->
+        <div class="info_bar d-flex justify-content-between mb-4">
+            <div class="d-flex user">
+                <img src="../../../assets/images/employees-img/login-bg.jfif" alt="">
+                <p class="m-0 d-flex align-items-center">Your Info</p>
+            </div>
+            <div class="d-flex align-items-center">
+                <img *ngIf="isOpenInfo" (click)="infoToggles()" src="../../../assets/icons/up-chevron.png" alt="">
+                <img *ngIf="!isOpenInfo" (click)="infoToggle()" src="../../../assets/icons/down-chevron.png" alt="">
+            </div>
+        </div>
+        <!-- info -->
+        <div *ngIf="info" class="status_section">
+            <div class="">
+                <p>Ahmed,</p>
+                <p>From Islamabad House No23</p>
+                <p>Street No 2. </p>
+                <p>Pakistan</p>
+            </div>
+        
+        </div>
+       
+        <!-- staus -->
+        <div class="status_section mt-4">
+            <div class="d-flex justify-content-between">
+                <p>Status</p>
+                <p>Active <i class="fa fa-solid fa-circle circle-icon ms-3" style="color: #2ac252;"></i></p>
+            </div>
+            <div class="d-flex justify-content-between">
+                <p>Add Ticket</p>
+                <img (click)="openChatPopup('save')" src="../../../assets/icons/plusbtn.png" width="30" height="30" alt="">
+            </div>
+            <div>
+                <p>Billing</p>
+                <p>Account</p>
+            </div>
+        
+        </div>
+         <!-- btn-->
+         <div class="d-flex justify-content-center mb-4 mt-4">
+            <button class="btn update_btn"><img class="me-3" src="../../../assets/icons/pen.png" alt="">Updates</button>
+            </div>
+    </div>
+
+    <div class="w-75">
+        <!-- cards -->
+            <div class="d-flex gap-5 justify-content-center">
+                <div class="card_body d-flex flex-column justify-content-between " >
+                   <div class="d-flex justify-content-center mt-4">
+                     <img src="../../../assets/icons/services.png" width="35" alt="">
+                    </div>
+                    <div class="card_inner d-flex justify-content-between">
+                        <p>5</p>
+                        <p>Services</p>
+                    </div>
+                </div>
+
+                <div class="card_body d-flex flex-column justify-content-between " >
+                    <div class="d-flex justify-content-center mt-4">
+                      <img src="../../../assets/icons/ticket.png" width="35" alt="">
+                     </div>
+                     <div class="card_inner d-flex justify-content-between">
+                         <p>5</p>
+                         <p>Ticket</p>
+                     </div>
+                 </div>
+
+                 <div class="card_body d-flex flex-column justify-content-between " >
+                    <div class="d-flex justify-content-center mt-4">
+                      <img src="../../../assets/icons/invoice.png" width="35" alt="">
+                     </div>
+                     <div class="card_inner d-flex justify-content-between">
+                         <p>5</p>
+                         <p>Invoice</p>
+                     </div>
+                 </div>
+            </div>
+<!-- 
+                    <div class="quill_main mt-4">
+                      <quill-editor [(ngModel)]="descriptionBody"> </quill-editor>
+                    </div> -->
+                    <!-- table -->
+<div class="employee-attendace-section">
+    <!-- <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+      <div class="main-heading">Departments</div>
+    </div> -->
+    <div class="mt-3 table-responsive">
+      <div #attendanceHistoryContainer></div>
+      <table class="table table-borderless">
+        <thead>
+          <tr>
+            <th>Ticket ID</th>
+            <th>Ticket Name</th>
+            <th>Creation Date</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr >
+            <th scope="row">1</th>
+            <td>2</td>
+            <td class="emp-name">3
+              <!-- <ng-container *ngIf="dept.editableMode">
+                <input type="text" [(ngModel)]="dept.departmentName" />
+              </ng-container>
+              <ng-container *ngIf="!dept.editableMode">
+                {{dept.departmentName}}
+              </ng-container> -->
+            </td>
+            <td>4
+              <!-- <div class="d-flex gap-3">
+                <i class=" " (click)="editabeMode(dept)" *ngIf="!dept.editableMode"> <img src="/assets/icons/Edit-Square.png" alt=""></i>
+                <i class="fa fa-save blockquote text-success" (click)="saveChanges(dept)" *ngIf="dept.editableMode"></i>
+                <i class="fa fa-times blockquote text-danger" (click)="cancelEdit()" *ngIf="dept.editableMode"></i>
+                <i class="" (click)="deleteConfirmationPopup(dept.departmentId)"><img src="/assets/icons/Delete.png" alt=""></i>
+              </div> -->
+            </td>
+            <td class="gap-2 d-flex">
+                <img src="/assets/icons/Edit-Square.png" alt="">
+                <img src="/assets/icons/Delete.png" alt="">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div #deleteContainer></div>
+    </div>
+  </div>
+    </div>
+  </div>

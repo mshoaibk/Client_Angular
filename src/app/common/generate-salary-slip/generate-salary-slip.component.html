@@ -1,0 +1,57 @@
+<div class="dialog-overlay"></div>
+<div class="dialog-container">
+  <div class="dialog-header">
+    <h2 class="dialog-title">Generate Salary Slip</h2>
+    <button class="close-button" (click)="closeSalaryForm()">Close</button>
+  </div>
+  <div class="dialog-content" style="text-align: left;">
+    <div class="form-group">
+      <label for="month" class="label_style">Year:</label>
+      <select id="month" name="month" class="form-control" [(ngModel)]="employeeSalarySlip.year">
+        <option value="0">Please Select Year</option>
+        <option *ngFor="let year of years" [value]="year">{{year}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="month" class="label_style">Month:</label>
+      <select id="month" name="month" class="form-control" [(ngModel)]="employeeSalarySlip.month">
+        <option value="">Please Select Month</option>
+        <option value="Jan">January</option>
+        <option value="Feb">February</option>
+        <option value="Mar">March</option>
+        <option value="Apr">April</option>
+        <option value="May">May</option>
+        <option value="Jun">June</option>
+        <option value="Jul">July</option>
+        <option value="Aug">August</option>
+        <option value="Sep">September</option>
+        <option value="Oct">October</option>
+        <option value="Nov">November</option>
+        <option value="Dec">December</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="paidOn" class="label_style">Paid On:</label>
+      <input type="date" id="paidon" name="paid-on" class="form-control" [(ngModel)]="employeeSalarySlip.paidOn">
+    </div>
+    <div class="form-group">
+      <label class="label_style" for="basic-pay">Basic Pay: ({{employeeSalarySlip.currency}})</label>
+      <input type="number" id="basic-pay" name="basic-pay" class="form-control" [(ngModel)]="employeeSalarySlip.basicPay" (ngModelChange)="calculateNetSalary()">
+    </div>
+    <div class="form-group">
+      <label class="label_style" for="allowances">Allowances:</label>
+      <input type="number" id="allowances" name="allowances" class="form-control" [(ngModel)]="employeeSalarySlip.allowances" (ngModelChange)="calculateNetSalary()">
+    </div>
+    <div class="form-group">
+      <label class="label_style" for="deductions">Deductions:</label>
+      <input type="number" id="deductions" name="deductions" class="form-control" [(ngModel)]="employeeSalarySlip.deductions" (ngModelChange)="calculateNetSalary()">
+    </div>
+    <div class="form-group">
+      <label class="label_style" for="net-salary">Net Salary:</label>
+      <input type="number" id="net-salary" name="net-salary" class="form-control" disabled [(ngModel)]="employeeSalarySlip.netSalary">
+    </div>
+  </div>
+  <div class="dialog-footer">
+    <button class="okay-button" (click)="saveEmployeeSalarySlip()">Save</button>
+  </div>
+</div>

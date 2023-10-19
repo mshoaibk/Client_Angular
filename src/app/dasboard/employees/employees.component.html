@@ -1,0 +1,126 @@
+<div class="main_page">
+  <div class="filter-section">
+    <div class="d-flex flex-column flex-sm-row flex-xs-row align-items-center gap-2">
+      <div class="input-group mb-0">
+        <input type="text" class="search_bar form-control" placeholder="Search by Name" aria-label="Search" (keyup)="filterSuggestions()" [(ngModel)]="searchEmployeesRqst.employeeName" (focus)="touchedSuggestedtext=false" />
+        <span class="clear-icon" (click)="clearSearch()">
+          <i class="fas fa-times"></i>
+        </span>
+        <ul class="suggestions-list" *ngIf="searchEmployeesRqst.employeeName && !touchedSuggestedtext">
+          <li *ngFor="let suggestion of filteredSuggestions" (click)="selectSuggestion(suggestion.employeeName)">{{ suggestion.employeeName }}</li>
+        </ul>
+      </div>
+      <div id="btn_postjobs" class="add-employee-button">
+        <button class="add-employee-btn" [routerLink]="['/dashboard/employees/add-employee']">
+          Add Employee
+        </button>
+      </div>
+    </div>
+    <div class="d-flex flex-wrap mt-3 align-items-center">
+      <label id="lbl_filters" for="" class="form-label me-3 filter-label">
+        Filters :
+      </label>
+      <div class="me-3 mt-2 mt-xl-0" style="width: 200px;">
+        <select class="form-select p-2" style="height: 40px;" aria-label="Default select example" [(ngModel)]="searchEmployeesRqst.employmentType" (change)="getEmployeeBasicDetailForCompany()">
+          <option value="">Employment Type</option>
+          <ng-container *ngFor="let et of listLookup.employmentTypeDDLResponse">
+            <option [value]="et.employmentTypeId">{{et.employmentTypeName}}</option>
+          </ng-container>
+        </select>
+      </div>
+      <div class="me-3 mt-2 mt-xl-0" style="width: 200px;">
+        <select class="form-control p-2" style="height:40px" [(ngModel)]="searchEmployeesRqst.location" (change)="getEmployeeBasicDetailForCompany()">
+          <option value="">Please select office</option>
+          <ng-container *ngFor="let o of listLookup.officeLocationDDL">
+            <option [value]="o.officeId">{{o.officeLocationName}}</option>
+          </ng-container>
+        </select>
+      </div>
+      <div class="me-3 mt-2 mt-xl-0" style="width: 200px;">
+        <select class="form-control p-2" style="height:40px" [(ngModel)]="searchEmployeesRqst.department" (change)="getEmployeeBasicDetailForCompany()">
+          <option value="">Please select department</option>
+          <ng-container *ngFor="let d of listLookup.departmentDDL">
+            <option [value]="d.departmentId">{{d.departmentName}}</option>
+          </ng-container>
+        </select>
+      </div>
+      <div class="me-3 mt-2 mt-xl-0" style="width: 200px;">
+        <select class="form-control p-2" style="height:40px" [(ngModel)]="searchEmployeesRqst.position" (change)="getEmployeeBasicDetailForCompany()">
+          <option value="">Please select position</option>
+          <ng-container *ngFor="let p of listLookup.positionDDL">
+            <option [value]="p.positionId">{{p.positionName}}</option>
+          </ng-container>
+        </select>
+      </div>
+      <div class="mt-2 mt-xl-0" style="width: 200px;">
+        <select class="form-control p-2" style="height:40px" [(ngModel)]="searchEmployeesRqst.employmentStatus" (change)="getEmployeeBasicDetailForCompany()">
+          <option value="">Employement Status</option>
+          <option value="all">All</option>
+          <option value="active">Active</option>
+          <option value="deactive">Deactive</option>
+        </select>
+      </div>
+      <div class="me-3 mt-2 mt-xl-0">
+        <button class="post_btn" (click)="getEmployeeBasicDetailForCompany()">
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- cards-sections-starts -->
+  <div class="d-flex flex-wrap justify-content-start gap-2">
+    <div class="card p-3 toggler" *ngFor="let emp of employeelist | paginate : config_pgEmployeeList;let i = index">
+      <div class="d-flex justify-content-between">
+        <div class="d-flex align-items-center toggler">
+          <img role="button" [routerLink]="['/dashboard/employees', emp.employeeID]" [src]="createImgPath(emp.employeePhoto, emp.photoType)" class="img-emp" alt="img-emp" />
+          <div class="mx-3 justify-content-between align-items-center h-100">
+            <h4>{{ emp.fullName }} </h4>
+            <h3>{{ emp.position }}</h3>
+            <h2>{{ emp.workType }}</h2>
+           
+          </div>
+        </div>
+        <!-- new drop down -->
+        <div class="dropdown show ">
+          <a class="fas fa-ellipsis-v" style='font-size:30px' role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-bs-haspopup="true" aria-bs-expanded="false"> </a>
+          
+          <div class="dropdown-menu" style="margin-left: -100px !important;" aria-bs-labelledby="dropdownMenuLink">
+          <div class="edit">
+            <ul>
+              <li><a (click)="editEmployee(emp.employeeID)" style="cursor: pointer;" class="link">Edit</a> </li>
+              <li><a (click)="deleteEmployee(emp.employeeID, emp.userID)" class="link" style="cursor: pointer;">Delete</a></li>
+            </ul>
+          </div>
+          </div>
+        </div>
+        <!-- end -->
+      </div>
+
+      <div class="d-flex mt-3">
+        <div class="dept">Department</div>
+        <div class="design ms-5">{{ emp.department }}</div>
+      </div>
+      <div class="d-flex mt-3 align-items-center">
+        <i class="fa fa-regular fa-envelope"></i>
+        <div class="ms-3 mails">{{ emp.email }}</div>
+      </div>
+      <div class="d-flex mt-3 align-items-center">
+        <i class="fa fa-solid fa-location-crosshairs"></i>
+        <div class="ms-3 loc">{{ emp.office }}</div>
+      </div>
+       <div class="mt-3 d-flex justify-content-end">
+        <!-- <i class="fa fa-solid fa-location-crosshairs"></i> -->
+         <div class="ms-3 loc">
+           {{emp.isActivated?'Activated':'Deactivated'}}
+           <label class="switch">
+            <input type="checkbox" checked  [(ngModel)]="emp.isActivated" (change)="OnChangeEmployeeStatus(emp.employeeID,$event,emp.fullName )">
+            <span class="slider round"></span>
+          </label>
+         </div>
+      </div>
+    </div>
+    <div #employeeEditContainer></div>
+    <div #employeeDeleteContainer></div>
+  </div>
+</div>

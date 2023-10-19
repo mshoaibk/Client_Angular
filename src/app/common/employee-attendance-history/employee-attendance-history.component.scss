@@ -1,0 +1,144 @@
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background color */
+  z-index: 9998; /* Make sure it's behind the popup */
+  backdrop-filter: blur(1px); /* Optional: add a blur effect to the background */
+}
+
+.dialog-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  padding: 1rem;
+  width: 80%;
+  max-width: 70rem;
+  max-height: 40rem;
+  z-index: 9999;
+}
+
+.dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.dialog-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.close-button {
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.dialog-content {
+  margin-bottom: 1rem;
+}
+
+.dialog-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.okay-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.okay-button:hover {
+  background-color: #0069d9;
+}
+
+.table-container {
+  max-height: 500px; /* Set the desired maximum height of the table container */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.table-container table thead {
+  position: sticky;
+  top: 0;
+  background-color: #e5e5fb; /* Set the desired background color for the sticky header */
+  box-shadow: inset 0px -1px 0px #edf2f7;
+  z-index: 1;
+}
+
+.table-container table thead th {
+  padding: 15px 10px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 16px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #606771;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.table-container table tbody tr {
+  border-bottom: 1px solid #edf2f7;
+}
+
+.status-present {
+  background: #2cc73b;
+  border-radius: 20px;
+  height: 27px;
+  width: 93px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.status-absent {
+  background: #ff3541;
+  border-radius: 20px;
+  height: 27px;
+  width: 93px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.status-leave {
+  background: #6f7670;
+  border-radius: 20px;
+  height: 27px;
+  width: 93px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}

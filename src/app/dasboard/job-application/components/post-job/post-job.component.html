@@ -1,0 +1,487 @@
+<div class="main">
+  <div class="bg-light d-flex justify-content-center">
+    <div class="content_area p-5 bg-white">
+      <div class="d-flex flex-column  justify-content-start gap-2 flex-wrap mb-2 mb-md-0">
+        <div class="d-flex justify-content-between ">
+          <div class="create">Create</div>
+          <div *ngIf="showPrevious">
+            <button class="fa fa-arrow-left pre_btn" (click)="prevSteper()"></button>
+          </div>
+        </div>
+        <div class="job_post mt-1 mb-2 mb-md-0">Job Post</div>
+      </div>
+      <!-- stepper work start -->
+      <div class="stepper mt-3">
+        <div class="steps" [ngClass]="{ 'active': currentStep === 1 , 'visited' : currentStep > 1 }">
+          1
+        </div>
+        <div class="steps" [ngClass]="{ 'active': currentStep === 2  , 'visited' : currentStep > 2  }">
+          2
+        </div>
+        <div class="steps" [ngClass]="{ 'active': currentStep === 3  }">
+          3
+        </div>
+      </div>
+      <div class="d-flex flex-row">
+        <!-- step 1 -->
+        <div class="progress-bar">
+          <div class="progress" [style.width.%]="progress"></div>
+        </div>
+        <div class="progress_bar_two">
+          <div class="progress" [style.width.%]="progress"></div>
+        </div>
+        <div class="progress_bar_three">
+          <div class="progress" [style.width.%]="progress"></div>
+        </div>
+        <!--  -->
+        <!-- step 2 -->
+        <div class="progress-bar_four">
+          <div class="progress" [style.width.%]="progresss"></div>
+        </div>
+        <div class="progress_bar_five">
+          <div class="progress" [style.width.%]="progresss"></div>
+        </div>
+        <div class="progress_bar_six">
+          <div class="progress" [style.width.%]="progresss"></div>
+        </div>
+        <!--  -->
+      </div>
+      <div *ngIf="activedStep == 0">
+        <div class="d-flex flex-column gap-3">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="label_style" for="company_name">Company Name<span class="stearic">*</span></label>
+                <input type="text" class="form-control" id="company_name" placeholder=""
+                  [(ngModel)]="jobComposeRqst.companyName"
+                  [ngClass]="{'invalid-field':!jobComposeRqst.companyName && !isValid}" />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="label_style" for="job_title">JobTitle<span class="stearic">*</span></label>
+                <input type="text" class="form-control" id="job_title" placeholder=""
+                  [(ngModel)]="jobComposeRqst.jobTitle"
+                  [ngClass]="{'invalid-field':!jobComposeRqst.jobTitle && !isValid}" />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="label_style" for="job_location">Job Location<span class="stearic">*</span></label>
+                <input type="text" class="form-control" id="job_location" placeholder=""
+                  [(ngModel)]="jobComposeRqst.jobLocation"
+                  [ngClass]="{'invalid-field':!jobComposeRqst.jobLocation && !isValid}" />
+              </div>
+            </div>
+          </div>
+          <!-- <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="label_style" for="job_location">Country:<span class="stearic">*</span></label>
+                <div class="select-wrapper">
+                  <div>
+                    <input type="text" id="country-input" class="form-control" name="country"
+                      placeholder="Search for a country..." [(ngModel)]="selectedCountry" (focus)="showList = true"
+                      (blur)="onInputBlur()" [ngClass]="{'invalid-field':!selectedCountry && !isValid}" />
+                    <ul class="select-dropdown" id="country-list" *ngIf="showList">
+                      <li *ngFor="
+                          let country of countries | filter : selectedCountry
+                        " (mousedown)="onSelect(country)">
+                        {{ country.name }}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="label_style" for="job_type">Job Type<span class="stearic">*</span></label>
+                <select class="form-control" id="job_type" [(ngModel)]="jobComposeRqst.jobTypeLoc"
+                  [ngClass]="{'invalid-field':!jobComposeRqst.jobTypeLoc && !isValid}">
+                  <option value="">Select Type</option>
+                  <option value="onsite">On Site</option>
+                  <option value="remote">Remote</option>
+                  <option value="hybrid">Hybrid</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group ">
+                <label class="label_style" for="no_of_hiring">Number of Hiring<span class="stearic">*</span></label>
+                <input type="number" class="form-control" id="no_of_hiring" placeholder=""
+                  [(ngModel)]="jobComposeRqst.noOfHiring"
+                  [ngClass]="{'invalid-field':!jobComposeRqst.noOfHiring && !isValid}" />
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="label_style" for="qualification">Qualification<span class="stearic">*</span></label>
+                <input type="text" class="form-control" id="qualification" placeholder=""
+                  [(ngModel)]="jobComposeRqst.qualification"
+                  [ngClass]="{'invalid-field':!jobComposeRqst.qualification && !isValid}" />
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="label_style" for="experience">Experience<span class="stearic">*</span></label>
+                <input type="text" class="form-control" id="experience" placeholder=""
+                  [(ngModel)]="jobComposeRqst.noOfExperience"
+                  [ngClass]="{'invalid-field':!jobComposeRqst.noOfExperience && !isValid}" />
+              </div>
+            </div>
+            <!-- <div class="col-md-6">
+              <div class="form-group">
+                <label class="label_style" for="experience_type">Experience Level<span class="stearic">*</span></label>
+                <select class="form-control" id="experience_type" [(ngModel)]="jobComposeRqst.experienceLevel"
+                  [ngClass]="{'invalid-field':!jobComposeRqst.experienceLevel && !isValid}">
+                  <option value="">Select Experience Level</option>
+                  <option value="midlevel">Mid-Level</option>
+                  <option value="expert">Expert</option>
+                  <option value="fresh">Fresh</option>
+                </select>
+              </div>
+            </div> -->
+          </div>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn_submit fw-bold px-5 btn-White-Text-Color mt-2"
+            (click)="validateBasicDetail()">
+            Next
+          </button>
+        </div>
+      </div>
+      <div *ngIf="activedStep == 1">
+        <div class="d-flex flex-column">
+          <div class="row">
+            <div class="mt-2">
+              <div class="form-group pe-0">
+                <label class="label_style" for="jobBenefit">Show Pay By</label>
+
+                <select class="form-control row m-0" id="jobBenefit" [(ngModel)]="jobComposeRqst.currency"
+                  [ngClass]="{'invalid-field':!jobComposeRqst.currency && !isValid}">
+                  <option value="">Select Currency</option>
+                  <option value="medical">PKR</option>
+                  <option value="dental">DOLLAR</option>
+                  <option value="vision">IND</option>
+                  <option value="life">CAD</option>
+                  <option value="retire">DHR</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="label_style" for="amountValue">Amount<span class="stearic">*</span></label>
+                <input type="number" class="form-control" id="amountValue" placeholder=""
+                  [(ngModel)]="jobComposeRqst.amount"
+                  [ngClass]="{'invalid-field':!jobComposeRqst.amount && !isValid}" />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="label_style" for="Maximum_salary">Maximum <span class="stearic">*</span></label>
+                <input type="number" id="Maximum_salary" class="form-control" placeholder=""
+                  [(ngModel)]="jobComposeRqst.salaryRangeFrom"
+                  [ngClass]="{'invalid-field':!jobComposeRqst.salaryRangeFrom && !isValid}" />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="label_style" for="minimum_salary">Minimum <span class="stearic">*</span></label>
+                <input type="number" id="minimum_salary" class="form-control" placeholder=""
+                  [(ngModel)]="jobComposeRqst.salaryRangeTo"
+                  [ngClass]="{'invalid-field':!jobComposeRqst.salaryRangeTo && !isValid}" />
+              </div>
+            </div>
+            <!-- <div class="col-md-6 mt-2">
+              <div class="form-group">
+                <label class="label_style" for="jobBenefit">Add Currency</label>
+               
+                <select class="form-control" id="jobBenefit" [(ngModel)]="jobComposeRqst.currency">
+                  <option value="">Select Currency</option>
+                  <option value="medical">PKR</option>
+                  <option value="dental">DOLLAR</option>
+                  <option value="vision">IND</option>
+                  <option value="life">CAD</option>
+                  <option value="retire">DHR</option>
+                </select>
+              </div>
+            </div> -->
+          </div>
+        </div>
+        <div class="text-center mt-4">
+          <button type="submit" class="btn btn_submit text-white fw-bold px-5" (click)="validateBenefits()">
+            Next
+          </button>
+        </div>
+      </div>
+      <div *ngIf="activedStep == 2">
+        <div class="d-flex flex-column">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="label_style" for="experience_type">Describe the Responsibilities of this Job</label>
+                <quill-editor [(ngModel)]="descriptionBody" (onContentChanged)="OnDescriptionContentChanged($event)">
+                </quill-editor>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="text-center">
+            <button type="submit" class="btn btn_submit text-white fw-bold px-5" (click)="PostJob()">
+              Post
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- details -->
+      <!-- <div class="d-flex flex-column gap-3" *ngIf="tabNumber == 1">
+        <div class="d-flex flex-column gap-3">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="label_style" for="job_title">JobTitle<span class="stearic">*</span></label>
+                <input type="text" class="form-control" id="job_title" placeholder=""
+                  [(ngModel)]="jobComposeRqst.jobTitle"
+                  [ngClass]="{'invalid-field':!jobComposeRqst.jobTitle && !isValid}" />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="label_style" for="job_location">Country:<span class="stearic">*</span></label>
+                <div class="select-wrapper">
+                  <div>
+                    <input type="text" id="country-input" class="form-control" name="country"
+                      placeholder="Search for a country..." [(ngModel)]="selectedCountry" (focus)="showList = true"
+                      (blur)="onInputBlur()" [ngClass]="{'invalid-field':!selectedCountry && !isValid}" />
+                    <ul class="select-dropdown" id="country-list" *ngIf="showList">
+                      <li *ngFor="
+                          let country of countries | filter : selectedCountry
+                        " (mousedown)="onSelect(country)">
+                        {{ country.name }}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="label_style" for="job_type">Job Type<span class="stearic">*</span></label>
+                <select class="form-control" id="job_type" [(ngModel)]="jobComposeRqst.jobTypeLoc"
+                  [ngClass]="{'invalid-field':!jobComposeRqst.jobTypeLoc && !isValid}">
+                  <option value="">Select Type</option>
+                  <option value="onsite">On Site</option>
+                  <option value="remote">Remote</option>
+                  <option value="hybrid">Hybrid</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="label_style" for="no_of_hiring">Number of Hiring<span class="stearic">*</span></label>
+                <input type="number" class="form-control" id="no_of_hiring" placeholder=""
+                  [(ngModel)]="jobComposeRqst.noOfHiring"
+                  [ngClass]="{'invalid-field':!jobComposeRqst.noOfHiring && !isValid}" />
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="label_style" for="qualification">Qualification<span class="stearic">*</span></label>
+                <input type="text" class="form-control" id="qualification" placeholder=""
+                  [(ngModel)]="jobComposeRqst.qualification"
+                  [ngClass]="{'invalid-field':!jobComposeRqst.qualification && !isValid}" />
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="label_style" for="experience">Required number of experience<span
+                    class="stearic">*</span></label>
+                <input type="text" class="form-control" id="experience" placeholder=""
+                  [(ngModel)]="jobComposeRqst.noOfExperience"
+                  [ngClass]="{'invalid-field':!jobComposeRqst.noOfExperience && !isValid}" />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="label_style" for="experience_type">Experience Level<span class="stearic">*</span></label>
+                <select class="form-control" id="experience_type" [(ngModel)]="jobComposeRqst.experienceLevel"
+                  [ngClass]="{'invalid-field':!jobComposeRqst.experienceLevel && !isValid}">
+                  <option value="">Select Experience Level</option>
+                  <option value="midlevel">Mid-Level</option>
+                  <option value="expert">Expert</option>
+                  <option value="fresh">Fresh</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <button type="submit" class="btn btn_submit fw-bold px-5 btn-White-Text-Color mt-2"
+            (click)="validateBasicDetail()">
+            Next
+          </button>
+        </div>
+      </div> -->
+
+      <!-- <div class="d-flex flex-column gap-4" *ngIf="tabNumber == 2">
+        <div class="d-flex flex-column gap-2">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="label_style" for="experience_type">What type of is it?<span
+                    class="stearic">*</span></label>
+                <select class="form-control" id="experience_type" [(ngModel)]="jobComposeRqst.jobType"
+                  [ngClass]="{'invalid-field':!jobComposeRqst.jobType && !isValid}">
+                  <option value="">Select Job Type</option>
+                  <option value="fulltime">Full-time</option>
+                  <option value="parttime">Part-time</option>
+                  <option value="temporary">Temporary</option>
+                  <option value="contract">Contract</option>
+                  <option value="internship">Internship</option>
+                  <option value="commission">Commission</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="label_style" for="jobBenefit">Which benefits does this job offer?
+                  <span>Optional</span></label>
+                
+                <select class="form-control" id="jobBenefit" [(ngModel)]="jobComposeRqst.jobBenefit">
+                  <option value="">Select Benefits</option>
+                  <option value="medical">Medical Insurance</option>
+                  <option value="dental">Dental Insurance</option>
+                  <option value="vision">Vision Insurance</option>
+                  <option value="life">Life Insurance</option>
+                  <option value="retire">Retirement Assistance</option>
+                  <option value="paid">Paid Vacation</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="label_style" for="experience_type">Key Responsibilities</label>
+                <quill-editor [(ngModel)]="keyRespBody" (onContentChanged)="OnKeyRespContentChanged($event)">
+                </quill-editor>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="label_style" for="experience_type">Required Skills</label>
+                <div>
+                  <div *ngFor="let option of selectedOptions" class="chip">
+                    {{ option }}
+                    <button (click)="removeOption(option)">x</button>
+                  </div>
+                  <input [(ngModel)]="inputValue" (keyup)="filterOptions()" type="text" placeholder="Type to search"
+                    (keyup.enter)="addOption('')" />
+                  <div *ngFor="let option of filteredOptions" (click)="addOption(option)">
+                    {{ option }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <button type="submit" class="btn btn_submit text-white fw-bold px-5" (click)="validateBenefits()">
+            Next
+          </button>
+        </div>
+      </div> -->
+
+      <!-- <div class="d-flex flex-column gap-4" *ngIf="tabNumber === 3">
+        <div class="d-flex flex-column">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="label_style" for="job_location">Salary Range(From)</label>
+                <input type="number" class="form-control" placeholder="" [(ngModel)]="jobComposeRqst.salaryRangeFrom" />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="label_style" for="job_location">Salary Range(To)</label>
+                <input type="number" class="form-control" placeholder="" [(ngModel)]="jobComposeRqst.salaryRangeTo" />
+              </div>
+            </div>
+            <div class="col-md-6 mt-2">
+              <div class="form-group">
+                <label class="label_style" for="jobBenefit">Add Currency</label>
+               
+                <select class="form-control" id="jobBenefit" [(ngModel)]="jobComposeRqst.currency">
+                  <option value="">Select Currency</option>
+                  <option value="medical">PKR</option>
+                  <option value="dental">DOLLAR</option>
+                  <option value="vision">IND</option>
+                  <option value="life">CAD</option>
+                  <option value="retire">DHR</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <button type="submit" class="btn btn_submit text-white fw-bold px-5" (click)="tabNumber = 4">
+            Next
+          </button>
+        </div>
+      </div> -->
+
+      <!-- <div class="d-flex flex-column gap-4" *ngIf="tabNumber == 4">
+        <div class="d-flex flex-column">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="label_style" for="experience_type">Describe the Responsibilities of this Job</label>
+                <quill-editor [(ngModel)]="descriptionBody" (onContentChanged)="OnDescriptionContentChanged($event)">
+                </quill-editor>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="text-center">
+            <button type="submit" class="btn btn_submit text-white fw-bold px-5" (click)="PostJob()">
+              Post
+            </button>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</div>

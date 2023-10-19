@@ -1,0 +1,13 @@
+<div class="main_page bg-light">
+  <!-- tab selection -->
+  <div class="d-flex p-3 align-items-center justify-content-between">
+    <div class="tab-section  d-flex " style="gap: 6rem;">
+      <div role="button" [ngClass]="showView== 0?'tab-active':'tab'" (click)="switchViewTab()">Weekly Leaves</div>
+      <div role="button" [ngClass]="showView== 1?'tab-active':'tab'" (click)="switchViewTab()">Yearly Leaves</div>
+    </div>
+  </div>
+
+
+  <app-weekly-leaves *ngIf="showView== 0 "></app-weekly-leaves>
+  <app-yearly-leaves *ngIf="showView== 1 "></app-yearly-leaves>
+</div>

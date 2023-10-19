@@ -1,0 +1,132 @@
+<div class="bg-transparent">
+  <p class="text">Showing 10 itevdvfdvdfvdfvms out of 250 results found  ipsum dolor Eniggfgdfbgfesse id harum corrnnnnnupti placeat! Voluptate adipisci quas tenetur ea vel magni repellat earum? Animi velit, debitis sint,</p>
+</div>
+<!-- top section endss -->
+<div class="d-flex mt-3">
+  <div class="w-100 ms-5">
+    <div #salaryContainer></div>
+    <!-- <div id="btn_postjobs" class="align-self-center input-group">
+      <a class="btn text-white" style="background-color:#095F8F;" (click)="setEmployeeSalaryPopup()">{{employeeSalaryDetail.action=='update'?'Edit':'Add'}} Salary</a>
+    </div> -->
+    <table style="width:100%" *ngIf="employeeSalaryDetail.payType">
+      <tr class="table-wid">
+        <td class="head"> Type :</td>
+        <td>{{employeeSalaryDetail.payType}}</td>
+        <ng-container *ngIf="employeeSalaryDetail.payType=='monthly'">
+          <td class="head amount-margin">Salary :</td>
+          <td>{{employeeSalaryDetail.monthlyPay}} {{employeeSalaryDetail.currency}}</td>
+        </ng-container> 
+        <ng-container *ngIf="employeeSalaryDetail.payType=='monthly'">
+          <td class="head amount-margin">Tax :</td>
+          <td>1.5 %</td>
+        </ng-container>
+        <ng-container *ngIf="employeeSalaryDetail.payType=='hourly'">
+          <td class="head amount-margin">Hours Worked :</td>
+          <td>{{employeeSalaryDetail.hoursWorked}}</td>
+          <td class="head amount-margin">Amount :</td>
+          <td>{{employeeSalaryDetail.hourlyPay}} {{employeeSalaryDetail.currency}}</td>
+        </ng-container>
+        <ng-container *ngIf="employeeSalaryDetail.payType=='daily'">
+          <td class="head amount-margin">Amount :</td>
+          <td>{{employeeSalaryDetail.dailyPay}}{{employeeSalaryDetail.currency}}</td>
+        </ng-container>
+        <ng-container *ngIf="employeeSalaryDetail.payType=='weekly'">
+          <td class="head amount-margin">Weeks Worked :</td>
+          <td>{{employeeSalaryDetail.weeksWorked}}</td>
+          <td class="head amount-margin">Amount :</td>
+          <td>{{employeeSalaryDetail.weeklyPay}} {{employeeSalaryDetail.currency}}</td>
+        </ng-container>
+      </tr>
+    </table>
+    <table class="table table-borderless">
+      <thead>
+        <tr>
+          <th>Month</th>
+          <th>Salary</th>
+          <th>Tax Deduction </th>
+          <th>Paid Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>August</td>
+          <td>700$</td>
+          <td>30$</td>
+          <td>29-10-2023</td>
+          <td><button class="pay_slip">pay slip</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- filter section start -->
+<div class="filters justify-content-end d-flex text-center">
+  <div class="me-3">
+    <div #salarySlipContainer></div>
+    <div id="btn_postjobs" class="align-self-center input-group">
+      <a class="btn text-white" style="background-color:#095F8F;" (click)="setEmployeeSalarySlipPopup()" *ngIf="employeeSalaryDetail.payType">Generate Salary Slip</a>
+    </div>
+  </div>
+  <div class="me-3">
+    <select class="form-select" aria-label="Default
+                  select example" [(ngModel)]="employeeSalarySlipRequest.month">
+      <option value="">Select Month</option>
+      <option value="Jan">January</option>
+      <option value="Feb">February</option>
+      <option value="Mar">March</option>
+      <option value="Apr">April</option>
+      <option value="May">May</option>
+      <option value="Jun">June</option>
+      <option value="Jul">July</option>
+      <option value="Aug">August</option>
+      <option value="Sep">September</option>
+      <option value="Oct">October</option>
+      <option value="Nov">November</option>
+      <option value="Dec">December</option>
+    </select>
+  </div>
+  <div class="me-3">
+    <select class="form-select" aria-label="Default
+                  select example" [(ngModel)]="employeeSalarySlipRequest.year">
+      <option value="0">Select Year</option>
+      <option *ngFor="let year of years" [value]="year">{{year}}</option>
+    </select>
+  </div>
+  <div class="me-3">
+    <div id="btn_postjobs" class="align-self-center input-group">
+      <a class="btn text-white" style="background-color:#095F8F;" (click)="resetSalarySlipSearch()" *ngIf="employeeSalaryDetail.payType">Reset</a>
+    </div>
+  </div>
+</div>
+<div class="w-100%  mt-5 " *ngIf="employeeSalarySlipDetail && employeeSalarySlipDetail.length > 0">
+  <table style="width:100%">
+    <tr class="heads">
+      <th class="ps-5">Month</th>
+      <th>paid on</th>
+      <th>Amount</th>
+      <th>Status</th>
+      <th>Genernate PDF</th>
+    </tr>
+    <tr *ngFor="let salarySlipDetail of employeeSalarySlipDetail">
+      <td class="ps-5">{{salarySlipDetail.month}}</td>
+      <td>{{salarySlipDetail.paidFullDate}}</td>
+      <td>$ {{salarySlipDetail.netSalary}}</td>
+      <td>
+        <ng-container *ngIf="salarySlipDetail.requestStatus=='Pending'">
+          <div role="button" (click)="changeSalarySlipDownloadStatus(salarySlipDetail,'Approved')"
+               class="button-approve">Approve</div>
+          <div role="button" (click)="changeSalarySlipDownloadStatus(salarySlipDetail,'Rejected')"
+               class="button-reject">Reject</div>
+        </ng-container>
+      </td>
+      <td>
+        <div class="download-button">
+          <button (click)="SalarySlipDownloadPdf(salarySlipDetail)">Download PDF</button>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+<span class="no-slip-message" *ngIf="!employeeSalarySlipDetail ||
+         employeeSalarySlipDetail.length === 0">No salary slip generated</span>

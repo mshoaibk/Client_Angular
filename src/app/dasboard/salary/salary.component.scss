@@ -1,0 +1,188 @@
+.main_page {
+  width: 100%;
+}
+.tbl {
+  height: 440px;
+}
+a,
+a:hover,
+a:focus {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.main-sect {
+  height: fit-content !important;
+  background: #ffffff;
+  border-radius: 15px;
+}
+.top-section {
+  padding: 2% 2% 0% 2%;
+}
+#app_table thead {
+  background-color: #e5e5fb;
+  color: #606771;
+}
+
+#app_table tbody {
+  color: #425466;
+}
+
+#lbl_filters {
+  color: #4c81ef;
+}
+.width-filter {
+  padding: 6.5px 10px 6.5px 10.059px;
+}
+.form-select {
+  width: 100%;
+  border-radius: 6px;
+  box-shadow: 0px 0px 0px 2px rgba(76, 111, 255, 0.3);
+}
+.form-select:focus {
+  border: 1px solid #2b6282;
+  box-shadow: 0px 0px 0px 2px rgba(76, 111, 255, 0.3);
+}
+
+.salary {
+  color: #425466;
+  white-space: nowrap;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px; /* 166.667% */
+}
+button {
+  border-radius: 10px;
+}
+
+table {
+  width: 100%;
+  background: #fff;
+  box-shadow: 0px -1px 0px 0px #edf2f7 inset;
+}
+
+table thead tr th {
+  height: 52px;
+  padding: 20px;
+  background: #e5e5fb;
+  color: #606771;
+  font-family: Inter;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px; /* 160% */
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+table.table-striped tbody tr:nth-of-type(odd) {
+  background: #f9f9f9;
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+table tr td {
+  padding: 5px 20px;
+  color: #425466;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px; /* 166.667% */
+  white-space: nowrap;
+  background: var(--table-body-background, #fff);
+  box-shadow: 0px -1px 0px 0px #edf2f7 inset;
+}
+
+.names {
+  color: #65abf0 !important;
+  font-family: Inter !important;
+  font-size: 12px !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+  line-height: 20px !important; /* 166.667% */
+}
+
+.main-heading {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  color: #1f2d3d;
+}
+
+.image-profile {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: fill;
+  padding: 2%;
+}
+.button-right {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
+  border: 1px solid #6f6f6f;
+  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 5px;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #000000;
+  height: 21px;
+}
+.save-button {
+  border-radius: 6px;
+  background-color: #2b6282;
+  border: none;
+  color: white;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 12px;
+  padding: 12px 20px;
+}
+
+input:focus {
+  border: 1px solid #2b6282;
+  box-shadow: none;
+}
+.paid_btn {
+  width: 93px;
+  height: 27px;
+  padding: 3px 0px 6px 0px;
+  border-radius: 20px;
+  gap: 10px;
+  border: none;
+  background-color: #2cc73b;
+  font-family: "Inter";
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+}
+.pay_btn {
+  width: 93px;
+  height: 27px;
+  padding: 3px 0px 6px 0px;
+  border-radius: 20px;
+  gap: 10px;
+  border: none;
+  background-color: #2B6282;
+  font-family: "Inter";
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+}

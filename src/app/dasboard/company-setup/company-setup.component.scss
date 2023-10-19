@@ -1,0 +1,47 @@
+.main_page {
+  width: 91%;
+}
+
+.filter-section {
+  padding: 2%;
+  background: #ffffff;
+  border-radius: 17px;
+  margin-bottom: 2%;
+}
+
+.tab {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  margin: 5px 35px;
+  line-height: 50px;
+  color: #a0a0a0;
+}
+
+.tab-active {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  margin: 5px 15px;
+  line-height: 50px;
+  color: #2b6282;
+  border-bottom: 5px solid #095f8f;
+}
+@media only screen and (max-width: 1300px){
+  .tab-section{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .tab{
+  line-height: 50px;
+  margin: 5px 21px;
+  }
+  .tab-active{
+    line-height: 50px;
+    margin: 5px 21px;
+  }
+}
+
+

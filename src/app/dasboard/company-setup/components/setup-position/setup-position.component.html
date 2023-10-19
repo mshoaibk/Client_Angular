@@ -1,0 +1,140 @@
+
+<div class="main-page">
+  <div class="form-wid">
+    <div class="p-3">
+      <div class="applys">
+        <div class="create">Add New Position</div>
+      </div>
+
+      <div>
+        <div class="d-flex">
+          <div class="form-group me-2 half">
+            <div class="w-100 d-flex justify-content-end">
+              <i class="guide fa fa-info-circle" data-bs-toggle="tooltip" data-bs-html="true" title="Enter office location">  </i>
+            </div>
+            <select [ngClass]="{'invalid-field': officeLocationId==0 && !isValid}" [(ngModel)]="officeLocationId" class="form-control" (change)="OnOfficeSelectionChange($event)">
+              <option value="0">Please select office location</option>
+              <ng-container *ngFor="let o of listLookup.officeLocationDDL">
+                <option [value]="o.officeId">{{o.officeLocationName | officeLocationName}}</option>
+              </ng-container>
+            </select>
+          </div>
+
+          <div class="form-group ms-2 me-2 half">
+            <div class="w-100 d-flex justify-content-end">
+              <i class="guide fa fa-info-circle" data-bs-toggle="tooltip" data-bs-html="true" title="Enter department name">  </i>
+            </div>
+            <select [ngClass]="{'invalid-field': departmentId==0 && !isValid}" [(ngModel)]="departmentId" class="form-control" (change)="OnDepartmentSelectionChange($event)">
+              <option value="0">Please select department</option>
+              <ng-container *ngFor="let d of listDepartment">
+                <option [value]="d.departmentId">{{d.departmentName}}</option>
+              </ng-container>
+            </select>
+          </div>
+
+          <div class="form-group ms-2 half">
+            <div class="w-100 d-flex justify-content-end">
+              <i class="guide fa fa-info-circle" data-bs-toggle="tooltip" data-bs-html="true" title="Enter team name">  </i>
+            </div>
+            <select [ngClass]="{'invalid-field': !teamId && !isValid}" [(ngModel)]="teamId" class="form-control">
+              <option value="0">Please select team</option>
+              <ng-container *ngFor="let t of listTeam">
+                <option [value]="t.teamId">{{t.teamName}}</option>
+              </ng-container>
+            </select>
+          </div>
+        </div>
+        <!-- heeeer -->
+        <div>
+          <div class="w-100 d-flex justify-content-end">
+            <i class="guide fa fa-info-circle" data-bs-toggle="tooltip" data-bs-html="true" title="Enter the department name">  </i>
+          </div>
+          <input class="form-control" [ngClass]="{'invalid-field': !selectedOptions || selectedOptions.length==0 && !isValid}"
+                 [(ngModel)]="positionName"
+                 (keyup)="filterOptions()"
+                 type="text"
+                 placeholder="Enter Position Name"
+                 (keyup.enter)="addOption('')" />
+
+          <div *ngFor="let option of filteredOptions" (click)="addOption(option)">
+            {{ option }}
+          </div>
+
+          <div>
+            <h6 *ngIf="showSelectedSkill" class="mt-2 text-muted">Selected Position Type</h6>
+            <div *ngFor="let option of selectedOptions" class="chip">
+
+              {{ option }}
+              <button (click)="removeOption(option)">x</button>
+            </div>
+          </div>
+
+          <div class="listing mt-2">
+            <h6 class="mt-2 text-muted" style="font-size: 12px;">Suggested Position Types :</h6>
+            <ul class="d-flex gap-2">
+              <li *ngIf="ItemShowft" (click)="addOption(option1)">{{option1}}</li>
+              <li *ngIf="ItemShowpt" (click)="addOption(option2)">{{option2}}</li>
+              <li *ngIf="ItemShowint" (click)="addOption(option3)">{{option3}}</li>
+            </ul>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center">
+          <button class="nextBtn" (click)="addPosition()">
+            NEXT
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- table -->
+<div class="employee-attendace-section">
+  <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+    <div class="main-heading">Positions</div>
+  </div>
+  <div class="table-responsive">
+    <div #attendanceHistoryContainer></div>
+    <table class="table table-borderless">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Department Name</th>
+          <th>Team Name</th>
+          <th>Position Name</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let position of positionList">
+          <th scope="row">{{position.positionId}}</th>
+          <td class="emp-name">
+            {{position.departmentName}}
+          </td>
+          <td class="emp-name">
+            {{position.teamName}}
+          </td>
+          <td class="emp-name">
+            <ng-container *ngIf="position.editableMode">
+              <input type="text" [(ngModel)]="position.positionName" />
+            </ng-container>
+            <ng-container *ngIf="!position.editableMode">
+              {{position.positionName}}
+            </ng-container>
+          </td>
+          <td>
+            <div class="d-flex gap-3">
+              <i (click)="editabeMode(position)" *ngIf="!position.editableMode"><img src="/assets/icons/Edit-Square.png" alt=""></i>
+              <i class="fa fa-save blockquote text-success" (click)="saveChanges(position)" *ngIf="position.editableMode"></i>
+              <i class="fa fa-times blockquote text-danger" (click)="cancelEdit()" *ngIf="position.editableMode"></i>
+              <i (click)="deleteConfirmationPopup(position.positionId)">
+                <img src="/assets/icons/Delete.png" alt=""></i>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div #deleteContainer></div>
+  </div>
+</div>

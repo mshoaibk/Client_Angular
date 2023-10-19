@@ -1,0 +1,251 @@
+
+.button-right {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
+  border: 1px solid #6f6f6f;
+  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 5px;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #000000;
+  height: 21px;
+}
+
+//   MODAL A
+.Weekly {
+  .create {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 57px;
+    color: #095f8f;
+  }
+
+  .job_post {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    color: #646768;
+  }
+
+  .model-content {
+    display: flex !important;
+    width: 650px !important;
+  }
+
+  .selections {
+    color: var(--tri, #979494);
+    font-family: 'Poppins';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .dull {
+    color: #A7A7A7;
+    font-family: 'Poppins';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 511.5%;
+  }
+
+  .normal {
+    color: #2B6282;
+    font-family: 'Poppins';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 511.5%;
+  }
+
+  input {
+    border-radius: 10px;
+    width: 24px !important;
+    height: 24px !important;
+    background: #2B6282 !important;
+  }
+
+  input:checked {
+    background-color: #2B6282 !important;
+  }
+
+  .save {
+    width: 116px;
+    height: 36px;
+    flex-shrink: 0;
+    color: var(--theme-white-default, #FFF);
+    font-family: 'Inter';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 12px;
+    border-radius: 6px;
+    background: #2B6282;
+    border: 0;
+  }
+}
+
+//modal B
+.Yearly {
+  .create {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 57px;
+    color: #095f8f;
+  }
+
+  .job_post {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    color: #646768;
+  }
+
+  .model-content {
+    display: flex !important;
+    width: 650px !important;
+  }
+
+  input {
+    border-radius: 8px;
+    border: 1px solid #EBEAEA;
+    background: #FFF;
+    width: 100% !important;
+    outline: none;
+    height: 38px !important;
+  }
+
+  input:active,
+  input:hover {
+    border: 1px solid #EBEAEA;
+  }
+
+  .save {
+    width: 116px;
+    height: 36px;
+    flex-shrink: 0;
+    color: var(--theme-white-default, #FFF);
+    font-family: 'Inter';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 12px;
+    border-radius: 6px;
+    background: #2B6282;
+    border: 0;
+  }
+
+  label {
+    color: var(--tri, #979494);
+    font-family: 'Poppins';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .error-text {
+    font-size: 12px;
+    color: red;
+    font-family: 'Roboto';
+  }
+}
+
+
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba( 0, 0, 0, 0.5 ); /* Semi-transparent black background color */
+  z-index: 9998; /* Make sure it's behind the popup */
+  backdrop-filter: blur( 1px ); /* Optional: add a blur effect to the background */
+}
+
+.dialog-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  padding: 1rem;
+  width: 30%;
+  max-width: 52rem;
+  z-index: 9999;
+  overflow-y: auto;
+  border-radius: 16px;
+}
+
+.button-close {
+  margin-top: -54px;
+  margin-right: -9px;
+}
+
+.button-close:focus {
+  box-shadow: none;
+}
+
+.no-button {
+  height: 46.38px;
+  left: 747.26px;
+  top: 915.41px;
+  background: #FFFFFF;
+  border-radius: 10px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  border: 1px solid #095f8f;
+  color: #095f8f;
+}
+
+.yes-button {
+  height: 46.38px;
+  left: 747.26px;
+  top: 915.41px;
+  background: #ff0000;
+  border-radius: 10px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #ffffff;
+}
+
+.close-button {
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.okay-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.okay-button:hover {
+  background-color: #0069d9;
+}

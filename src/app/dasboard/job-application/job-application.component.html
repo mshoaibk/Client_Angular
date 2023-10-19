@@ -1,0 +1,157 @@
+<div class="main_page">
+  <div class="p-3 bg-white mb-4" style="border-radius: 20px">
+    <div class="d-flex search_wrap">
+      <div class="input-group mb-3 search_style">
+        <input
+          type="text"
+          class="search_bar form-control"
+          placeholder="Search Files"
+          aria-label="Search By Title Or Position"
+          [(ngModel)]="searchJobRqst.jobTitle" (keyup.enter)="showAppliedApplication()"/>
+      </div>
+      <div id="btn_postjobs" class="align-self-center justify-content-end input-group search_btn">
+        <button class="post_btn" [routerLink]="['/dashboard/jobs-applications/post-job']">
+          Post Jobs
+        </button>
+      </div>
+    </div>
+
+    <div class="d-flex text-center flex-wrap">
+      <div class="align-self-center">
+        <label id="lbl_filters" for="" class="form-label mb-0 me-3">Filters :</label>
+      </div>
+      <div class="width-filter">
+        <select class="form-select"
+                [(ngModel)]="searchJobRqst.jobType"
+                (change)="showAppliedApplication()">
+          <option value="">Employment Type</option>
+          <ng-container *ngFor="let et of listLookup.employmentTypeDDLResponse">
+            <option [value]="et.employmentTypeId">{{et.employmentTypeName}}</option>
+          </ng-container>
+        </select>
+      </div>
+      <!-- <div class="m-2">
+        <select class="form-select" aria-label="Default select example" [(ngModel)]="searchJobRqst.jobType" (change)="showAppliedApplication()">
+          <option value="" selected>Employment Type</option>
+          <option value="fulltime">Full-time</option>
+          <option value="parttime">Part-time</option>
+          <option value="temporary">Temporary</option>
+          <option value="contract">Contract</option>
+          <option value="internship">Internship</option>
+          <option value="commission">Commission</option>
+        </select>
+      </div> -->
+      <!--<div class="m-2">
+        <select class="form-select" aria-label="Default select example" [(ngModel)]="searchJobRqst.jobType" (change)="showAppliedApplication()">
+          <option value="" selected>location</option>
+          <option value="fulltime">isb</option>
+        </select>
+      </div>
+      <div class="m-2">
+        <select class="form-select" aria-label="Default select example" [(ngModel)]="searchJobRqst.jobType" (change)="showAppliedApplication()">
+          <option selected value="">Department</option>
+          <option value="Customer Service">Customer Service</option>
+          <option value="Finance">Finance</option>
+          <option value="HR">HR</option>
+          <option value="IT">IT</option>
+          <option value="Management">Management</option>
+          <option value="Marketing and Sales">Marketing and Sales</option>
+        </select>
+      </div>
+      <div class="m-2">
+        <select class="form-select" aria-label="Default select example" [(ngModel)]="searchJobRqst.jobType" (change)="showAppliedApplication()">
+          <option selected value="">Position</option>
+          <option selected value="Software Developer">Software Developer</option>
+          <option selected value="Automation">Automation</option>
+          <option selected value="Developer">Developer</option>
+          <option selected value="SQA">SQA</option>
+          <option selected value="IT Manager">IT Manager</option>
+        </select>
+      </div>-->
+      <div class="width-filter">
+        <select [(ngModel)]="selectedCountry" class="form-select" (change)="showAppliedApplication()">
+          <option value="">Please select office</option>
+          <ng-container *ngFor="let o of listLookup.officeLocationDDL">
+            <option [value]="o.officeId">{{o.officeLocationName}}</option>
+          </ng-container>
+        </select>
+      </div>
+
+      <div class="width-filter">
+        <select class="form-select" [(ngModel)]="searchJobRqst.deparment" (change)="showAppliedApplication()">
+          <option value="">Please select department</option>
+          <ng-container *ngFor="let d of listLookup.departmentDDL">
+            <option [value]="d.departmentId">{{d.departmentName}}</option>
+          </ng-container>
+        </select>
+      </div>
+
+      <div class="width-filter">
+        <select class="form-select p-2" style="height:40px" [(ngModel)]="searchJobRqst.position" (change)="showAppliedApplication()">
+          <option value="">Please select position</option>
+          <ng-container *ngFor="let p of listLookup.positionDDL">
+            <option [value]="p.positionId">{{p.positionName}}</option>
+          </ng-container>
+        </select>
+      </div>
+      <!-- <div class="m-2">
+        <select class="form-select" aria-label="Default select example" [(ngModel)]="searchJobRqst.jobType" (change)="showAppliedApplication()">
+          <option value="" selected>Postion</option>
+          <option value="fulltime">FullStack</option>
+          <option value="parttime">Frontend</option>
+          
+        </select>
+      </div> -->
+
+
+      <!-- <div class="m-2">
+        <button class="btn text-white" (click)="showAppliedApplication()" style="background-color: #095f8f">
+          Search
+        </button>
+      </div> -->
+    </div>
+  </div>
+
+  <div class="tbl">
+    <div class="header mb-3 me-3 h6">Applications</div>
+
+    <div class="scroll_tbl">
+      <table id="app_table" class="table table-borderless bg-white">
+        <thead>
+          <tr>
+            <th scope="col">S. No</th>
+            <th scope="col">TITLE</th>
+            <th scope="col">JOB TYPE</th>
+            <th scope="col">NUMBER OF APPLICATIONS</th>
+            <th scope="col">NUMBER OF HIRINGS</th>
+            <th scope="col">ACTIONS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let applications of showApplicationslist | paginate : config_pgShowJob;let i = index">
+            <td scope="row">{{ i + 1 }}</td>
+            <td>
+              <a href="" class="text-primary" [routerLink]="['/dashboard/jobs-applications',applications.postJobId]">{{ applications.jobTitle |titlecase}}</a>
+            </td>
+            <td>{{ applications.jobType }}</td>
+            <td>{{ applications.noOfApplication }}</td>
+            <td>{{ applications.noOfHiring }}</td>
+            <td>
+              <div class="d-flex flex-row gap-3 align-items-center">
+                <i role="button" (click)="editPostJobPopup(applications.postJobId)"><img src="/assets/icons/Edit-Square.png" alt=""></i>
+                <i role="button" class="mt-0" (click)="deletePostedJobs(applications.postJobId)"><img src="/assets/icons/Delete.png" alt=""></i>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div #postJobEditContainer></div>
+      <div #postJobDeleteContainer></div>
+    </div>
+  </div>
+  <!-- <hr class="m-0"> -->
+
+  <!-- <div class="bg-white">
+    <p class="ms-3 p-2">Showing 10 items out of 250 results found <span style="color: white;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim esse id harum corrupti placeat! Voluptate adipisci,</span></p>
+  </div> -->
+</div>

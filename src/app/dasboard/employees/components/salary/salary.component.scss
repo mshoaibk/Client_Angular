@@ -1,0 +1,135 @@
+.text {
+  background-color: transparent;
+  color: transparent;
+  height: 0px;
+}
+.table-wid {
+  margin-bottom: 30px;
+}
+// table
+thead tr th {
+  background-color: #e5e5fb;
+}
+.table thead {
+  background: #e5e5fb;
+  box-shadow: inset 0px -1px 0px #edf2f7;
+}
+.table thead th {
+  padding: 15px 10px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 16px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #606771;
+  border-bottom: 1px solid #edf2f7;
+}
+table tbody tr td{
+font-family: 'Inter';
+font-size: 12px;
+font-weight: 600;
+color: #425466;
+}
+.pay_slip {
+  width: 93px;
+  height: 27px;
+  border-radius: 20px;
+  border: 1px solid #DCDADA;
+  gap: 10px;
+  background-color: white;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: 'Inter';
+  color: #606771;
+}
+.head {
+  width: 37px;
+  height: 21px;
+  // left: 387.59px;
+  top: 439px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  color: #373131;
+}
+
+.heads {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  height: 50px;
+  background-color: #e5e5fb;
+  /* Table/Border */
+
+  box-shadow: inset 0px -1px 0px #edf2f7;
+  font-size: 10px;
+  line-height: 16px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #606771;
+}
+td {
+  width: 82.44px;
+  height: 70px;
+  left: 632.73px;
+  top: 439px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  color: #8a8a8a;
+}
+.no-slip-message {
+  color: red;
+  font-weight: bold;
+}
+
+.download-button button {
+  padding: 7px 5px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.download-button button:hover {
+  background-color: #0056b3;
+}
+
+.button-approve {
+  border-radius: 20px;
+  height: 27px;
+  width: 93px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  background-color: rgb(38, 174, 38);
+}
+
+.button-reject {
+  border-radius: 20px;
+  height: 27px;
+  width: 93px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  background-color: red;
+}

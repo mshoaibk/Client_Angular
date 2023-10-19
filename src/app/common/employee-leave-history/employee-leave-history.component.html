@@ -1,0 +1,59 @@
+<div class="dialog-overlay"></div>
+<div class="dialog-container">
+  <div class="dialog-header">
+    <h2 class="dialog-title">{{employeeData.employeeName}} Leave History</h2>
+    <button class="close-button" (click)="closeForm()">Close</button>
+  </div>
+  <div class="dialog-content" style="text-align: left;">
+    <div class="mt-3 table-responsive">
+      <div class="table-container">
+        <table class="table table-borderless">
+          <thead>
+            <tr>
+              <th>Employee ID</th>
+              <th>Leave Date</th>
+              <th>Leave Time</th>
+              <th>Leave Type</th>
+              <th>Leave Duration Type</th>
+              <th>Status</th>
+              <th>Reason</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody *ngIf="employeelist?.length>0">
+            <tr *ngFor="let emp of employeelist">
+              <td role="button"
+                  class="emp-name">
+                {{emp.employeeId}}
+              </td>
+              <td class="emp-department">{{emp.leaveDate}}</td>
+              <td class="emp-department">{{emp.leaveTime}}</td>
+              <td class="emp-department">{{emp.leaveType}}</td>
+              <td class="emp-department">{{emp.leaveDurationType}}</td>
+              <td>
+                <!-- <div class="status-present">Present</div> -->
+                <div class="status-leave">{{emp.status}}</div>
+                <!-- <div class="status-short">Short</div> -->
+                <!-- <div class="status-half">Half</div> -->
+                <!-- <div class="status-absent">Absent</div> -->
+              </td>
+              <td class="emp-department">{{emp.reason}}</td>
+              <td>
+                <div class="d-flex gap-3">
+                  <div role="button" class="button-approve">Approve</div>
+                  <div role="button" class="button-reject">Reject</div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+          <tbody *ngIf="employeelist?.length<=0">
+            <tr><td colspan="9" class="text-center text-bg-danger">No Record Found</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="dialog-footer">
+    <!--<button class="okay-button">Save</button>-->
+  </div>
+</div>

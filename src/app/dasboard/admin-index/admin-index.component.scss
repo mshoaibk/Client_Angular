@@ -1,0 +1,163 @@
+/*
+    DEMO STYLE
+*/
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+.wrapper {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+}
+
+#sidebar {
+  min-width: 260px;
+  max-width: 260px;
+  background: #ffffff;
+  color: #c7c7c7;
+  transition: all 0.3s;
+}
+
+#sidebar.active {
+  margin-left: -250px;
+}
+
+#sidebar .sidebar-header {
+  /* padding: 20px; */
+  background: #ffffff;
+  font-weight: 650;
+  font-size: 40px;
+  color: #095f8f;
+}
+
+#sidebar ul li a {
+  padding: 10px;
+  font-size: 1.1em;
+  display: block;
+}
+
+#sidebar ul li a:hover {
+  color: #7386d5;
+  background: #fff;
+}
+
+#sidebar ul li.active > a,
+a[aria-expanded="true"] {
+  color: #095f8f;
+  background: #ffffff;
+}
+// new
+.dash_cards {
+  display: flex;
+  width: 64%;
+  height: fit-content;
+  flex-wrap: wrap;
+}
+.dash_card {
+  width: 48%;
+  height: 216px;
+  border-radius: 25px;
+  padding: 2%;
+  margin-right: 2%;
+  margin-bottom: 2%;
+  background: white;
+// background-color: #095f8f;
+}
+.dash_side {
+  background-color: white;
+  padding: 1% 2%;
+  height: fit-content;
+  width: 34%;
+  border-radius: 25px;
+}
+.page_content {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  // padding: 2%;
+}
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+
+#content {
+  width: 100%;
+  transition: all 0.3s;
+}
+
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+@media only screen and (max-width: 1400px) {
+  .page_content {
+    //   display: flex;
+    flex-direction: column;
+  }
+  .dash_cards {
+    width: 100%;
+    margin-bottom: 2%;
+  }
+  .dash_card {
+    margin-bottom: 2%;
+  }
+  .dash_side {
+    width: 98%;
+  }
+}
+@media only screen and (max-width: 1080px) {
+  .page_content {
+    //   display: flex;
+    flex-direction: column;
+  }
+  .dash_cards {
+    width: 100%;
+  }
+  .dash_side {
+    width: 98%;
+  }
+}
+@media (max-width: 768px) {
+  #sidebar {
+    margin-left: -250px;
+  }
+
+  #sidebar.active {
+    margin-left: 0;
+  }
+
+  #sidebarCollapse span {
+    display: none;
+  }
+}
+@media (max-width: 650px) {
+  .dash_card {
+    width: 100%;
+    margin-bottom: 3%;
+  }
+  .dash_cards{
+    width: 100%;
+  }
+  .dash_side {
+    width: 100%;
+  }
+}
+.pie-chart-container {
+  width: 100px; 
+  height: 100px;
+  position: relative;
+}
+
+.canvas-wrapper {
+  width: 100%;
+  padding-bottom: 100%; 
+  position: relative;
+}
+
+canvas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}

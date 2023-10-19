@@ -1,0 +1,60 @@
+<div class="main-page">
+  <div class="form-wid">
+    <div class="p-5">
+      <div class="applys">
+        <div class="create">Apply</div>
+        <div class="co_account">For Job</div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label class="label_style" for="company_name">Full Name</label>
+            <input type="text" class="form-control" 
+                   [ngClass]="{'invalid-field': !candidateJobApplication.fullName && !isValid}"
+                   [(ngModel)]="candidateJobApplication.fullName">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label class="label_style" for="phone_num">Phone Number</label>
+            <input type="text" class="form-control" id="company_no" placeholder=""
+                   [ngClass]="{'invalid-field': !candidateJobApplication.phoneNumber && !isValid}"
+                   [(ngModel)]="candidateJobApplication.phoneNumber">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label class="label_style" for="email-add">Email</label>
+            <input type="text" class="form-control" id="company_mail" placeholder=""
+                   [ngClass]="{'invalid-field': !candidateJobApplication.email && !isValid}"
+                   [(ngModel)]="candidateJobApplication.email">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div #dialogFileUploadContainer></div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <label class="label_style" for="resumes">Resume (*pdf,.docx)</label>
+            <div class="file-upload-wrapper">
+              <label (click)="openFileUploadModal()" for="fileUpload" class="file-upload btn btn-primary btn-block rounded-pill shadow">
+                <i class="fa fa-upload mr-2"></i>Browse for file ...
+              </label>
+              <div class="uploaded-file" *ngIf="uplodedFileName">
+                <a [href]="uplodedFileUrl" target="_blank">{{ uplodedFileName }}</a> 
+                <span class="remove-file-icon" (click)="removeUploadedFile()">
+                  <i class="fas fa-times"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center"><button type="submit" class="btn btn_submit text-white mt-5" (click)="applyJob()">SUBMIT</button></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="d-flex justify-content-end">
+  <button class="nextBtn" (click)="AddTotalLeaves()" >NEXT
+  </button>
+</div>
+<div class="main-page">
+  <div class="form-wid">
+    <div class="p-3">
+      <div class="applys">
+        <div class="create">Add Total Leaves</div>
+      </div>
+
+      <div>
+        <div>
+          <div class="form-group">
+            <div class="d-flex w-100 justify-content-between">
+              <label class="label_style">Total Leaves(Yearly)<span class="stearic">*</span></label>
+              <div class="w-50 d-flex justify-content-end">
+                <i class="guide fa fa-info-circle" data-bs-toggle="tooltip" data-bs-html="true" title="Enter the Total Leaves (Yearly)">  </i>
+              </div>
+            </div>
+            <input type="text" class="form-control" [ngClass]="{'invalid-field': !totalLeavesRequestModel.totalLeaves && !isValid}" [(ngModel)]="totalLeavesRequestModel.totalLeaves" placeholder="Enter total leaves">
+          </div>
+
+        </div>
+        <!-- <div class="d-flex align-items-end col-12 col-md-3">
+          <button type="submit" class="add_btn w-100" (click)="AddTotalLeaves()">Add</button>
+        </div> -->
+
+      </div>
+    </div>
+  </div>
+</div>
+

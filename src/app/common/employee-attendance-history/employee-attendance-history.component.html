@@ -1,0 +1,66 @@
+<div class="dialog-overlay"></div>
+<div class="dialog-container">
+  <div class="dialog-header">
+    <h2 class="dialog-title">{{employeeData.employeeName}} Attendance History</h2>
+    <button class="close-button" (click)="closeSalaryForm()">Close</button>
+  </div>
+  <div class="dialog-content" style="text-align: left;">
+    <div class="mt-3 table-responsive">
+      <div class="table-container">
+        <table class="table table-borderless">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Checked in</th>
+              <th>Checked out</th>
+              <th>Time Worked</th>
+              <th>Attendance Status</th>
+              <th>Approval Status</th>
+              <th>Comment</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody *ngIf="employeelist?.length>0">
+            <tr *ngFor="let emp of employeelist">
+              <td class="emp-department">{{emp.attendanceDate | date}}</td>
+              <td class="emp-position"><div *ngIf="emp.checkedIn" class="status-leave">{{emp.checkedIn}}</div></td>
+              <td>
+                <div class="status-leave" *ngIf="emp.checkedOut">{{emp.checkedOut}}</div>
+              </td>
+              <td>
+                <div class="status-leave" *ngIf="emp.timeWorked">{{emp.timeWorked}}</div>
+              </td>
+              <td>
+                <div *ngIf="emp.status=='Present'" class="status-present">Present</div>
+                <div *ngIf="emp.status=='Absent'" class="status-absent">Absent</div>
+                <div *ngIf="emp.status=='full-day'" class="status-leave">Full Day Leave</div>
+                <div *ngIf="emp.status=='half-day'" class="status-half">Half Day Leave</div>
+                <div *ngIf="emp.status=='short-leave'" class="status-short">Short Leave</div>
+              </td>
+              <td>
+                <div *ngIf="emp.approvalStatus=='Pending'" class="status-leave">Pending</div>
+                <div *ngIf="emp.approvalStatus=='Approved'" class="status-present">Approved</div>
+                <div *ngIf="emp.approvalStatus=='Rejected'" class="status-absent">Rejected</div>
+              </td>
+              <td>
+                {{emp.comment}}
+              </td>
+              <td>
+                <div class="d-flex gap-3">
+                  <i class="fa fa-edit blockquote text-primary"></i>
+                  <i class="fa fa-remove blockquote text-danger"></i>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+          <tbody *ngIf="employeelist?.length<=0">
+            <tr><td colspan="9" class="text-center text-bg-danger">No Record Found</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="dialog-footer">
+    <!--<button class="okay-button">Save</button>-->
+  </div>
+</div>

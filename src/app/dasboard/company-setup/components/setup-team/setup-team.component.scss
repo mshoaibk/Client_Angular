@@ -1,0 +1,190 @@
+// .main-page {
+//     width: 100%;
+//     display: flex;
+//     justify-content: center;
+//   }
+  
+//   .form-wid {
+//     width: 50%;
+//     height: 48%;
+//     background: #ffffff;
+//     border: 1px solid #c6c6c6;
+//     border-radius: 20px;
+//     margin-bottom: 5%;
+//     margin-top: 5%;
+//   }
+  // suggestion
+  .chip {
+    display: inline-flex;
+    width: fit-content;
+    background-color: #095f8f;
+    border-radius: 10px;
+    font-size: 16px;
+    color: #fff;
+    padding: 0% 1%;
+    margin-top: 1%;
+    margin-right: 2%;
+  }
+  
+  .chip button {
+    background-color: transparent;
+    border: none;
+    margin-left: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    color: #fff;
+  }
+  .listing {
+    display: flex;
+  }
+.listing ul{
+  margin: 0;
+  align-items: center;
+}
+.listing ul li {
+  width: 65px;
+  background: #eab836;
+  height: 20px;
+  align-items: center;
+  display: flex;
+  border-radius: 8px;
+  color: white;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 10px;
+}
+//
+.nextBtn {
+  background-color: #2b6282;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  width: 129px;
+  height: 36px;
+
+}
+ // table
+ thead tr th {
+  background-color: #E5E5FB; 
+ }
+  
+  .create {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 27px;
+    color: #373131;
+    margin-bottom: 1%;
+  }
+  
+  .co_account {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    padding-bottom: 4%;
+    color: #646768;
+  }
+  
+  .label_style {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #979494;
+  }
+  
+  .btn_submit {
+    margin-top: 10%;
+    background: #095f8f;
+    width: 20%;
+    border-radius: 10px;
+  }
+  .invalid-field{
+    border: 1px solid red;
+  }
+  
+  input[type="file"] {
+    position: absolute;
+    opacity: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+  
+  .remove-file-icon {
+    cursor: pointer;
+    color: #999;
+  }
+  
+  .remove-file-icon:hover {
+    color: #ff0000;
+  }
+  .add_btn{
+      width: 140px;
+      height: 40px;
+      border-radius: 8px;
+      background: #095f8f;
+      color: white;
+      border: none;
+  }
+    // table
+    .employee-attendace-section {
+      height: fit-content !important;
+      background: #ffffff;
+      border-radius: 15px;
+      padding: 2%;
+    }
+    .main-heading {
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 24px;
+      color: #1f2d3d;
+    }
+    .table thead {
+      background: #e5e5fb;
+      box-shadow: inset 0px -1px 0px #edf2f7;
+    }
+    .table thead th {
+      padding: 15px 10px;
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 10px;
+      line-height: 16px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #606771;
+      border-bottom: 1px solid #edf2f7;
+    }
+    .emp-name {
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 20px;
+      color: #65abf0;
+    }
+
+       // responsive
+@media only screen and (max-width: 1500px){
+  .form-wid {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 775px){
+
+}
+@media only screen and (max-width: 500px){
+  .create{
+    font-size: 35px;
+  }
+  .co_account {
+    font-size: 28px;
+}
+}

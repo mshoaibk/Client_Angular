@@ -1,0 +1,67 @@
+<nav class="navbar navbar-expand-lg header-component ">
+  <a href="" class="navbar-brand hrms">
+    <p class="hrms">HRMS</p>
+  </a>
+  <button
+    class="navbar-toggler btn navbar_button"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <i class="fas fa-align-justify"></i>
+  </button>
+  <div
+    class="collapse navbar-collapse justify-content-end align-items-center"
+    id="navbarSupportedContent"
+  >
+    <div class="d-flex justify-content-end">
+      <ul
+        class="navbar-nav mb-lg-0 align-items-start align-items-lg-center gap-2"
+      >
+        <div role="button" [routerLink]="['/jobs']" class="jobs-link me-2">
+          Job Protal
+        </div>
+        <div class="nav-item" *ngIf="!isLogedIn">
+          <div
+            role="button"
+            [routerLink]="['auth/signup']"
+            class="btn1_signup px-0 px-lg-5"
+          >
+            <div class="btn1_signup-text d-flex align-items-center h-100">
+              Register Company
+            </div>
+          </div>
+        </div>
+        <div class="nav-item" *ngIf="!isLogedIn">
+          <button [routerLink]="['auth/login']" class="btn login px-0 px-lg-5">
+            Login
+          </button>
+        </div>
+        <div class="profile" *ngIf="isLogedIn">
+          <img
+            [src]="createImgPath()"
+            alt="Profile Image"
+            class="profile-image"
+          />
+          <span class="profile-name">{{ companyName }}</span>
+          <ul class="dropdown-menu">
+            <li>
+              <a
+                style="cursor: pointer"
+                [routerLink]="['dashboard/company-profile']"
+                >Profile</a
+              >
+            </li>
+            <li><a style="cursor: pointer" (click)="logout()">Logout</a></li>
+          </ul>
+        </div>
+      </ul>
+    </div>
+  </div>
+</nav>
+<router-outlet
+  ><ngx-spinner type="ball-scale-multiple"></ngx-spinner
+></router-outlet>

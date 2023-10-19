@@ -1,0 +1,269 @@
+.main {
+  width: 100%;
+  background: #f7fafc;
+  // height: calc(100vh - 80px);
+}
+
+.content_area {
+  background: #ffffff;
+  border: 1px solid #c6c6c6;
+  border-radius: 20px;
+  padding: 1% 2%;
+  width: 48%;
+  // width: 925px;
+  // height: fit-content;
+  height: 700px;
+  margin-top: 3%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 5%;
+}
+// .btn_upload {
+//   background-color: red;
+//   width: 415px;
+//   height: 153px;
+//   margin-top: -195px;
+// }
+.upload_btn{
+  width: 419px;
+  height: 148px;
+  background-color: transparent;
+  opacity: -0.9;
+  cursor: pointer;
+}
+.file_top{
+  margin-top: -170px;
+}
+
+.main-heading {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 57px;
+  color: #095f8f;
+}
+
+.heading-description {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 57px;
+  color: #646768;
+}
+
+.profile-image {
+  height: 153px !important;
+  width: 415px !important;
+  border-radius: 5% !important;
+  object-fit: contain;
+}
+.profile-images {
+  width: 334px;
+  height: 334px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 13px 0px rgba(79,72,79,1);
+}
+
+.remove-icon {
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  color: cornflowerblue;
+  box-shadow: 0 0 8px 3px #b8b8b8;
+  margin-left: -28px;
+  margin-top: 28px;
+
+}
+
+.label_style {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #979494;
+}
+
+.btn_submit {
+  background: #2b6282;
+  border-radius: 10px;
+  border: none;
+}
+
+.button-text {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+.form-control:focus {
+  border-color: #095f8f;
+  box-shadow: none;
+}
+
+.invalid-field {
+  border-color: red;
+}
+::ng-deep .iti {
+  width: 100%;
+  margin-top: 0% !important;
+}
+.pre_btn{
+  background-color: rgb(212, 49, 49);
+  color: white;
+  border: none;
+  height: 35px;
+  width: 35px;
+  border-radius: 50px;
+}
+/* On screens that are 992px or less */
+@media screen and (max-width: 992px) {
+  .content_area {
+    width: 85%;
+  }
+  .main-heading {
+    text-align: center;
+  }
+  .heading-description {
+    text-align: center;
+  }
+}
+
+/* On screens that are 600px or less*/
+@media screen and (max-width: 600px) {
+  .main-heading {
+    text-align: center;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 35px;
+    line-height: 40px;
+    color: #095f8f;
+    margin-bottom: 0%;
+  }
+  .heading-description {
+    text-align: center;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px;
+    font-size: 21px;
+    color: #646768;
+  }
+}
+.optional {
+  font-size: 11px;
+  color: black;
+}
+::ng-deep.iti.separate-dial-code input{
+  border: none;
+  padding: 0;
+}
+// stepper
+
+
+.stepper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Align vertically centered */
+  position: relative;
+    margin-bottom: -20px;
+    z-index: 1;
+}
+
+.steps {
+  width: 30px;
+  height: 30px;
+  padding: 3px;
+  border-radius: 50%;
+  margin-left: -3px;
+  font-size: 20px;
+  text-align: center;
+  line-height: 20px;
+  background-color: #E3E3E3;
+  cursor: pointer;
+  color: white;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.steps.active {
+  background-color:#EAB836;
+  color: #fff;
+}
+.steps.visited {
+  background-color:#EAB836;
+  color: #fff;
+}
+
+/* Styles for the progress bar */
+.progress-bar {
+  margin-left: 5%;
+  border-radius: 20px;
+  width: 15%;
+  height: 10px;
+  background-color: #E3E3E3;
+  position: relative;
+  margin-bottom: 20px;
+}
+.progress_bar_two {
+  margin-left: 5%;
+  border-radius: 20px;
+  width: 10%;
+  height: 10px;
+  background-color: #E3E3E3;
+  position: relative;
+  margin-bottom: 20px;
+}
+.progress_bar_three{
+  margin-left: 5%;
+  border-radius: 20px;
+  width: 5%;
+  height: 10px;
+  background-color: #E3E3E3;
+  position: relative;
+  margin-bottom: 20px;
+}
+// step2
+.progress-bar_four {
+  margin-left: 9%;
+  border-radius: 20px;
+  width: 15%;
+  height: 10px;
+  background-color: #E3E3E3;
+  position: relative;
+  margin-bottom: 20px;
+}
+.progress_bar_five {
+  margin-left: 5%;
+  border-radius: 20px;
+  width: 10%;
+  height: 10px;
+  background-color: #E3E3E3;
+  position: relative;
+  margin-bottom: 20px;
+}
+.progress_bar_six{
+  margin-left: 5%;
+  border-radius: 20px;
+  width: 5%;
+  height: 10px;
+  background-color: #E3E3E3;
+  position: relative;
+  margin-bottom: 20px;
+}
+.progress {
+  height: 100%;
+  background-color: #EAB836;
+  width: 1;
+  transition: width 0.3s ease-in-out;
+}

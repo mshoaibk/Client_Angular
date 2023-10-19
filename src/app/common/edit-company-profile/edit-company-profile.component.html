@@ -1,0 +1,189 @@
+<link rel="stylesheet" href="./edit-company-profile.component.scss" />
+<div class="dialog-overlay"></div>
+<div class="dialog-container">
+  <div class="dialog-header">
+    <h2 class="dialog-title">Edit Profile</h2>
+    <button class="close-button" (click)="closeProfile()">Close</button>
+  </div>
+  <div class="dialog-content">
+    <div class="d-flex justify-content-center">
+      <div #dialogFileUploadContainer></div>
+      <!-- <div>
+        <img [src]="uplodedFileUrl" (click)="showPreview()" class="main-profile-img" />
+        <i class="fa fa-edit" (click)="openFileUploadModal()"></i>
+        <i class="fa fa-remove" (click)="removeUploadedPhoto()" style="margin-left:70px;color:red;margin-top:-30px"></i>
+      </div> -->
+      <div class="d-flex flex-column align-items-center gap-1 mt-3">
+        <div class="d-flex align-items-center justify-content-center">
+          <div class="position-relative">
+            <div class="position-absolute top-0 start-100 translate-middle badge border border-light rounded-circle remove-icon">
+              <i role="button"
+                 class="fa fa-remove"
+                 (click)="removeUploadedPhoto()"></i>
+            </div>
+            <img [src]="uplodedFileUrl"
+                 (click)="showPreview()"
+                 class="profile-image mb-3" />
+          </div>
+        </div>
+
+        <div class="d-flex flex-column flex-md-row align-items-center justify-content-center gap-1 gap-md-3">
+          <div class="file-upload-wrapper">
+            <div #dialogFileUploadContainer></div>
+            <!-- <label (click)="openFileUploadModal()"
+                   for="fileUpload"
+                   class="btn btn_submit text-white px-4 d-flex align-items-center gap-2">
+              <i class="fa fa-upload mr-2"></i>Browse for file
+            </label> -->
+            <div class="d-flex justify-content-center">
+              <button class="change_logo px-5 px-md-4 py-2 d-flex align-items-center gap-2">Change Logo</button>
+            </div>
+            <div class="file_top">
+            <input class="upload_btn" type="file" for="fileUpload" (change)="openFileUploadModal($event)" [accept]="acceptFiles">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex flex-column gap-2">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label class="label_style" for="company_name">Company Name</label>
+            <input type="text"
+                   class="form-control"
+                   id="company_name"
+                   placeholder=""
+                   [(ngModel)]="profileEditRqst.companyName" />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="label_style" for="company_industry">Company Industry</label>
+            <select class="form-control"
+                    id="company_industry"
+                    [(ngModel)]="profileEditRqst.industry">
+              <option value="IT">IT</option>
+              <option value="Education">Education</option>
+              <option value="Construction">Construction</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="label_style" for="no_of_emp">Number of Employees</label>
+            <input type="text"
+                   class="form-control"
+                   [(ngModel)]="profileEditRqst.noOfEmployees"
+                   id="no_of_emp"
+                   placeholder="" />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="label_style" for="emailaddress"> Email </label>
+            <input type="text"
+                   class="form-control"
+                   [(ngModel)]="profileEditRqst.emailAddress"
+                   id="emailAddress"
+                   placeholder="" />
+          </div>
+        </div>
+        <!-- <div class="col-md-6">
+          <div class="form-group">
+            <label class="label_style" for="phn_no"> Phone Number </label>
+            <input type="text"
+                   class="form-control"
+                   [(ngModel)]="profileEditRqst.phoneNumber"
+                   id="phoneno"
+                   placeholder="" />
+          </div>
+        </div> -->
+         <!-- phone number -->
+    <div class="col-12 col-md-6 col-lg-6">
+      <div class="form-group">
+        <label class="label_style" for="phn_no">
+          Phone Number <span>*</span></label
+        >
+        <ngx-intl-tel-input class="form-control" [enableAutoCountrySelect]="true" [enablePlaceholder]="true"
+        [searchCountryFlag]="true" [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+        [selectFirstCountry]="false" [maxLength]="15"
+        [phoneValidation]="true" [separateDialCode]="true" [(ngModel)]="profileEditRqst.phoneNumber"
+        id="phoneno">
+      </ngx-intl-tel-input>
+      </div>
+    </div>
+  <!--  -->
+      </div>
+
+      <!--<div class="row">
+        <div class="col-md-9">
+          <div class="form-group">
+            <label class="label_style"> Company Registerd Date </label>
+            <input type="date"
+                   class="form-control mt-2"
+                   [(ngModel)]="profileEditRqst.registerDate" />
+          </div>
+        </div>
+      </div>-->
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label class="label_style" for="website">Website</label>
+            <input type="text" placeholder="www.tech.com"
+                   class="form-control"
+                   [(ngModel)]="profileEditRqst.website"
+                   id="website"
+                    />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label class="label_style" for="linkdin">Linkdin</label>
+            <input type="text"
+                   class="form-control"
+                   [(ngModel)]="profileEditRqst.linkedIn"
+                   id="linkdin"
+                   placeholder="" />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label class="label_style" for="company_discription">
+              Company Description
+            </label>
+            <textarea id="company_discription"
+                      [(ngModel)]="profileEditRqst.description"
+                      class="form-control"
+                      rows="5"
+                      cols="50"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dialog-footer">
+      <div class="text-end">
+        <button type="submit"
+                class="btn btn_submit text-white mt-3"
+                (click)="updateProfileData()">
+          Update
+        </button>
+      </div>
+      <!-- <button class="okay-button" (click)="updateProfileData()">Update</button> -->
+    </div>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+<!--<ng-container *ngIf="placeholderLabel=='Upload Resume'">
+  <input type="file" #file accept=".pdf,.doc,.docx" (change)="uploadFile(file.files)"
+         class="form-control">
+</ng-container>
+
+<ng-container *ngIf="placeholderLabel!='Upload Resume'">
+  <br />
+  <div class="progress_section" *ngIf="progress">
+    <div class="progress-bar">
+      <div class="progress" [style.width.%]="progress"><span style="color:white">Uploaded Successfully {{progress}}%</span></div>
+    </div>
+  </div>
+  <div class="image_section border">
+    <div class="edit_button">
+      <i class="fas fa-edit fa-lg mt-2" (click)="file.click()"></i>
+    </div>
+    <img class="upload_image" [src]="pathImage?pathImage:'https://cdn.pixabay.com/photo/2016/12/18/13/44/download-1915749_1280.png'" />
+    <input type="file" #file placeholder="Choose file" (change)="uploadFile(file.files)" class="d-none">
+  </div>
+/ng-container>-->
+<!-- Modal -->
+<div class="dialog-overlay"></div>
+<div class="dialog-container">
+  <div class="d-flex align-items-center justify-content-between mb-2">
+    <h2 class="dialog-title">{{data && data.heading ? data.heading: 'Upload File'}}</h2>
+    <div class="d-flex gap-2">
+      <button class="close-button text-white fw-bold px-2 py-1" (click)="closeUpload()">Close</button>
+    <button class="okay-button text-white fw-bold px-2 py-1" (click)="saveUploadedFiles()">Save</button>
+    </div>
+  </div>
+  <div class="dialog-content">
+    <form id="file-upload-form" class="uploader">
+      <input id="file-upload" #file type="file" name="fileUpload" [accept]="acceptFormats" (change)="uploadFile(file.files)" />
+
+      <label for="file-upload" id="file-drag">
+        <div id="start">
+          <i class="fa fa-download" aria-hidden="true"></i>
+          <div>Select a file</div>
+          <span id="file-upload-btn" class="btn btn-primary">Select a file</span>
+        </div>
+        <ng-container *ngIf="pathImage">
+          <img id="file-image" src="" alt="Preview" class="">
+        </ng-container>
+      </label>
+    </form>
+  </div>
+  <div class="dialog-footer">
+  </div>
+</div>

@@ -1,0 +1,41 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~quill/dist/quill.bubble.css'; 
+@import '~quill/dist/quill.snow.css';
+@import '~quill/dist/quill.core.css';
+@import './GlobalCss/imageSelector.css';
+
+.extra-info {
+  display: none;
+  line-height: 30px;
+  font-size: 12px;
+	position: absolute;
+  top: 0;
+  left: 50px;
+}
+
+.info:hover .extra-info {
+  display: block;
+}
+
+.info {
+  font-size: 20px;
+  padding-left: 5px;
+  width: 20px;
+  border-radius: 15px;
+}
+
+.icon-info-sign:hover {
+  background-color: white;
+  padding: 0 0 0 5px;
+  width: 100%;
+  text-align: left !important;
+  color: black;
+  font-weight: bold;
+}
+.info_position{
+    position: relative;
+    z-index: 2;
+}
+.stearic{
+  color: red;
+}

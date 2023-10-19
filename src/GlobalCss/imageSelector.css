@@ -1,0 +1,15 @@
+.image_section{
+width: 250px;
+}
+
+.upload_image{
+  width: 250px;
+}
+.edit_button{
+  color: red;
+  position: relative;
+}
+.edit_button i{
+  display: flex;
+  justify-content: end;
+}

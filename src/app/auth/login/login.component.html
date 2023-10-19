@@ -1,0 +1,28 @@
+<!-- new -->
+<div class="main">
+  <div class="text-center bg-light">
+    <p class="login-text">Login</p>
+  </div>
+  <div class="d-flex justify-content-center">
+    <form class="content_area mt-3 mb-4" name="login">
+      <div class="form-group">
+        <label class="label_style">Email</label>
+        <input type="text" class="form-control mt-2" [(ngModel)]="email" name="email" (keyup.enter)="onClickLogin()"/>
+      </div>
+
+      <div class="form-group mt-3">
+        <label class="label_style">Password</label>
+        <input type="password" class="form-control mt-2" [(ngModel)]="password" name="password" (keyup.enter)="onClickLogin()"/>
+      </div>
+      <button type="submit" class="btn btn_submit mt-4" (click)="onClickLogin()">
+        <div class="button-text">Login</div>
+      </button>
+      <div class="mt-4 text-center">
+        <p class="not-member">
+          Not a member?
+          <span><a [routerLink]="['/auth/signup']">Register</a></span>
+        </p>
+      </div>
+    </form>
+  </div>
+</div>

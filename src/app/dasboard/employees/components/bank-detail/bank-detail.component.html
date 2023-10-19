@@ -1,0 +1,31 @@
+<div>
+  <div class="mt-5 ms-5">
+    <div #bankDetailContainer></div>
+    <div id="btn_postjobs" class="align-self-center input-group">
+      <a class="btn text-white" style="background-color:#095F8F;" (click)="addBankDetailPopup()">{{employeeBankDetail && employeeBankDetail.bankName?'Edit':'Add'}} Bank Detail</a>
+      <a  class="btn btn-danger text-white ms-2" *ngIf="employeeBankDetail" (click)="deleteBankDetail()">Delete Bank Details</a>
+    </div>
+    <table>
+      <tr>
+        <th>Bank Name :</th>
+        <td class="data">{{employeeBankDetail.bankName}}</td>
+      </tr>
+      <tr>
+        <th>Branch Name :</th>
+        <td class="data">{{employeeBankDetail.bankBranch}}</td>
+      </tr>
+      <tr>
+        <th>Account Holder :</th>
+        <td class="data">{{employeeBankDetail.accountHolder}}</td>
+      </tr>
+      <tr>
+        <th class="mt-5">AC/IBAN :</th>
+        <td class="data">{{employeeBankDetail.accountNumber}}</td>
+      </tr>
+      <tr>
+        <th>IFC Code :</th>
+        <td class="data">{{employeeBankDetail.ifscCode}}</td>
+      </tr>
+    </table>
+  </div>
+    </div>

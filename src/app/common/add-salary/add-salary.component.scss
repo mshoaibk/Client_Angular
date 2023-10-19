@@ -1,0 +1,164 @@
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,
+      0,
+      0,
+      0.5);
+  /* Semi-transparent black background color */
+  z-index: 9998;
+  /* Make sure it's behind the popup */
+  backdrop-filter: blur(1px);
+  /* Optional: add a blur effect to the background */
+}
+
+.dialog-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  padding: 1rem;
+  width: 80%;
+  max-width: 52rem;
+  z-index: 9999;
+  overflow-y: auto;
+  border-radius: 16px;
+}
+
+.dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.dialog-title {
+  color: #2b6282;
+  font-family: Poppins;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.label_style {
+  color: var(--tri, #979494);
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 5px;
+}
+
+.form-control:focus {
+  border: 1px solid #2b6282;
+  box-shadow: none;
+}
+
+.close-button {
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #2b6282;
+}
+
+.dialog-content {
+  margin-bottom: 1rem;
+}
+
+.dialog-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.okay-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.okay-button:hover {
+  background-color: #0069d9;
+}
+
+th {
+  width: 240px;
+  height: 52px;
+  left: 335px;
+  top: 322px;
+  padding-left: 2%;
+  background: #e5e5fb;
+  /* Table/Border */
+}
+
+td {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 20px;
+  padding-left: 2%;
+  align-items: center;
+  color: #425466;
+}
+
+tr {
+  height: 55px;
+  border-bottom: 1px solid #ccc;
+}
+
+.save-button {
+  border-radius: 6px;
+  background-color: #2b6282;
+  border: none;
+  color: white;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 12px;
+}
+
+.salaryEmployeeCard{
+  width: 12rem;
+  height: 10rem;
+  border: 1px solid blue;
+  border-radius: 8px;
+  padding: 6px;
+
+  img{
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  }
+  .empName{
+    font-size: 18px;
+    font-family: 'Poppins';
+    font-weight: 500;
+  }
+  p, small{
+    font-size: 16px;
+    font-family: 'Poppins';
+    font-weight: 400;
+  }
+
+}
+.image-profile {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: fill;
+  padding: 2%;
+}
+.invalid-field {
+  border-color: red;
+}

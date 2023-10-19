@@ -1,0 +1,10 @@
+<div class="main_page bg-light">
+ 
+  <!-- tab selection -->
+  <div class="tab-section d-flex gap-5">
+    <div role="button" [ngClass]="showView=='a'?'tab-active':'tab'" (click)="switchViewTab('a')">Employee Attendance</div>
+    <div role="button" [ngClass]="showView=='l'?'tab-active':'tab'" (click)="switchViewTab('l')">Employee Leave</div>
+  </div>
+  <app-employee-attendance *ngIf="showView=='a'"></app-employee-attendance>
+  <app-employee-leave #empLeave *ngIf="showView=='l'"></app-employee-leave>
+</div>
